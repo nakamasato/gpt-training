@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "gpt-training"
+version = "0.1.0"
+description = "GPT Training"
+authors = ["Masato Naka <masatonaka1989@gmail.com>"]
+readme = "README.md"
+packages = [{include = "gpt_training"}]
+
+[tool.poetry.dependencies]
+python = "3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
