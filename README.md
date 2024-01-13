@@ -2,8 +2,8 @@
 
 ## Projects
 
-1. [Search](projects/search/README.md)
-1. [Slack](projects/slack/README.md)
+1. Search: TBD
+1. Slack: https://github.com/nakamasato/slack-gpt
 
 ## Experiment
 
