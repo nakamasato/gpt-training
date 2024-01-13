@@ -1,0 +1,1 @@
+Please write a golang script to apply sql based atlas migration files (database migrations). Please make sure to use https://pkg.go.dev/ariga.io/atlas this package. Please use golang 1.21 version.
