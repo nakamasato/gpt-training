@@ -9,6 +9,7 @@ packages = [{include = "gpt_training"}]
 [tool.poetry.dependencies]
 python = "3.11"
 gpt-engineer = "^0.2.6"
+mkdocs-material = "^9.5.3"
 
 
 [build-system]
