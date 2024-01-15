@@ -10,6 +10,8 @@ interpreter
 
 tried to develop streamlit app but it's not that easy to create a web app with streamlit.
 
+[sample-app/app.py](sample-app/app.py) is created by open-interpreter.
+
 ![](../../docs/experiment/open-interpreter/sample.png)
 
 ## Ref
