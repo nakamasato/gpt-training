@@ -1,5 +1,7 @@
 # GPT Training
 
+Documentation: https://www.nakamasato.com/gpt-training
+
 ## Projects
 
 1. Search: TBD
@@ -8,3 +10,4 @@
 ## Experiment
 
 1. [gpt-engineer](experiment/gpt-engineer/README.md)
+1. [open-interpreter](experiment/open-interpreter/README.md)
