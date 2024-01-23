@@ -5,6 +5,7 @@
 1. [ベクトル検索で欲しい情報が得られないときの問題点と改良方法を考えてみた](https://dev.classmethod.jp/articles/problem-and-improve-methods-of-vector-search/)
 1. [Enhancing LangChain’s RetrievalQA for Real Source Links](https://medium.com/@nakamasato/enhancing-langchains-retrievalqa-for-real-source-links-53713c7d802a)
 1. [RAGにおけるドキュメント検索精度向上について(概要編)](https://zenn.dev/sompojapan_dx/articles/eb755a18e893ce)
+1. [Best Practices for LLM Evaluation of RAG Applications](https://www.databricks.com/blog/LLM-auto-eval-best-practices-RAG)
 
 ## LangChain (Official)
 1. https://python.langchain.com/en/latest (Official)
