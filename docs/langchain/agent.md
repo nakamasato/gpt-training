@@ -1,5 +1,29 @@
 # Agent
 
+
+
+## Example Tool
+
+1. 文字列を分割して掛け算するToolを作成。
+1. descriptionに使い方を自然言語で明記する。
+
+```py
+def multiplier(a, b):
+    return a * b
+
+
+def parsing_multiplier(string):
+    a, b = string.split(",")
+    return multiplier(int(a), int(b))
+
+
+Tool(
+    name = "Multiplier",
+    func=parsing_multiplier,
+    description="useful for when you need to multiply two numbers together. The input to this tool should be a comma separated list of numbers of length two, representing the two numbers you want to multiply together. For example, `1,2` would be the input if you wanted to multiply 1 by 2."
+)
+```
+
 ## React Normal `create_react_agent`
 
 https://python.langchain.com/docs/modules/agents/agent_types/react
