@@ -87,13 +87,11 @@ New input: {input}
 {agent_scratchpad}"""  # noqa: E501
 
 
-def main():
+def main(llm):
     memory = ConversationBufferMemory(
         memory_key="chat_history",
         return_messages=True,
     )
-
-    llm = OpenAI(temperature=0)
 
     prompt = PromptTemplate.from_template(template=CUSTOM_PROMPT)
     print(prompt)
@@ -128,4 +126,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    llm = OpenAI(temperature=0)
+    main(llm=llm)

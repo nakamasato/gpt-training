@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "GPT Training"
 authors = ["Masato Naka <masatonaka1989@gmail.com>"]
 readme = "README.md"
-packages = [{include = "gpt_training"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = "3.11"
@@ -17,6 +17,21 @@ langchain-openai = "^0.0.5"
 google-api-python-client = "^2.115.0"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+# From https://github.com/googleapis/google-cloud-python/issues/11184
+# https://github.com/scikit-build/scikit-build/issues/951#issuecomment-1645302094
+[tool.pytest.ini_options]
+addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
+env = [
+    "OPENAI_API_KEY=",
+    "OPENAI_ORGANIZATION=",
+    "GOOGLE_CSE_ID=",
+    "GOOGLE_API_KEY=",
+]
