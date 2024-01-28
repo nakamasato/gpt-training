@@ -92,3 +92,57 @@ poetry run python src/examples/agent_react.py
 - https://python.langchain.com/docs/modules/agents/agent_types/structured_chat
 - https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass
 
+- [agent_structured.py](../../src/examples/agent_structured.py)
+
+
+```py
+def multiplier(a, b):
+    return a * b
+
+...
+
+    tools = [
+        StructuredTool.from_function(
+            func=multiplier,
+            name="Multiplier",
+            description=(
+                "useful for when you need to multiply two numbers together. "
+                "The input to this tool is two numbers you want to multiply together. "
+                "For example, (1, 2) would be the input if you wanted to multiply 1 by 2."
+            ),
+        ),
+        ...
+    ]
+```
+
+```py
+agent_google = create_react_agent(
+    llm=llm,
+    tools=tools_google,
+    prompt=prompt,
+)
+agent_executor_google = AgentExecutor(
+    agent=agent_google,
+    tools=tools_google,
+    # memory=memory,
+    verbose=True,
+    handle_parsing_errors=False,
+)
+
+
+def search_google_with_agent(query):
+    return agent_executor_google.invoke({"input": query})["output"]
+
+...
+
+tools = [
+    ...
+    Tool(
+        name="google",
+        description="Search Google for recent results.",
+        func=search_google_with_agent,
+    ),
+]
+
+agent = create_structured_chat_agent(llm, tools, prompt)
+```
