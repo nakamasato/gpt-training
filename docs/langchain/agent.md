@@ -1,6 +1,8 @@
 # Agent
 
-## Normal
+## React Normal `create_react_agent`
+
+https://python.langchain.com/docs/modules/agents/agent_types/react
 
 ```py
 from langchain_community.utilities import GoogleSearchAPIWrapper
@@ -84,3 +86,9 @@ def main():
 ```
 poetry run python src/examples/agent_react.py
 ```
+
+## Structured `create_structured_agent`
+
+- https://python.langchain.com/docs/modules/agents/agent_types/structured_chat
+- https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass
+

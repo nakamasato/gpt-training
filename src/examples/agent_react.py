@@ -1,6 +1,4 @@
 import langchain
-
-# from langchain import hub
 from langchain.agents import AgentExecutor, Tool, create_react_agent
 from langchain.memory import ConversationBufferMemory
 from langchain_community.utilities import GoogleSearchAPIWrapper
@@ -44,6 +42,7 @@ tools = [
 ]
 
 # almost same as prompt = hub.pull("hwchase17/react-chat")
+# https://github.com/hwchase17/langchain-hub/blob/master/agents/zero-shot-react-conversation/agent.json
 # but as chat_history gets longer, llm tends to return the answer directly without the format.
 # so the format instruction is placed at the bottom.
 CUSTOM_PROMPT = """Assistant is a large language model trained by OpenAI.
@@ -96,7 +95,6 @@ def main():
 
     llm = OpenAI(temperature=0)
 
-    # prompt = hub.pull("hwchase17/react-chat")
     prompt = PromptTemplate.from_template(template=CUSTOM_PROMPT)
     print(prompt)
 
