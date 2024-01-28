@@ -98,40 +98,12 @@ def main():
     prompt = PromptTemplate.from_template(template=CUSTOM_PROMPT)
     print(prompt)
 
-    agent_multiplier = create_react_agent(
-        llm=llm,
-        tools=[tools[0]],
-        prompt=prompt,
-    )
-
-    agent_google = create_react_agent(
-        llm=llm,
-        tools=[tools[1]],
-        prompt=prompt,
-    )
-
-    agent_tools = [
-        Tool(
-            name="Multiplier",
-            func=agent_multiplier.invoke,
-            description=(
-                "useful for when you need to multiply two numbers together. "
-                "The input to this tool should be a comma separated list of numbers of length two, representing the two numbers you want to multiply together. "
-                "For example, `1,2` would be the input if you wanted to multiply 1 by 2."
-            ),
-        ),
-        Tool(
-            name="google-search",
-            description="Search Google for recent results.",
-            func=agent_google.invoke,
-        ),
-    ]
-
     agent = create_react_agent(
         llm=llm,
-        tools=agent_tools,
+        tools=tools,
         prompt=prompt,
     )
+
     print(
         agent.invoke(
             {"input": "現在の日本の総理大臣は誰ですか？", "intermediate_steps": [], "chat_history": []}
@@ -140,7 +112,7 @@ def main():
 
     agent_executor = AgentExecutor(
         agent=agent,
-        tools=agent_tools,
+        tools=tools,
         memory=memory,
         verbose=True,
         handle_parsing_errors=False,

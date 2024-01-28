@@ -84,7 +84,18 @@ def main():
 ```
 
 ```
-poetry run python src/examples/agent_react.py
+poetry run python src/examples/agent_react_normal.py
+```
+
+```
+> Entering new AgentExecutor chain...
+Thought: Do I need to use a tool? Yes
+Action: Multiplier
+Action Input: 3,412Do I need to use a tool? No
+Final Answer: 3 multiplied by 4 is 12.
+
+> Finished chain.
+{'input': '3 multiplied by 4 is?', 'chat_history': [HumanMessage(content='3 multiplied by 4 is?'), AIMessage(content='3 multiplied by 4 is 12.')], 'output': '3 multiplied by 4 is 12.'}
 ```
 
 ## Structured `create_structured_agent`
