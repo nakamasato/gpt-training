@@ -20,18 +20,22 @@ google-api-python-client = "^2.115.0"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
 pytest-cov = "^4.1.0"
+pytest-env = "^1.1.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 # From https://github.com/googleapis/google-cloud-python/issues/11184
-# https://github.com/scikit-build/scikit-build/issues/951#issuecomment-1645302094
+# https://docs.pytest.org/en/stable/reference/customize.html
 [tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
 addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
     "OPENAI_API_KEY=",
     "OPENAI_ORGANIZATION=",
-    "GOOGLE_CSE_ID=",
+    "GOOGLE_CSE_ID=dummy",
     "GOOGLE_API_KEY=dummy",
 ]

@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-poetry add pytest pytest-cov --group dev
+poetry add pytest pytest-cov pytest-env --group dev
 ```
 
 ## Run
