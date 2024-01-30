@@ -1,9 +1,14 @@
+import os
+
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain.llms.fake import FakeListLLM
 from langchain.memory import ConversationBufferMemory
 from langchain_core.prompts import PromptTemplate
 
 from src.examples.agent_react import CUSTOM_PROMPT, tools
+
+os.environ["GOOGLE_CSE_ID"] = "dummy"
+os.environ["GOOGLE_API_KEY"] = "dummy"
 
 
 def test_multiplier():
