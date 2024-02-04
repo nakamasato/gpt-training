@@ -34,6 +34,7 @@ testpaths = [
 ]
 addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
+    "ENV=test",
     "OPENAI_API_KEY=",
     "OPENAI_ORGANIZATION=",
     "GOOGLE_CSE_ID=dummy",
