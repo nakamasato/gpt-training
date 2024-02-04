@@ -11,7 +11,11 @@ from src.libs import get_llm
 
 def main(llm):
     st.title("Langchain Sample App")
-    st.info("こちらは掛け算のツールが使えるAgentとの対話を行うサンプルアプリです。")
+    st.info(
+        """こちらは掛け算のツールが使えるAgentとの対話を行うサンプルアプリです。
+https://python.langchain.com/docs/integrations/callbacks/streamlit を参考にしています。
+"""
+    )
 
     prompt = PromptTemplate.from_template(template=CUSTOM_PROMPT)
 
