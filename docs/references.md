@@ -6,6 +6,7 @@
 1. [Enhancing LangChain’s RetrievalQA for Real Source Links](https://medium.com/@nakamasato/enhancing-langchains-retrievalqa-for-real-source-links-53713c7d802a)
 1. [RAGにおけるドキュメント検索精度向上について(概要編)](https://zenn.dev/sompojapan_dx/articles/eb755a18e893ce)
 1. [Best Practices for LLM Evaluation of RAG Applications](https://www.databricks.com/blog/LLM-auto-eval-best-practices-RAG)
+1. [RAGの実案件に取り組んできた今までの知見をまとめてみた](https://dev.classmethod.jp/articles/rag-knowledge-on-real-projects/)
 
 ## LangChain (Official)
 1. https://python.langchain.com/en/latest (Official)
