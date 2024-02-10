@@ -5,3 +5,4 @@
 __pycache__
 pytest.xml
 experiment/gpt-engineer/sample/
+.venv
