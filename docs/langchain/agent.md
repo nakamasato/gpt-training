@@ -1,11 +1,9 @@
 # Agent
 
-
-
 ## Example Tool
 
-1. 文字列を分割して掛け算するToolを作成。
-1. descriptionに使い方を自然言語で明記する。
+1. Create a tool that splits a given string with a comma and muliply them.
+1. Write the usage in the description.
 
 ```py
 def multiplier(a, b):

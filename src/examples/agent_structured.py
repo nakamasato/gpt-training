@@ -1,4 +1,5 @@
 import langchain
+from dotenv import load_dotenv
 from langchain import hub
 from langchain.agents import (
     AgentExecutor,
@@ -11,6 +12,8 @@ from langchain_community.utilities import GoogleSearchAPIWrapper
 from langchain_core.prompts import PromptTemplate
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
+
+load_dotenv()
 
 langchain.debug = False
 
@@ -29,19 +32,20 @@ def top5_results(query):
 tools_google = [
     Tool(
         name="google-search",
-        description="Search Google for recent results.",
+        description="""Search Google for recent results.
+When you call this tool, please carefully consider the best keywords to search with so that you don't need to call this function multiple times.""",
         func=top5_results,
     ),
 ]
 
 # almost same as hub.pull("hwchase17/react")
-CUSTOM_PROMPT = """Answer the following questions as best you can. You have access to the following tools:
+CUSTOM_PROMPT = """Answer the following questions as best you can. You have access to Google Search:
 
 {tools}
 
 Use the following format:
 
-To use a tool, please use the following format:
+To use google-search tool, please use the following format:
 
 ```
 Thought: Do I need to use a tool? Yes
@@ -50,7 +54,7 @@ Action Input: the input to the action
 Observation: the result of the action
 ```
 
-When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:
+When you have the answer to the original quertion, or if you do not need to search Google, you MUST use the format:
 
 ```
 Thought: Do I need to use a tool? No
@@ -63,13 +67,13 @@ Question: {input}
 {agent_scratchpad}"""
 
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-prompt = PromptTemplate.from_template(template=CUSTOM_PROMPT)
-print(prompt)
+prompt_google = PromptTemplate.from_template(template=CUSTOM_PROMPT)
+print(prompt_google)
 
 agent_google = create_react_agent(
     llm=llm,
     tools=tools_google,
-    prompt=prompt,
+    prompt=prompt_google,
 )
 agent_executor_google = AgentExecutor(
     agent=agent_google,
@@ -85,6 +89,11 @@ def search_google_with_agent(query):
 
 
 def main():
+    # 1. normal agent with google tool
+    print(agent_executor_google.invoke({"input": "能登半島の地震の犠牲者は何人ですか"}))
+    print("--------- [Complete] normal agent with google as a tool -----------")
+
+    # 2. agent with tools (google agent + mulitplier)
     memory = ConversationBufferMemory(
         memory_key="chat_history",
         return_messages=True,
@@ -106,7 +115,7 @@ def main():
         ),
         Tool(
             name="google",
-            description="Search Google for recent results.",
+            description="""Search Google for recent results.""",
             func=search_google_with_agent,
         ),
     ]
@@ -122,13 +131,12 @@ def main():
             }
         )
     )  # return AgentAction or AgentFinish
-    print(agent_executor_google.invoke({"input": "能登半島の地震の犠牲者は何人ですか"}))
 
     agent_executor = AgentExecutor(
         agent=agent,
         tools=tools,
         memory=memory,
-        verbose=True,
+        verbose=False,
         handle_parsing_errors=False,
     )
 
