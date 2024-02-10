@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-python = "3.11"
+python = "^3.12"
 mkdocs-material = "^9.5.3"
 streamlit = "^1.30.0"
 openai = "^1.7.2"
