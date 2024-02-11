@@ -1,5 +1,7 @@
 # Agent
 
+- [Concepts](https://python.langchain.com/docs/modules/agents/concepts)
+
 ## 1. Getting Started
 
 1. Create a tool that splits a given string with a comma and muliply them.
@@ -55,12 +57,20 @@
 
 ## 2. List
 
-|create agent func|prompt|output parser|
-|---|---|---|
-|[create_react_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/react/agent.html)|example: `hub.pull("hwchase17/react-chat")`|`ReActSingleInputOutputParser`|
-|[create_structured_chat_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/structured_chat/base.html#create_structured_chat_agent)|example: `hub.pull("hwchase17/structured-chat-agent")`|`JSONAgentOutputParser`|
+|llm|create agent func|prompt|output parser|link|
+|---|---|---|---|---|
+|`OpenAI()`|[create_react_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/react/agent.html)|[hwchase17/react-chat](https://smith.langchain.com/hub/hwchase17/react-chat)|`ReActSingleInputOutputParser`|[link](https://python.langchain.com/docs/modules/agents/agent_types/react)|
+|`ChatOpenAI(model="gpt-3.5-turbo-1106")`|[create_structured_chat_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/structured_chat/base.html#create_structured_chat_agent)|[hwchase17/structured-chat-agent](https://smith.langchain.com/hub/hwchase17/structured-chat-chat)|`JSONAgentOutputParser`|[link](https://python.langchain.com/docs/modules/agents/agent_types/structured_chat)|
+|`ChatOpenAI(model="gpt-3.5-turbo-1106")`|[create_openai_tools_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/openai_tools/base.html#create_openai_tools_agent)|[hwchase17/openai-tools-agent](https://smith.langchain.com/hub/hwchase17/openai-tools-agent)|`OpenAIToolsAgentOutputParser`|[link](https://python.langchain.com/docs/modules/agents/agent_types/openai_tools)|
+|`gpt-3.5-turbo-1106`, `gpt-4-0613`|[create_openai_functions_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/openai_functions_agent/base.html#create_openai_functions_agent)|[hwchase17/openai-functions-agent](https://smith.langchain.com/hub/hwchase17/openai-functions-agent)|`OpenAIFunctionsAgentOutputParser`|[link](https://python.langchain.com/docs/modules/agents/agent_types/openai_functions_agent)|
 
 For more details about prompt, please read [prompt](agent/prompt.md).
+
+Which agent type to use:
+
+1. **Structured Agent**: you can use tools with mutliple inputs
+1. **OpenAI Functions** vs. **OpenAI Tools**:
+1. **React**:
 
 ## 3. Examples
 
