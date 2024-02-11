@@ -35,6 +35,9 @@ build-backend = "poetry.core.masonry.api"
 testpaths = [
     "tests",
 ]
+pythonpath = [
+  "src",
+]
 addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
     "ENV=test",
