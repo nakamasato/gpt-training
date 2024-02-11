@@ -12,3 +12,5 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.magiclink
+  - admonition
+  - pymdownx.details

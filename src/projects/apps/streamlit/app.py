@@ -5,7 +5,7 @@ from langchain_community.callbacks import StreamlitCallbackHandler
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables.config import RunnableConfig
 
-from src.examples.agent_react import CUSTOM_PROMPT, tools
+from examples.agent_react_custom import CUSTOM_PROMPT, tools
 from src.libs import get_llm
 
 

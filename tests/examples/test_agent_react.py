@@ -5,7 +5,7 @@ from langchain.llms.fake import FakeListLLM
 from langchain.memory import ConversationBufferMemory
 from langchain_core.prompts import PromptTemplate
 
-from src.examples.agent_react import CUSTOM_PROMPT, tools
+from examples.agent_react_custom import CUSTOM_PROMPT, tools
 
 
 def test_multiplier():
@@ -33,7 +33,7 @@ def test_multiplier():
     assert res["output"] == "3に4を掛けると12です。"
 
 
-@patch("src.examples.agent_react.google")
+@patch("examples.agent_react_custom.google")
 def test_google_search(google_mock):
     google_mock.results.return_value = [
         {

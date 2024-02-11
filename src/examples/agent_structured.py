@@ -1,4 +1,5 @@
 import langchain
+from dotenv import load_dotenv
 from langchain import hub
 from langchain.agents import (
     AgentExecutor,
@@ -8,9 +9,10 @@ from langchain.agents import (
 from langchain.memory import ConversationBufferMemory
 from langchain.tools import StructuredTool
 from langchain_community.utilities import GoogleSearchAPIWrapper
-from langchain_core.prompts import PromptTemplate
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
+
+load_dotenv()
 
 langchain.debug = False
 
@@ -34,36 +36,9 @@ tools_google = [
     ),
 ]
 
-# almost same as hub.pull("hwchase17/react")
-CUSTOM_PROMPT = """Answer the following questions as best you can. You have access to the following tools:
-
-{tools}
-
-Use the following format:
-
-To use a tool, please use the following format:
-
-```
-Thought: Do I need to use a tool? Yes
-Action: the action to take, should be one of [{tool_names}]
-Action Input: the input to the action
-Observation: the result of the action
-```
-
-When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:
-
-```
-Thought: Do I need to use a tool? No
-Final Answer: [your response here]
-```
-
-Begin!
-
-Question: {input}
-{agent_scratchpad}"""
+prompt = hub.pull("hwchase17/react")
 
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-prompt = PromptTemplate.from_template(template=CUSTOM_PROMPT)
 print(prompt)
 
 agent_google = create_react_agent(
