@@ -17,6 +17,7 @@ langchain-openai = "^0.0.5"
 google-api-python-client = "^2.115.0"
 langchain-google-genai = "^0.0.8"
 pillow = "^10.2.0"
+langgraph = "^0.0.24"
 
 
 [tool.poetry.group.dev.dependencies]
