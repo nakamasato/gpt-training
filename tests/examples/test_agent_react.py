@@ -33,7 +33,7 @@ def test_multiplier():
     assert res["output"] == "3に4を掛けると12です。"
 
 
-@patch("src.examples.agent_react_custom.google")
+@patch("examples.agent_react_custom.google")
 def test_google_search(google_mock):
     google_mock.results.return_value = [
         {
