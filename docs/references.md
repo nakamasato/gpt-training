@@ -8,45 +8,52 @@
 1. [Best Practices for LLM Evaluation of RAG Applications](https://www.databricks.com/blog/LLM-auto-eval-best-practices-RAG)
 1. [RAGの実案件に取り組んできた今までの知見をまとめてみた](https://dev.classmethod.jp/articles/rag-knowledge-on-real-projects/)
 
-## LangChain (Official)
-1. https://python.langchain.com/en/latest (Official)
-1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (1) - LLMとプロンプト・チェーン](https://note.com/npaka/n/n61ad59380a43)
-1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (2) - データ拡張生成](https://note.com/npaka/n/n2f89fb3bf91b)
-1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (3) - エージェント](https://note.com/npaka/n/n6b7a07e492f1)
-1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (4) - メモリ](https://note.com/npaka/n/n95e5bce0e1d6)
-1. [LangChain の HOW-TO EXAMPLES (1) - LLM](https://note.com/npaka/n/n716dfd26094d)
-1. [LangChain の HOW-TO EXAMPLES (2) - プロンプト](https://note.com/npaka/n/n97aac2da03f4)
-1. [LangChain の HOW-TO EXAMPLES (3) - チェーン](https://note.com/npaka/n/n886960b89de1)
-1. [LangChain の HOW-TO EXAMPLES (4) - データ拡張生成](https://note.com/npaka/n/nb9b70619939a)
-1. [LangChain の HOW-TO EXAMPLES (5) - エージェント](https://note.com/npaka/n/nb28aa5f38c0d)
-1. [LangChain の Googleカスタム検索 連携を試す](https://note.com/npaka/n/nd9a4a26a8932)
-1. MRKL(Modular Reasoning, Knowledge and Language)
-1. [Build a Chatbot on Your CSV Data With LangChain and OpenAI](https://betterprogramming.pub/build-a-chatbot-on-your-csv-data-with-langchain-and-openai-ed121f85f0cd)
-1. [LangChain Indexesとは？【Document Loaders・Text Splitters・Vectorstores】](https://zenn.dev/umi_mori/books/prompt-engineer/viewer/langchain_indexes)
-1. [Twitter Finetune](https://github.com/langchain-ai/twitter-finetune) -> https://elon-twitter-clone.streamlit.app/
-1. [Streamlit Agent](https://github.com/langchain-ai/streamlit-agent)
-1. [LCEL (LangChain Expression Language)](https://python.langchain.com/docs/expression_language/) sequential chain. e.g. `prompt | llm | output_parser`
-1. [LangChainカスタムツールを作ってAI Agentに渡してみた](https://note.com/astropomeai/n/n714867753751) <- めちゃくちゃいいExample
-1. [第29回 LangChain でマルチターン＆タスクの Agent を作る](https://www.ogis-ri.co.jp/otc/hiroba/technical/similar-document-search/part29.html)
-1. [Human as a tool](https://python.langchain.com/docs/integrations/tools/human_tools)
-1. [Template](https://python.langchain.com/docs/templates/) <- Must
+## LangChain
 
+1. Official
+    1. https://python.langchain.com/en/latest (Official)
+    1. [Twitter Finetune](https://github.com/langchain-ai/twitter-finetune) -> https://elon-twitter-clone.streamlit.app/
+    1. [Streamlit Agent](https://github.com/langchain-ai/streamlit-agent)
+    1. [LCEL (LangChain Expression Language)](https://python.langchain.com/docs/expression_language/) sequential chain. e.g. `prompt | llm | output_parser`
+    1. [Human as a tool](https://python.langchain.com/docs/integrations/tools/human_tools)
+    1. [Template](https://python.langchain.com/docs/templates/) <- Must
+1. Blog
+    1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (1) - LLMとプロンプト・チェーン](https://note.com/npaka/n/n61ad59380a43)
+    1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (2) - データ拡張生成](https://note.com/npaka/n/n2f89fb3bf91b)
+    1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (3) - エージェント](https://note.com/npaka/n/n6b7a07e492f1)
+    1. [LLM連携アプリの開発を支援するライブラリ LangChain の使い方 (4) - メモリ](https://note.com/npaka/n/n95e5bce0e1d6)
+    1. [LangChain の HOW-TO EXAMPLES (1) - LLM](https://note.com/npaka/n/n716dfd26094d)
+    1. [LangChain の HOW-TO EXAMPLES (2) - プロンプト](https://note.com/npaka/n/n97aac2da03f4)
+    1. [LangChain の HOW-TO EXAMPLES (3) - チェーン](https://note.com/npaka/n/n886960b89de1)
+    1. [LangChain の HOW-TO EXAMPLES (4) - データ拡張生成](https://note.com/npaka/n/nb9b70619939a)
+    1. [LangChain の HOW-TO EXAMPLES (5) - エージェント](https://note.com/npaka/n/nb28aa5f38c0d)
+    1. [LangChain の Googleカスタム検索 連携を試す](https://note.com/npaka/n/nd9a4a26a8932)
+    1. MRKL(Modular Reasoning, Knowledge and Language)
+    1. [Build a Chatbot on Your CSV Data With LangChain and OpenAI](https://betterprogramming.pub/build-a-chatbot-on-your-csv-data-with-langchain-and-openai-ed121f85f0cd)
+    1. [LangChain Indexesとは？【Document Loaders・Text Splitters・Vectorstores】](https://zenn.dev/umi_mori/books/prompt-engineer/viewer/langchain_indexes)
+    1. [LangChainカスタムツールを作ってAI Agentに渡してみた](https://note.com/astropomeai/n/n714867753751) <- めちゃくちゃいいExample
+    1. [第29回 LangChain でマルチターン＆タスクの Agent を作る](https://www.ogis-ri.co.jp/otc/hiroba/technical/similar-document-search/part29.html)
 
 ## Slack ChatGPT連携
+
 1. https://tech.visasq.com/chatgpt-with-zapier
 1. https://qiita.com/Yuki_Oshima/items/112e69df63df9958709f
 1. https://techblog.gmo-ap.jp/2023/04/17/connecting-slack-app-with-chatgpt/
 1. https://dev.classmethod.jp/articles/slack-chat-gpt-bot/
 
 ## Vector DB
+
 1. [【LLM】ベクトルデータベースって多くてどれを使ったら良いか分からないというあなたのための記事（6つのツールを比較）](https://zenn.dev/moekidev/articles/9e8b85025d590e)
 
 ## App
+
 1. [つくりながら学ぶ！AIアプリ開発入門 - LangChain & Streamlit による ChatGPT API 徹底活用](https://zenn.dev/ml_bear/books/d1f060a3f166a5)
 1. [Streamlit with Google Cloud: Hello, world!](https://zenn.dev/google_cloud_jp/articles/streamlit-01-hello)
 1. [Streamlit with Google Cloud: Firebase 認証](https://zenn.dev/google_cloud_jp/articles/streamlit-02-firebase)
 1. [Streamlit with Google Cloud: GitHub、GitLab、Cloud Build での CI/CD](https://zenn.dev/google_cloud_jp/articles/streamlit-04-cicd)
+
 ## ChatGPT
+
 1. [Account Blocked](https://community.openai.com/t/sorry-you-have-been-blocked-by-chatgpt/190053)
 
 ## Others
@@ -76,3 +83,4 @@
     1. [Ask Astro](https://github.com/astronomer/ask-astro)
 1. https://topai.tools/s/Slack-knowledge-base-tool
 1. [【利用事例】miiboで作る会話型AI](https://note.com/miibo/m/ma82aceda74a8)
+1. [Langsearch](https://github.com/gutfeeling/langsearch)

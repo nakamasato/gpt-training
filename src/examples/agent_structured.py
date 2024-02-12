@@ -1,5 +1,4 @@
 import langchain
-from dotenv import load_dotenv
 from langchain import hub
 from langchain.agents import (
     AgentExecutor,
@@ -8,32 +7,16 @@ from langchain.agents import (
 )
 from langchain.memory import ConversationBufferMemory
 from langchain.tools import StructuredTool
-from langchain_community.utilities import GoogleSearchAPIWrapper
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
 
-load_dotenv()
+from src.libs.tools import TOOL_GOOGLE, multiplier
 
 langchain.debug = False
 
 
-def multiplier(a, b):
-    return a * b
-
-
-google = GoogleSearchAPIWrapper()
-
-
-def top5_results(query):
-    return google.results(query, 5)
-
-
 tools_google = [
-    Tool(
-        name="google-search",
-        description="Search Google for recent results.",
-        func=top5_results,
-    ),
+    TOOL_GOOGLE,
 ]
 
 prompt = hub.pull("hwchase17/react")
