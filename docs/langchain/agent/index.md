@@ -64,7 +64,7 @@
 |`ChatOpenAI(model="gpt-3.5-turbo-1106")`|[create_openai_tools_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/openai_tools/base.html#create_openai_tools_agent)|[hwchase17/openai-tools-agent](https://smith.langchain.com/hub/hwchase17/openai-tools-agent)|`OpenAIToolsAgentOutputParser`|[link](https://python.langchain.com/docs/modules/agents/agent_types/openai_tools)|
 |`gpt-3.5-turbo-1106`, `gpt-4-0613`|[create_openai_functions_agent](https://api.python.langchain.com/en/latest/_modules/langchain/agents/openai_functions_agent/base.html#create_openai_functions_agent)|[hwchase17/openai-functions-agent](https://smith.langchain.com/hub/hwchase17/openai-functions-agent)|`OpenAIFunctionsAgentOutputParser`|[link](https://python.langchain.com/docs/modules/agents/agent_types/openai_functions_agent)|
 
-For more details about prompt, please read [prompt](agent/prompt.md).
+For more details about prompt, please read [prompt](prompt.md).
 
 Which agent type to use:
 
@@ -184,7 +184,7 @@ agent_google = create_react_agent(
 
 - https://python.langchain.com/docs/modules/agents/agent_types/structured_chat
 - https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass
-- [agent_structured.py](../../src/examples/agent_structured.py)
+- [agent_structured.py](https://github.com/nakamasato/gpt-training/blob/main/src/examples/agent_structured.py)
 
 
 ```py
@@ -243,4 +243,4 @@ agent = create_structured_chat_agent(llm, tools, prompt)
 
 1. https://python.langchain.com/docs/modules/agents/agent_types/structured_chat
 1. https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass
-1. [agent_structured.py](../../src/examples/agent_structured.py)
+1. [agent_structured.py](https://github.com/nakamasato/gpt-training/blob/main/src/examples/agent_structured.py)

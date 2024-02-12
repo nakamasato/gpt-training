@@ -67,7 +67,7 @@ Question: {input}
 Thought:{agent_scratchpad}
 ````
 
-## [hwchase17/structured-chat-agent](hwchase17/structured-chat-agent)
+## [hwchase17/structured-chat-agent](https://smith.langchain.com/hub/hwchase17/structured-chat-agent)
 
 ````
 Respond to the human as helpfully and accurately as possible. You have access to the following tools:

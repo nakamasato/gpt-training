@@ -42,8 +42,8 @@ pythonpath = [
 addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
     "ENV=test",
-    "OPENAI_API_KEY=",
-    "OPENAI_ORGANIZATION=",
+    "OPENAI_API_KEY=dummy",
+    "OPENAI_ORGANIZATION=dummy",
     "GOOGLE_CSE_ID=dummy",
     "GOOGLE_API_KEY=dummy",
 ]

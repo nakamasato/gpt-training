@@ -1,56 +1,34 @@
 import langchain
 from langchain import hub
-from langchain.agents import (
-    AgentExecutor,
-    create_react_agent,
-    create_structured_chat_agent,
-)
+from langchain.agents import AgentExecutor, create_structured_chat_agent
 from langchain.memory import ConversationBufferMemory
 from langchain.tools import StructuredTool
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
 
-from src.libs.tools import TOOL_GOOGLE, multiplier
+from src.libs.agents import create_google_agent_executor
+from src.libs.tools import multiplier
 
 langchain.debug = False
 
 
-tools_google = [
-    TOOL_GOOGLE,
-]
-
-prompt = hub.pull("hwchase17/react")
-
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-print(prompt)
-
-agent_google = create_react_agent(
-    llm=llm,
-    tools=tools_google,
-    prompt=prompt,
-)
-agent_executor_google = AgentExecutor(
-    agent=agent_google,
-    tools=tools_google,
-    # memory=memory,
-    verbose=True,
-    handle_parsing_errors=False,
-)
-
-
-def search_google_with_agent(query):
-    return agent_executor_google.invoke({"input": query})["output"]
-
-
-def main():
+def execute(llm, questions):
     memory = ConversationBufferMemory(
         memory_key="chat_history",
         return_messages=True,
     )
 
     prompt = hub.pull("hwchase17/structured-chat-agent")
-
     print(prompt)
+
+    agent_executor_google = create_google_agent_executor(llm)
+
+    def search_google_with_agent(query):
+        """Use agent instead of function calling to let LLM to write the final sentence to answer the original question.
+        If this tool should be used with return_direct=True.
+        But the following example must use return_direct=False.
+        """
+        return agent_executor_google.invoke({"input": query})["output"]
 
     tools = [
         StructuredTool.from_function(
@@ -61,11 +39,13 @@ def main():
                 "The input to this tool is two numbers you want to multiply together. "
                 "For example, (1, 2) would be the input if you wanted to multiply 1 by 2."
             ),
+            return_direct=False,  # must use False because the prompt exept action & action_input in the output parser
         ),
         Tool(
             name="google",
             description="Search Google for recent results.",
             func=search_google_with_agent,
+            return_direct=False,  # must use False because the prompt exept action & action_input in the output parser
         ),
     ]
 
@@ -80,7 +60,7 @@ def main():
             }
         )
     )  # return AgentAction or AgentFinish
-    print(agent_executor_google.invoke({"input": "能登半島の地震の犠牲者は何人ですか"}))
+    # print(agent_executor_google.invoke({"input": "能登半島の地震の犠牲者は何人ですか"}))
 
     agent_executor = AgentExecutor(
         agent=agent,
@@ -90,14 +70,18 @@ def main():
         handle_parsing_errors=False,
     )
 
-    print(agent_executor.invoke({"input": "3に4を掛けると？"}))
-    print(agent_executor.invoke({"input": "5 x 4は？"}))
-
-    print(agent_executor.invoke({"input": "日本の総理大臣は誰ですか？"}))
-    print(agent_executor.invoke({"input": "能登半島の地震の犠牲者は何人ですか"}))
+    for q in questions:
+        print(agent_executor.invoke({"input": q}))
 
     print(memory)
 
 
 if __name__ == "__main__":
-    main()
+    llm = ChatOpenAI()
+    questions = [
+        "3に4を掛けると？",
+        "5 x 4は？",
+        "日本の総理大臣は誰ですか？",
+        "能登半島の地震の犠牲者は何人ですか",
+    ]
+    execute(llm, questions)
