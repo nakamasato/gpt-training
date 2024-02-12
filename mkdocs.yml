@@ -14,3 +14,8 @@ markdown_extensions:
   - pymdownx.magiclink
   - admonition
   - pymdownx.details
+
+extra:
+  analytics:
+    provider: google
+    property: G-9NTB93RVPJ
