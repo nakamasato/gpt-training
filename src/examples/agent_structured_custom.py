@@ -2,7 +2,6 @@ import re
 from typing import Union
 
 import langchain
-from dotenv import load_dotenv
 from langchain import hub
 from langchain.agents import (  # create_react_agent,
     AgentExecutor,
@@ -13,13 +12,14 @@ from langchain.agents.format_scratchpad import format_log_to_str
 from langchain.agents.mrkl.prompt import FORMAT_INSTRUCTIONS
 from langchain.memory import ConversationBufferMemory
 from langchain.tools import StructuredTool
-from langchain_community.utilities import GoogleSearchAPIWrapper
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.exceptions import OutputParserException
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
+
+from src.libs.tools import TOOL_GOOGLE, multiplier
 
 FINAL_ANSWER_ACTION = "Final Answer:"
 MISSING_ACTION_INPUT_AFTER_ACTION_ERROR_MESSAGE = (
@@ -30,29 +30,8 @@ FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE = (
 )
 
 
-load_dotenv()
-
 langchain.debug = False
 
-
-def multiplier(a, b):
-    return a * b
-
-
-google = GoogleSearchAPIWrapper()
-
-
-def top5_results(query):
-    return google.results(query, 5)
-
-
-tools_google = [
-    Tool(
-        name="google-search",
-        description="""Search Google for recent results.""",
-        func=top5_results,
-    ),
-]
 
 # almost same as hub.pull("hwchase17/react")
 PROMPT_GOOGLE = """Answer the following questions as best you can using Google Search:
@@ -172,7 +151,7 @@ agent_google = (
 
 agent_executor_google = AgentExecutor(
     agent=agent_google,
-    tools=tools_google,
+    tools=[TOOL_GOOGLE],
     # memory=memory,
     verbose=True,
     handle_parsing_errors=False,
@@ -207,11 +186,13 @@ def main():
                 "The input to this tool is two numbers you want to multiply together. "
                 "For example, (1, 2) would be the input if you wanted to multiply 1 by 2."
             ),
+            return_direct=False,
         ),
         Tool(
             name="google",
             description="""Search Google for recent results.""",
             func=search_google_with_agent,
+            return_direct=True,
         ),
     ]
 

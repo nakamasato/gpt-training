@@ -16,3 +16,18 @@ README.md
 mkdocs.yml
 ```
 
+## Python
+
+### Environment Variables
+
+`.env`
+
+```
+pip install poetry-dotenv-plugin
+```
+
+### Testing
+
+```
+poetry run pytest
+```

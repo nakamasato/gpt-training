@@ -17,13 +17,14 @@ langchain-openai = "^0.0.5"
 google-api-python-client = "^2.115.0"
 langchain-google-genai = "^0.0.8"
 pillow = "^10.2.0"
+langgraph = "^0.0.24"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
 pytest-cov = "^4.1.0"
 pytest-env = "^1.1.3"
-python-dotenv = "^1.0.1"
+poetry-dotenv-plugin = "^0.2.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -41,8 +42,8 @@ pythonpath = [
 addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
     "ENV=test",
-    "OPENAI_API_KEY=",
-    "OPENAI_ORGANIZATION=",
+    "OPENAI_API_KEY=dummy",
+    "OPENAI_ORGANIZATION=dummy",
     "GOOGLE_CSE_ID=dummy",
     "GOOGLE_API_KEY=dummy",
 ]
