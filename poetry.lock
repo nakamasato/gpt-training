@@ -3434,13 +3434,13 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "streamlit"
-version = "1.31.0"
+version = "1.31.1"
 description = "A faster way to build and share data apps"
 optional = false
 python-versions = ">=3.8, !=3.9.7"
 files = [
-    {file = "streamlit-1.31.0-py2.py3-none-any.whl", hash = "sha256:4d95c4f5d6881f7adebaec14997fa7024bb38853412d1bba9588074d585563f9"},
-    {file = "streamlit-1.31.0.tar.gz", hash = "sha256:40d71944e30394612481f80a8bc09e7de40d33b7a472989807467a5299e342ca"},
+    {file = "streamlit-1.31.1-py2.py3-none-any.whl", hash = "sha256:a1a84249f7a9b854fe356db06c85dc03c3f9da4df06a33aa5a922647b955e8c8"},
+    {file = "streamlit-1.31.1.tar.gz", hash = "sha256:dfc43ca85b4b4c31d097c27b983b8ccc960222ad907862b2b2fb4ddf04c50fdc"},
 ]
 
 [package.dependencies]
