@@ -1524,13 +1524,13 @@ extended-testing = ["jinja2 (>=3,<4)"]
 
 [[package]]
 name = "langchain-google-genai"
-version = "0.0.8"
+version = "0.0.9"
 description = "An integration package connecting Google's genai package and LangChain"
 optional = false
 python-versions = ">=3.9,<4.0"
 files = [
-    {file = "langchain_google_genai-0.0.8-py3-none-any.whl", hash = "sha256:31d6e8b321844185d16ff512238c81cef1d4e1f1021355617a761d21142f9163"},
-    {file = "langchain_google_genai-0.0.8.tar.gz", hash = "sha256:649b53c23fd7e5159806f49f2742065ade5349942a78f51274b8ad35752e85bb"},
+    {file = "langchain_google_genai-0.0.9-py3-none-any.whl", hash = "sha256:82c0ca9540132a59b09fc38ff249a2dd06f8a587ed37c291a4fe7678d5566d15"},
+    {file = "langchain_google_genai-0.0.9.tar.gz", hash = "sha256:466a228032bb06b0c1def822e57cbf2dfe9e4d1cc91dffa473a3025eb760f0ef"},
 ]
 
 [package.dependencies]
@@ -4003,4 +4003,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "502c77d18fcffc4a6baaabbe0822151d471ec362a448ed83eb2bc0853296580d"
+content-hash = "ffc1925bb2d29415c03eaf78d9da15637f992557ffef6a51159839f66f23dee5"
