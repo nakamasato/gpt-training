@@ -38,7 +38,7 @@ testpaths = [
     "tests",
 ]
 pythonpath = [
-  "src",
+    "src",
 ]
 addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
