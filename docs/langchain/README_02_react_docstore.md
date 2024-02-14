@@ -5,7 +5,7 @@
 ### Run
 
 ```
-poetry run example --example
+poetry run python src/langchain/react_docstore.py
 ```
 
 ### Example: Author David Chanoff has collaborated with a U.S. Navy admiral who served as the ambassador to the United Kingdom under which President?

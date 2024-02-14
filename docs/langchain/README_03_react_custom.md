@@ -9,7 +9,7 @@
 ## 1. Run
 
 ```
-poetry run example --example langchain-custom-react
+poetry run python src/langchain/react_custom.py
 ```
 
 ![](react_custom.png)

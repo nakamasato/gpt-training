@@ -2,7 +2,7 @@ import re
 from typing import Any, Sequence, Union
 
 # from langchain.agents.react.output_parser import ReActOutputParser
-from langchain_community.llms import OpenAI
+from langchain_openai import OpenAI
 
 from langchain.agents import AgentExecutor, Tool
 from langchain.agents.agent import Agent, AgentOutputParser
@@ -189,10 +189,7 @@ def main():
     # run agent
     ##########
 
-    llm = OpenAI(
-        model_name="text-davinci-003",
-        temperature=0,
-    )
+    llm = OpenAI()
     agent = ReActTestAgent.from_llm_and_tools(
         llm,
         tools,
@@ -204,4 +201,9 @@ def main():
     )
 
     question = "How much is the difference between the total of company C, F and the total of company A, E ?"
-    agent_executor.invoke({"input": question})
+    res = agent_executor.invoke({"input": question})
+    print(res)
+
+
+if __name__ == "__main__":
+    main()

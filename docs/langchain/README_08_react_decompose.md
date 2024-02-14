@@ -121,7 +121,7 @@ class AgentExecutor(Chain):
 ### 3.1. 準備
 
 ```
-OPENAI_ORGANIZATION=org-xxx OPENAI_API_KEY=sk-xxx poetry run python
+poetry run python
 ```
 
 ```py
@@ -130,7 +130,7 @@ from src.langchain.react_decompose import *
 
 ### 3.2. 全部を実行
 ```py
-llm = OpenAI(model_name="text-davinci-003", temperature=0)
+llm = OpenAI()
 agent = ReActTestAgent.from_llm_and_tools(
     llm,
     tools,

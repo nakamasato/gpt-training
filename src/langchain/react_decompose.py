@@ -1,7 +1,7 @@
 import re
 from typing import Any, Sequence, Union
 
-from langchain_community.llms import OpenAI
+from langchain_openai import OpenAI
 
 from langchain.agents import AgentExecutor
 from langchain.agents.agent import Agent, AgentOutputParser
@@ -91,10 +91,7 @@ def main():
     # run agent
     ##########
 
-    llm = OpenAI(
-        model_name="text-davinci-003",
-        temperature=0,
-    )
+    llm = OpenAI()
     agent = ReActTestAgent.from_llm_and_tools(
         llm=llm,
         tools=tools,

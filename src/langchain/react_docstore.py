@@ -39,5 +39,5 @@ def main(llm):
 
 
 if __name__ == "__main__":
-    llm = OpenAI(model_name="text-davinci-003", temperature=0)
+    llm = OpenAI()
     main(llm=llm)
