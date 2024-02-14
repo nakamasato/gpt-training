@@ -405,7 +405,7 @@ intermediate_stepsを受け取って、`llm`に聞いて、AgentActionまたはA
         from langchain_openai import ChatOpenAI
         from langchain.agents import AgentType, Tool, initialize_agent
         from langchain.tools.render import format_tool_to_openai_function
-        from langchain.utilities import SerpAPIWrapper
+        from langchain_community.utilities import SerpAPIWrapper
         llm = ChatOpenAI()
         search = SerpAPIWrapper()
         tools = [

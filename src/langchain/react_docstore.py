@@ -35,7 +35,7 @@ def main(llm):
 
     # perform question-answering
     question = "岸田総理が演説中に爆弾を投げ込まれたのはいつ?"
-    agent_executor.run(question)
+    agent_executor.invoke({"input": question})
 
 
 if __name__ == "__main__":

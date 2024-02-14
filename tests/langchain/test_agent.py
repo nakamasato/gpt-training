@@ -34,5 +34,5 @@ def test_main():
         tools, llm, agent="zero-shot-react-description", verbose=True
     )
 
-    result = mrkl.run("3に4を掛けると？")
-    assert result == "3に4を掛けると12です。"
+    result = mrkl.invoke({"input": "3に4を掛けると？"})
+    assert result["output"] == "3に4を掛けると12です。"

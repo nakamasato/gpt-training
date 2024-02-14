@@ -204,4 +204,4 @@ def main():
     )
 
     question = "How much is the difference between the total of company C, F and the total of company A, E ?"
-    agent_executor.run(question)
+    agent_executor.invoke({"input": question})

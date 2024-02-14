@@ -26,5 +26,5 @@ def test_main():
     )
 
     question = "How much is the difference between the total of company C, F and the total of company A, E ?"
-    result = agent_executor.run(question)
-    assert result == "21100"
+    result = agent_executor.invoke({"input": question})
+    assert result["output"] == "21100"

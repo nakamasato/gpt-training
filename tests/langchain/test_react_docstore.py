@@ -24,5 +24,5 @@ def test_react_docstore_tool():
 
     # perform question-answering
     question = "岸田総理が演説中に爆弾を投げ込まれたのはいつ?"
-    result = agent_executor.run(question)
-    assert result == "1993"  # wrong
+    result = agent_executor.invoke({"input": question})
+    assert result["output"] == "1993"  # wrong

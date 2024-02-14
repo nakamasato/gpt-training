@@ -1,11 +1,11 @@
 import argparse
 
+from langchain_community.tools import DuckDuckGoSearchRun
+from langchain_community.utilities import SerpAPIWrapper
 from langchain_openai import ChatOpenAI
 
 from langchain.agents import AgentType, Tool, initialize_agent
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.tools import DuckDuckGoSearchRun
-from langchain.utilities import SerpAPIWrapper
 
 
 def main(llm, search_tool):
@@ -28,12 +28,12 @@ def main(llm, search_tool):
         tools=tools, llm=llm, agent=AgentType.SELF_ASK_WITH_SEARCH, verbose=True
     )
     print(
-        self_ask_with_search.run(
-            "What is the hometown of the reigning men's U.S. Open champion?"
+        self_ask_with_search.invoke(
+            {"input": "What is the hometown of the reigning men's U.S. Open champion?"}
         )
     )
-    # self_ask_with_search.run("Obama's first name?")
-    # print(search.run("Who is the reigning men's U.S. Open champion?"))
+    # self_ask_with_search.invoke({"input": "Obama's first name?"})
+    # print(search.invoke({"input": "Who is the reigning men's U.S. Open champion?"}))
 
 
 if __name__ == "__main__":
