@@ -1,4 +1,5 @@
 site_name: GPT Training
+repo_url: https://github.com/nakamasato/gpt-training/
 
 theme:
   name: material
@@ -11,6 +12,13 @@ theme:
     - toc.follow # the sidebar is automatically scrolled so that the active anchor is always visible.
     - navigation.tracking # the URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents
     - navigation.top
+    - content.code.copy
+    - content.code.select
+
+plugins:
+  - search
+  - awesome-pages
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -22,6 +30,11 @@ markdown_extensions:
   - pymdownx.magiclink
   - admonition
   - pymdownx.details
+
+nav:
+  - 'Getting Started': index.md
+  - ...
+  - references.md
 
 extra:
   analytics:
