@@ -74,7 +74,11 @@ def main(llm):
 
     print(
         agent.invoke(
-            {"input": "現在の日本の総理大臣は誰ですか？", "intermediate_steps": [], "chat_history": []}
+            {
+                "input": "現在の日本の総理大臣は誰ですか？",
+                "intermediate_steps": [],
+                "chat_history": [],
+            }
         )
     )  # return AgentAction or AgentFinish
 
