@@ -6,9 +6,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 # モデルはGemini Proを使用
-llm = ChatGoogleGenerativeAI(
-    model="gemini-pro", google_api_key=os.getenv("GOOGLE_API_KEY_GEMINI")
-)
+llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=os.getenv("GOOGLE_API_KEY_GEMINI"))
 
 st.title("Gemini Chat")
 
