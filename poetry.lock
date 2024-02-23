@@ -1619,13 +1619,13 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.0.25"
+version = "0.0.26"
 description = "langgraph"
 optional = false
 python-versions = ">=3.9.0,<4.0"
 files = [
-    {file = "langgraph-0.0.25-py3-none-any.whl", hash = "sha256:c9d5f41c3829a6b84cde76c9d59a6ccde94acc8aa80276a97c57416bb768ed77"},
-    {file = "langgraph-0.0.25.tar.gz", hash = "sha256:2af74ecdb07d07da090d762cd7d1c0f1e70fbc831bcacb2aabc800d8441440ed"},
+    {file = "langgraph-0.0.26-py3-none-any.whl", hash = "sha256:f3ba45fc2957c6a69cb7639a762b779c80b549c6811b8f8f0e44e5f6943bfa3f"},
+    {file = "langgraph-0.0.26.tar.gz", hash = "sha256:cfd078a61a6212c82d41bcacbbdb53e3706d3fc01b1a44e2e56a45534777287c"},
 ]
 
 [package.dependencies]
@@ -4120,4 +4120,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "5494b919abf88502e97a3c5a9a3221f8d3623e5af58c132e16e993825e1420e5"
+content-hash = "4a16c070f70a36ee7c208effd600c4e49079d6cde0815797bc581b08cae7f656"
