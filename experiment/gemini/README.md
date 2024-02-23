@@ -8,11 +8,10 @@ gcloud services enable generativelanguage.googleapis.com --project $PROJECT
 gcloud services api-keys create --display-name "Gemini API Key" --api-target=service=generativelanguage.googleapis.com --project $PROJECT
 ```
 
-## Run
+## Chat with Gemini
 
 ```
-poetry run python experiment/gemini/main.py
-こんにちは！ご機嫌はいかがですか？
+poetry run streamlit run experiment/gemini/main.py
 ```
 
 ## References
