@@ -121,9 +121,7 @@ Observation 1: 1500
 SUFFIX = """\n{word_question}: {input}
 {agent_scratchpad}"""
 
-prompt = PromptTemplate.from_examples(
-    EXAMPLES, SUFFIX, ["word_question", "input", "agent_scratchpad"]
-)
+prompt = PromptTemplate.from_examples(EXAMPLES, SUFFIX, ["word_question", "input", "agent_scratchpad"])
 TEST_PROMPT = prompt.partial(word_question=WORD_QUESTION)
 
 
@@ -138,9 +136,7 @@ class ReActOutputParser(AgentOutputParser):
 
         re_matches = re.search(r"(.*?)\[(.*?)\]", action_str)
         if re_matches is None:
-            raise OutputParserException(
-                f"Could not parse action directive: {action_str}"
-            )
+            raise OutputParserException(f"Could not parse action directive: {action_str}")
         action, action_input = re_matches.group(1), re_matches.group(2)
 
         # 最後が行動: Finishであれば処理を終わらせる

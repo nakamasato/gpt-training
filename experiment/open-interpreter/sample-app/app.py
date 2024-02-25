@@ -17,9 +17,7 @@ def generate_article(title: str, summary: str) -> str:
     prompt = prompt_template.format(title=title, summary=summary)
 
     # Use GPT-3 to generate a response
-    response = openai.Completion.create(
-        engine="text-davinci-001", prompt=prompt, temperature=0.5, max_tokens=1000
-    )
+    response = openai.Completion.create(engine="text-davinci-001", prompt=prompt, temperature=0.5, max_tokens=1000)
 
     # Extract the generated article text
     article = response.choices[0].text.strip()

@@ -84,3 +84,4 @@
 1. https://topai.tools/s/Slack-knowledge-base-tool
 1. [【利用事例】miiboで作る会話型AI](https://note.com/miibo/m/ma82aceda74a8)
 1. [Langsearch](https://github.com/gutfeeling/langsearch)
+1. [Cloud Natural Language API (Bard API)](https://cloud.google.com/natural-language?hl=en)

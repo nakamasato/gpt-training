@@ -1,8 +1,11 @@
 .env
 .mypy_cache
+.ruff_cache
+.pytest_cache
 .gpte_consent
 .coverage
 __pycache__
 pytest.xml
 experiment/gpt-engineer/sample/
 .venv
+pytest-coverage.txt
