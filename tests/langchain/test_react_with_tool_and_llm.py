@@ -22,9 +22,7 @@ def test_react_with_tool_and_llm():
             func=get_birthplace,
             description="Get birthplace of a person.",
         ),
-        Tool(
-            name="Llm", func=llm, description="Use this tool to ask general questions"
-        ),
+        Tool(name="Llm", func=llm, description="Use this tool to ask general questions"),
     ]
 
     agent = ReActTestAgent.from_llm_and_tools(

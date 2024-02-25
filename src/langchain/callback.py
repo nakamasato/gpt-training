@@ -46,9 +46,7 @@ class PromptStdoutHandler(StdOutCallbackHandler):
 def main():
     # To enable streaming, we pass in `streaming=True` to the ChatModel constructor
     # Additionally, we pass in a list with our custom handler
-    chat = ChatOpenAI(
-        max_tokens=25, streaming=True, callbacks=[PromptStdoutHandler()]
-    )  # TODO: 思うように動いていない
+    chat = ChatOpenAI(max_tokens=25, streaming=True, callbacks=[PromptStdoutHandler()])  # TODO: 思うように動いていない
 
     print(chat([HumanMessage(content="Tell me a joke")]))
 

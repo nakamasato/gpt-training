@@ -22,12 +22,8 @@ from langchain.tools import StructuredTool
 from src.libs.tools import TOOL_GOOGLE, multiplier
 
 FINAL_ANSWER_ACTION = "Final Answer:"
-MISSING_ACTION_INPUT_AFTER_ACTION_ERROR_MESSAGE = (
-    "Invalid Format: Missing 'Action Input:' after 'Action:'"
-)
-FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE = (
-    "Parsing LLM output produced both a final answer and a parse-able action:"
-)
+MISSING_ACTION_INPUT_AFTER_ACTION_ERROR_MESSAGE = "Invalid Format: Missing 'Action Input:' after 'Action:'"
+FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE = "Parsing LLM output produced both a final answer and a parse-able action:"
 
 
 langchain.debug = False
@@ -104,9 +100,7 @@ class GoogleSearchOutputParser(AgentOutputParser):
         action_match = re.search(regex, text, re.DOTALL)
         if action_match:
             if includes_answer:
-                raise OutputParserException(
-                    f"{FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE}: {text}"
-                )
+                raise OutputParserException(f"{FINAL_ANSWER_AND_PARSABLE_ACTION_ERROR_MESSAGE}: {text}")
             action_input = action_match.group(1)
             tool_input = action_input.strip(" ")
             tool_input = tool_input.strip('"')
@@ -114,13 +108,9 @@ class GoogleSearchOutputParser(AgentOutputParser):
             return AgentAction("google-search", tool_input, text)
 
         elif includes_answer:
-            return AgentFinish(
-                {"output": text.split(FINAL_ANSWER_ACTION)[-1].strip()}, text
-            )
+            return AgentFinish({"output": text.split(FINAL_ANSWER_ACTION)[-1].strip()}, text)
 
-        if not re.search(
-            r"[\s]*Action\s*\d*\s*Input\s*\d*\s*:[\s]*(.*)", text, re.DOTALL
-        ):
+        if not re.search(r"[\s]*Action\s*\d*\s*Input\s*\d*\s*:[\s]*(.*)", text, re.DOTALL):
             raise OutputParserException(
                 f"Could not parse LLM output: `{text}`",  # noqa: W604
                 observation=MISSING_ACTION_INPUT_AFTER_ACTION_ERROR_MESSAGE,

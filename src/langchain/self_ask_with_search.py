@@ -24,14 +24,8 @@ def main(llm, search_tool):
         )
     ]
 
-    self_ask_with_search = initialize_agent(
-        tools=tools, llm=llm, agent=AgentType.SELF_ASK_WITH_SEARCH, verbose=True
-    )
-    print(
-        self_ask_with_search.invoke(
-            {"input": "What is the hometown of the reigning men's U.S. Open champion?"}
-        )
-    )
+    self_ask_with_search = initialize_agent(tools=tools, llm=llm, agent=AgentType.SELF_ASK_WITH_SEARCH, verbose=True)
+    print(self_ask_with_search.invoke({"input": "What is the hometown of the reigning men's U.S. Open champion?"}))
     # self_ask_with_search.invoke({"input": "Obama's first name?"})
     # print(search.invoke({"input": "Who is the reigning men's U.S. Open champion?"}))
 

@@ -47,9 +47,7 @@ Action: Finish[1750]""",
 SUFFIX = """\nQuestion: {input}
 {agent_scratchpad}"""
 
-TEST_PROMPT = PromptTemplate.from_examples(
-    EXAMPLES, SUFFIX, ["input", "agent_scratchpad"]
-)
+TEST_PROMPT = PromptTemplate.from_examples(EXAMPLES, SUFFIX, ["input", "agent_scratchpad"])
 
 
 class ReActTestAgent(Agent):
@@ -99,9 +97,7 @@ def main():
             func=get_birthplace,
             description="Get birthplace of a person.",
         ),
-        Tool(
-            name="Llm", func=llm, description="Use this tool to ask general questions"
-        ),
+        Tool(name="Llm", func=llm, description="Use this tool to ask general questions"),
     ]
 
     agent = ReActTestAgent.from_llm_and_tools(

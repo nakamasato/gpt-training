@@ -30,9 +30,7 @@ def test_main():
         "Thought: I now know the final answer\nFinal Answer: 3に4を掛けると12です。",
     ]
     llm = FakeListLLM(responses=responses)
-    mrkl = initialize_agent(
-        tools, llm, agent="zero-shot-react-description", verbose=True
-    )
+    mrkl = initialize_agent(tools, llm, agent="zero-shot-react-description", verbose=True)
 
     result = mrkl.invoke({"input": "3に4を掛けると？"})
     assert result["output"] == "3に4を掛けると12です。"

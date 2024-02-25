@@ -56,9 +56,7 @@ def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):
         # We construct an ToolInvocation from the function_call
         action = ToolInvocation(
             tool=last_message.additional_kwargs["function_call"]["name"],
-            tool_input=json.loads(
-                last_message.additional_kwargs["function_call"]["arguments"]
-            ),
+            tool_input=json.loads(last_message.additional_kwargs["function_call"]["arguments"]),
         )
         # We call the tool_executor and get back a response
         response = tool_executor.invoke(action)
