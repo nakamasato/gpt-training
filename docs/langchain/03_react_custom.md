@@ -35,6 +35,7 @@ Tool consists of several components:
 **作り方1: Tool**:
 
 1. [Tool dataclass](https://python.langchain.com/en/latest/modules/agents/tools/custom_tools.html#tool-dataclass)
+
     ```py
     Tool.from_function(
         func=search.run,
@@ -43,6 +44,7 @@ Tool consists of several components:
         # coroutine= ... <- you can specify an async method if desired as well
     ),
     ```
+
 1. [Subclassing the BaseTool class](https://python.langchain.com/en/latest/modules/agents/tools/custom_tools.html#subclassing-the-basetool-class)
 
     ```py
@@ -58,7 +60,9 @@ Tool consists of several components:
             """Use the tool asynchronously."""
             raise NotImplementedError("custom_search does not support async")
     ````
+
 1. [Using @tool decorator](https://python.langchain.com/en/latest/modules/agents/tools/custom_tools.html#using-the-tool-decorator)
+
     ```py
     from langchain.tools import tool
 
@@ -73,6 +77,7 @@ Tool consists of several components:
 **作り方2: Structured Tool**:
 
 1. [Structured Tool](https://python.langchain.com/en/latest/modules/agents/tools/custom_tools.html#custom-structured-tools)
+
     ```py
     def post_message(url: str, body: dict, parameters: Optional[dict] = None) -> str:
         """Sends a POST request to the given url with the given body and parameters."""
@@ -81,6 +86,7 @@ Tool consists of several components:
 
     tool = StructuredTool.from_function(post_message)
     ```
+
 1. [Subclassing BaseTool](https://python.langchain.com/en/latest/modules/agents/tools/custom_tools.html#subclassing-the-basetool)
 1. [Using decorator](https://python.langchain.com/en/latest/modules/agents/tools/custom_tools.html#using-the-decorator)
 
@@ -129,7 +135,7 @@ Agentの以下の関数でfinish, observation, prefixの名前を指定する。
 
 ### 2.3. Toolkikt
 
-1. [CSV Agent](https://python.langchain.com/en/latest/modules/agents/toolkits/examples/csv.html): Pandasを使ってinteractiveにCSVとやり取りできる
+1. [CSV Agent](https://python.langchain.com/docs/integrations/toolkits/csv): Pandasを使ってinteractiveにCSVとやり取りできる (ref: https://python.langchain.com/docs/templates/csv-agent)
 1. Vectorstore agent
 
 ### 2.4. [Agent Executors](https://python.langchain.com/en/latest/modules/agents/agent_executors.html)
