@@ -48,5 +48,5 @@ if __name__ == "__main__":
     print(create_documents(texts=texts))
     print(split_text(text=texts[0]))
 
-    filename = "src/langchain/README_03_react_custom.md"
+    filename = "src/langchain/03_react_custom.md"
     print(split_markdown_text(md_filename=filename))

@@ -155,15 +155,15 @@ TODO
 |Agent Type| Plan |Prompt |OutputParser | Link|
 |---|---|---|---|---|
 [ZeroShotAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/mrkl/base.py#L35)| `Agent(BaseSingleActionAgent)`のplanを参照| | |
-|[ReActDocstoreAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/react/base.py#L20)| `Agent(BaseSingleActionAgent)`のplanを参照 | | | [React Docstore](README_02_react_docstore.md)|
-|[SelfAskWithSearchAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/self_ask_with_search/base.py#L19)| `Agent(BaseSingleActionAgent)`のplanを参照| || [Self Ask with Search](README_04_self_ask_with_search.md)|
+|[ReActDocstoreAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/react/base.py#L20)| `Agent(BaseSingleActionAgent)`のplanを参照 | | | [React Docstore](02_react_docstore.md)|
+|[SelfAskWithSearchAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/self_ask_with_search/base.py#L19)| `Agent(BaseSingleActionAgent)`のplanを参照| || [Self Ask with Search](04_self_ask_with_search.md)|
 |[ConversationalAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/conversational/base.py#L20)| `Agent(BaseSingleActionAgent)`のplanを参照|||
 |[ChatAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/chat/base.py#L27)| `Agent(BaseSingleActionAgent)`のplanを参照|||
 |[ConversationalChatAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/conversational_chat/base.py#L36)| `Agent(BaseSingleActionAgent)`のplanを参照|||
 |[StructuredChatAgent(Agent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/structured_chat/base.py#L26)| `Agent(BaseSingleActionAgent)`のplanを参照|
 |[OpenAIFunctionsAgent(BaseSingleActionAgent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/openai_functions_agent/base.py#L142)| [plan](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/openai_functions_agent/base.py#L187-L213)は`OpenAIFunctionsAgent`に定義|[OpenAIFunctionsAgentOutputParser](https://github.com/langchain-ai/langchain/blob/0d0901ea18cc8ae431da3ec7b11da56c9b5568fc/libs/langchain/langchain/agents/output_parsers/openai_functions.py#L17)._parse_ai_message|
 |[OpenAIMultiFunctionsAgent(BaseSingleActionAgent)](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/openai_functions_multi_agent/base.py#L146)| [plan](https://github.com/hwchase17/langchain/blob/b0859c9b185fe897f3c8e2699835a669b2a2ba61/langchain/agents/openai_functions_multi_agent/base.py#L247-L273)は`OpenAIMultiFunctionsAgent`に定義||
-|Custom ReAct Agent| [ReActTestAgent(Agent)](README_03_react_custom.md): `Agent(BaseSingleActionAgent)`のplanを参照 |Agent, Prompt, OutputParserを定義することでCustom Agentを作成できる|
+|Custom ReAct Agent| [ReActTestAgent(Agent)](03_react_custom.md): `Agent(BaseSingleActionAgent)`のplanを参照 |Agent, Prompt, OutputParserを定義することでCustom Agentを作成できる|
 
 [AGENT_TO_CLASS](https://github.com/langchain-ai/langchain/blob/0d0901ea18cc8ae431da3ec7b11da56c9b5568fc/libs/langchain/langchain/agents/types.py#L17)が作成できるAgentType:
 

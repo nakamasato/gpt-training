@@ -149,4 +149,4 @@ Agentの以下の関数でfinish, observation, prefixの名前を指定する。
 1. [Custom Agent (Blog from LangChain)](https://blog.langchain.dev/custom-agents/)
 1. [推論し、行動するChatGPT(OpenAI API) Agentを作る – langchain ReAct Custom Agent基礎 –](https://recruit.gmo.jp/engineer/jisedai/blog/react-custom-agent/)
 1. [Change ReAct words to Japanese](https://github.com/nakamasato/gpt-poc/pull/19)
-1. [Custom ReAct解剖](README_08_react_decompose.md)
+1. [Custom ReAct解剖](08_react_decompose.md)
