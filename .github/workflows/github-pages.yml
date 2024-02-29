@@ -3,10 +3,25 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - labeled
+      - closed
+      - opened # default
+      - synchronize # default
+      - reopened # default
+    paths:
+      - 'docs/**'
+      - '.github/workflows/github-pages.yml'
+      - 'mkdocs.yml'
+
 permissions:
   contents: write
 jobs:
   deploy:
+    if: contains( github.event.pull_request.labels.*.name, 'github-pages') || github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
