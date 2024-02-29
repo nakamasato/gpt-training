@@ -15,7 +15,7 @@ def test_text_split():
 
 
 def test_split_markdown_text():
-    filename = "docs/langchain/03_react_custom.md"
+    filename = "docs/langchain/agent/03_react_custom.md"
     docs = split_markdown_text(md_filename=filename)
     for i, doc in enumerate(docs):
         print(i, doc.page_content[:10])
