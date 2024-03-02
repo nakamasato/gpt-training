@@ -18,7 +18,7 @@ LLMを呼ぶタイミングなどに処理を挟むことができる
 ## Examples
 
 1. [StdOutCallbackHandler](https://github.com/hwchase17/langchain/blob/6d15854cda60823d1c2a8efc395d9c074336bdca/langchain/callbacks/stdout.py#L9) <- `verbose=True` とするとセットされるCallbackHandler
-1. [CostCalcCallbackHandler](README_09_token_count.md): CostStreaming用のCallback
+1. [CostCalcCallbackHandler](09_token_count.md): CostStreaming用のCallback
 1. [SimpleStreamlitCallbackHandler](../apps/README.md#streaming): StreamlitでチャットがStreamingで出るようにするためのCallback
 
 ## Run

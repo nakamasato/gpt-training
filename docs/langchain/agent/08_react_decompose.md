@@ -4,9 +4,10 @@
 
 ![](react_custom.drawio.svg)
 
-[Custom ReAct](README_03_react_custom.md)をベースにReActの内部で起こっている部分をすべて一つずつ分解して見る。
+[Custom ReAct](03_react_custom.md)をベースにReActの内部で起こっている部分をすべて一つずつ分解して見る。
 
 含まれる内容
+
 1. LLMに送られるPrompt (Prompt Template): Agentにセットされている
 1. LLMから帰ってきたOutput: Agent内
 1. `Output Parser`: Agent内
