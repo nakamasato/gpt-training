@@ -163,6 +163,24 @@
 
 ![](https://raw.githubusercontent.com/langchain-ai/langgraph/main/examples/multi_agent/img/supervisor-diagram.png)
 
+Example:
+
+![](agent_supervisor.drawio.svg)
+
+```
+poetry run python src/examples/langgraph_agent_supervisor.py
+{'supervisor': {'next': 'Coder'}}
+----
+Python REPL can execute arbitrary code. Use with caution.
+{'Coder': {'messages': [HumanMessage(content='The code `print(\'Hello, World!\')` has been executed, and it printed "Hello, World!" to the terminal.', name='Coder')]}}
+----
+{'supervisor': {'next': 'FINISH'}}
+----
+```
+
+1. Coder: https://app.tavily.com/home
+
+
 !!! notes
 
     Let LLM to decide which agent to use.
@@ -171,6 +189,10 @@
 
     - Supervisor agent <-> Agent
     - Member agents <-> Tools
+
+```py title="langgraph_sample.py"
+--8<-- "src/examples/langgraph_agent_supervisor.py"
+```
 
 ### [Hierarchical Agent Teams](https://github.com/langchain-ai/langgraph/blob/main/examples/multi_agent/hierarchical_agent_teams.ipynb)
 
@@ -197,3 +219,28 @@ poetry run python src/examples/langgraph_sample.py
 ```py title="langgraph_sample.py"
 --8<-- "src/examples/langgraph_sample.py"
 ```
+
+## FAQ
+
+1. When to use `LangGraph`?
+1. How to determine `AgentState`?
+1. [llm.bind_functions](https://api.python.langchain.com/en/latest/_modules/langchain_community/chat_models/openai.html#ChatOpenAI.bind_functions)とは?
+1. LangGraph とStreamlitCallbackHandlerが incompatible? https://github.com/langchain-ai/langgraph/issues/101
+
+    ```
+    2024-03-02 20:48:03.039 Thread 'ThreadPoolExecutor-54_0': missing ScriptRunContext
+    Error in StreamlitCallbackHandler.on_llm_start callback: NoSessionContext()
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    ...
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    Error in StreamlitCallbackHandler.on_llm_end callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    2024-03-02 20:48:03.659 Thread 'ThreadPoolExecutor-54_0': missing ScriptRunContext
+    Error in StreamlitCallbackHandler.on_llm_start callback: NoSessionContext()
+    Error in StreamlitCallbackHandler.on_llm_end callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    ```
+
+## Ref
+
+1. https://blog.langchain.dev/langgraph-multi-agent-workflows/
