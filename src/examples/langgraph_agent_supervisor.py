@@ -17,10 +17,6 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from pydantic import BaseModel
 
-tavily_tool = TavilySearchResults(max_results=5)
-# This executes code locally, which can be unsafe
-python_repl_tool = PythonREPLTool()
-
 
 class MemberAgentConfig(BaseModel):
     name: str
@@ -28,18 +24,15 @@ class MemberAgentConfig(BaseModel):
     system_prompt: str
 
 
-AGENT_MEMBERS = [
-    MemberAgentConfig(
-        name="Researcher",
-        tools=[tavily_tool],
-        system_prompt="You are a web researcher.",
-    ),
-    MemberAgentConfig(
-        name="Coder",
-        tools=[python_repl_tool],
-        system_prompt="You may generate safe python code to analyze data and generate charts using matplotlib.",
-    ),
-]
+def create_member_agents(llm, agent_configs: list[MemberAgentConfig]):
+    """Use this function to generate a dictionary of member agents.
+    If you have AgentExecutor objects, you can use them directly.
+    """
+    agents = {}
+    for config in agent_configs:
+        agent = create_agent(llm, config.tools, config.system_prompt)
+        agents[config.name] = agent
+    return agents
 
 
 def create_agent(llm: ChatOpenAI, tools: list, system_prompt: str):
@@ -121,14 +114,6 @@ class AgentState(TypedDict):
     next: str
 
 
-def create_member_agents(llm, agent_configs: list[MemberAgentConfig]):
-    agents = {}
-    for config in agent_configs:
-        agent = create_agent(llm, config.tools, config.system_prompt)
-        agents[config.name] = agent
-    return agents
-
-
 def construct_graph(supervisor_chain, agents: dict[str, AgentExecutor]):
     workflow = StateGraph(AgentState)
 
@@ -162,6 +147,20 @@ def construct_graph(supervisor_chain, agents: dict[str, AgentExecutor]):
 
 if __name__ == "__main__":
     llm = ChatOpenAI(model="gpt-4")
+
+    AGENT_MEMBERS = [
+        MemberAgentConfig(
+            name="Researcher",
+            tools=[TavilySearchResults(max_results=5)],
+            system_prompt="You are a web researcher.",
+        ),
+        MemberAgentConfig(
+            name="Coder",
+            tools=[PythonREPLTool()],
+            system_prompt="You may generate safe python code to analyze data and generate charts using matplotlib.",
+        ),
+    ]
+
     supervisor_chain = construct_supervisor(llm, [m.name for m in AGENT_MEMBERS])
     agents = create_member_agents(llm, AGENT_MEMBERS)
     graph = construct_graph(supervisor_chain, agents)
