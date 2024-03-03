@@ -224,3 +224,23 @@ poetry run python src/examples/langgraph_sample.py
 
 1. When to use `LangGraph`?
 1. How to determine `AgentState`?
+1. [llm.bind_functions](https://api.python.langchain.com/en/latest/_modules/langchain_community/chat_models/openai.html#ChatOpenAI.bind_functions)とは?
+1. LangGraph とStreamlitCallbackHandlerが incompatible? https://github.com/langchain-ai/langgraph/issues/101
+
+    ```
+    2024-03-02 20:48:03.039 Thread 'ThreadPoolExecutor-54_0': missing ScriptRunContext
+    Error in StreamlitCallbackHandler.on_llm_start callback: NoSessionContext()
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    ...
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    Error in StreamlitCallbackHandler.on_llm_new_token callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    Error in StreamlitCallbackHandler.on_llm_end callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    2024-03-02 20:48:03.659 Thread 'ThreadPoolExecutor-54_0': missing ScriptRunContext
+    Error in StreamlitCallbackHandler.on_llm_start callback: NoSessionContext()
+    Error in StreamlitCallbackHandler.on_llm_end callback: RuntimeError('Current LLMThought is unexpectedly None!')
+    ```
+
+## Ref
+
+1. https://blog.langchain.dev/langgraph-multi-agent-workflows/

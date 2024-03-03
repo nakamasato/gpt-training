@@ -5,37 +5,36 @@
 
 import functools
 import operator
-from pydantic import BaseModel
 from typing import Annotated, Sequence, TypedDict
 
+from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain.output_parsers.openai_functions import JsonOutputFunctionsParser
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_experimental.tools import PythonREPLTool
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
-
-from langchain.agents import AgentExecutor, create_openai_tools_agent
-from langchain.output_parsers.openai_functions import JsonOutputFunctionsParser
+from pydantic import BaseModel
 
 tavily_tool = TavilySearchResults(max_results=5)
 # This executes code locally, which can be unsafe
 python_repl_tool = PythonREPLTool()
 
 
-class AgentMember(BaseModel):
+class MemberAgentConfig(BaseModel):
     name: str
     tools: list
     system_prompt: str
 
 
 AGENT_MEMBERS = [
-    AgentMember(
+    MemberAgentConfig(
         name="Researcher",
         tools=[tavily_tool],
         system_prompt="You are a web researcher.",
     ),
-    AgentMember(
+    MemberAgentConfig(
         name="Coder",
         tools=[python_repl_tool],
         system_prompt="You may generate safe python code to analyze data and generate charts using matplotlib.",
@@ -69,17 +68,17 @@ def agent_node(state, agent, name):
     return {"messages": [HumanMessage(content=result["output"], name=name)]}
 
 
-def construct_supervisor(llm):
-    system_prompt = (
-        "You are a supervisor tasked with managing a conversation between the"
-        " following workers:  {members}. Given the following user request,"
-        " respond with the worker to act next. Each worker will perform a"
-        " task and respond with their results and status. When finished,"
-        " respond with FINISH."
-    )
+DEFAULT_SUPERVISOR_SYSTEM_PROMPT = """You are a supervisor tasked with managing a conversation between the
+ following workers:  {members}. Given the following user request,
+ respond with the worker to act next. Each worker will perform a
+ task and respond with their results and status. When finished,
+ respond with FINISH."""
+
+
+def construct_supervisor(llm, agent_member_names: list[str], system_prompt: str = DEFAULT_SUPERVISOR_SYSTEM_PROMPT):
     # Our team supervisor is an LLM node. It just picks the next agent to process
     # and decides when the work is completed
-    options = ["FINISH"] + [m.name for m in AGENT_MEMBERS]
+    options = ["FINISH"] + agent_member_names
     # Using openai function calling can make output parsing easier for us
     function_def = {
         "name": "route",
@@ -107,7 +106,7 @@ def construct_supervisor(llm):
                 "Given the conversation above, who should act next?" " Or should we FINISH? Select one of: {options}",
             ),
         ]
-    ).partial(options=str(options), members=", ".join([m.name for m in AGENT_MEMBERS]))
+    ).partial(options=str(options), members=", ".join(agent_member_names))
 
     supervisor_chain = prompt | llm.bind_functions(functions=[function_def], function_call="route") | JsonOutputFunctionsParser()
     return supervisor_chain
@@ -122,23 +121,35 @@ class AgentState(TypedDict):
     next: str
 
 
-def construct_graph(llm, supervisor_chain):
+def create_member_agents(llm, agent_configs: list[MemberAgentConfig]):
+    agents = {}
+    for config in agent_configs:
+        agent = create_agent(llm, config.tools, config.system_prompt)
+        agents[config.name] = agent
+    return agents
+
+
+def construct_graph(supervisor_chain, agents: dict[str, AgentExecutor]):
     workflow = StateGraph(AgentState)
 
     # supervisor
     workflow.add_node("supervisor", supervisor_chain)
 
     # agent members
-    for member in AGENT_MEMBERS:
-        agent = create_agent(llm, member.tools, member.system_prompt)
-        node = functools.partial(agent_node, agent=agent, name=member.name)
-        workflow.add_node(member.name, node)
+    nodes = {}
+    for name, agent in agents.items():
+        node = functools.partial(agent_node, agent=agent, name=name)
+        nodes[name] = node
+
+    # add edges (need to add edges after adding nodes)
+    for name in agents.keys():
+        workflow.add_node(name, nodes[name])
         # We want our workers to ALWAYS "report back" to the supervisor when done
-        workflow.add_edge(member.name, "supervisor")
+        workflow.add_edge(name, "supervisor")
 
     # The supervisor populates the "next" field in the graph state
     # which routes to a node or finishes
-    conditional_map = {k.name: k.name for k in AGENT_MEMBERS}
+    conditional_map = {name: name for name in agents.keys()}
     conditional_map["FINISH"] = END
     workflow.add_conditional_edges("supervisor", lambda x: x["next"], conditional_map)
     # Finally, add entrypoint
@@ -150,11 +161,19 @@ def construct_graph(llm, supervisor_chain):
 
 
 if __name__ == "__main__":
-    llm = ChatOpenAI(model="gpt-4-1106-preview")
-    supervisor_chain = construct_supervisor(llm)
-    graph = construct_graph(llm, supervisor_chain)
+    llm = ChatOpenAI(model="gpt-4")
+    supervisor_chain = construct_supervisor(llm, [m.name for m in AGENT_MEMBERS])
+    agents = create_member_agents(llm, AGENT_MEMBERS)
+    graph = construct_graph(supervisor_chain, agents)
 
-    for s in graph.stream({"messages": [HumanMessage(content="Code hello world and print it to the terminal")]}):
-        if "__end__" not in s:
-            print(s)
-            print("----")
+    questions = [
+        # "Code hello world and print it to the terminal",
+        "バイデン大統領の年齢は?",
+        # "Pythonでデータを分析し、matplotlibでプロットを作成してください。",
+    ]
+    for q in questions:
+        for s in graph.stream({"messages": [HumanMessage(content=q)]}):
+            if "__end__" not in s:
+                print(s)
+                print("----")
+        print("finished!")
