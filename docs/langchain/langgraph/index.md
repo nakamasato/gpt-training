@@ -243,4 +243,7 @@ poetry run python src/examples/langgraph_sample.py
 
 ## Ref
 
-1. https://blog.langchain.dev/langgraph-multi-agent-workflows/
+1. [2024-01-17 LangGraph](https://blog.langchain.dev/langgraph/)
+    1. [human in the loop](https://github.com/langchain-ai/langgraph/blob/main/examples/agent_executor/human-in-the-loop.ipynb?ref=blog.langchain.dev)
+1. [2024-01-23 LangGraph: Multi-Agent Workflows](https://blog.langchain.dev/langgraph-multi-agent-workflows/)
+1. [2024-02-21 Reflection Agents](https://blog.langchain.dev/reflection-agents/)
