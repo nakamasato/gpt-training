@@ -2475,21 +2475,6 @@ docs = ["furo (>=2023.9.10)", "proselint (>=0.13)", "sphinx (>=7.2.6)", "sphinx-
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)"]
 
 [[package]]
-name = "plotly"
-version = "5.19.0"
-description = "An open-source, interactive data visualization library for Python"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "plotly-5.19.0-py3-none-any.whl", hash = "sha256:906abcc5f15945765328c5d47edaa884bc99f5985fbc61e8cd4dc361f4ff8f5a"},
-    {file = "plotly-5.19.0.tar.gz", hash = "sha256:5ea91a56571292ade3e3bc9bf712eba0b95a1fb0a941375d978cc79432e055f4"},
-]
-
-[package.dependencies]
-packaging = "*"
-tenacity = ">=6.2.0"
-
-[[package]]
 name = "pluggy"
 version = "1.4.0"
 description = "plugin and hook calling mechanisms for python"
@@ -4248,4 +4233,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a99bf812575fadd62d3be5fde5caf0f1af5466a88279dee9d1ab1789ff80a8a9"
+content-hash = "9c9340944a0f1b93ec788743bd0458e214b80090d05fedaf387f0b0eae1d87ea"
