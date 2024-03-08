@@ -12,7 +12,26 @@ from langchain_openai import ChatOpenAI
 from src.libs.tools import TOOL_GOOGLE, TOOL_PARSE_MULTIPLIER
 from langchain.prompts import PromptTemplate
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
+from langchain.callbacks.base import BaseCallbackHandler
+from streamlit.delta_generator import DeltaGenerator
 import pandas as pd
+
+
+# failing with
+# 2024-03-06 09:45:11.487 Thread 'ThreadPoolExecutor-21_0': missing ScriptRunContext
+# Error in CustomStreamlitCallbackHandler.on_llm_new_token callback: NoSessionContext()
+# https://github.com/streamlit/streamlit/issues/1326
+class CustomStreamlitCallbackHandler(BaseCallbackHandler):
+    def __init__(
+        self,
+        parent_container: DeltaGenerator,
+    ):
+        self.parent_container = parent_container
+        self.content = ""
+
+    def on_llm_new_token(self, token: str, **kwargs) -> None:
+        self.content += token
+        self.parent_container.write(token)
 
 
 def langgraph_example(llm):
@@ -75,6 +94,7 @@ def langgraph_example(llm):
         st.chat_message("user").write(prompt)
 
         with st.chat_message("assistant"):
+            # TODO: fix this workaround
             intermediate_container = st.container()
             for output in graph.stream({"messages": st.session_state.messages}):
                 for key, value in output.items():
@@ -85,6 +105,18 @@ def langgraph_example(llm):
                     answer = output["__end__"]["messages"][-1].content
                     st.markdown(answer)
                     st.session_state.messages.append(AIMessage(content=answer))
+
+            # This doesn't work
+            # st_callback = StreamlitCallbackHandler(st.container())
+            # st_callback = CustomStreamlitCallbackHandler(st.container())
+            # config = RunnableConfig(callbacks=[st_callback])
+            # response = graph.invoke(
+            #     {
+            #         "messages": [HumanMessage(content=prompt)],
+            #     },
+            #     config=config,
+            # )
+            # st.write(response)
 
 
 def agent_example(llm):
