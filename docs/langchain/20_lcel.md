@@ -107,3 +107,7 @@ chain2 = prompt2 | model | StrOutputParser()
 1. チケットにする
 
 自分の作業　↔ 人とのやりとり
+
+## Ref
+
+1. https://medium.com/@twjjosiah/chain-loops-in-langchain-expression-language-lcel-a38894db0cee
