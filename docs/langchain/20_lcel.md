@@ -6,6 +6,14 @@
 
 But it seems that not all cases are suitable for LCEL.
 
+## Basics
+
+The syntax of LCEL is implemented by `__or__` and `__call__` methods.
+
+
+```
+--8<-- "src/langchain/runnable_basics.py"
+```
 
 ## Example
 
