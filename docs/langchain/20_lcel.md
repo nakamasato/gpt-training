@@ -6,6 +6,16 @@
 
 But it seems that not all cases are suitable for LCEL.
 
+## Basics
+
+The syntax of LCEL is implemented by `__or__` and `__call__` methods.
+
+
+```py
+--8<-- "src/langchain/runnable_basics.py"
+```
+
+Ref: https://www.pinecone.io/learn/series/langchain/langchain-expression-language/
 
 ## Example
 
@@ -97,3 +107,7 @@ chain2 = prompt2 | model | StrOutputParser()
 1. チケットにする
 
 自分の作業　↔ 人とのやりとり
+
+## Ref
+
+1. https://medium.com/@twjjosiah/chain-loops-in-langchain-expression-language-lcel-a38894db0cee
