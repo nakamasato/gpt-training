@@ -11,9 +11,11 @@ But it seems that not all cases are suitable for LCEL.
 The syntax of LCEL is implemented by `__or__` and `__call__` methods.
 
 
-```
+```py
 --8<-- "src/langchain/runnable_basics.py"
 ```
+
+Ref: https://www.pinecone.io/learn/series/langchain/langchain-expression-language/
 
 ## Example
 
