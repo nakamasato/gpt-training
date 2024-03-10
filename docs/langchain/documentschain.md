@@ -18,6 +18,27 @@ Question: {question}
 Helpful Answer:
 ```
 
+!!! notes
+
+    Actual contents of `{context}` would be generated in the following way:
+
+    1. The retrieved Documents are joined together with a separator after formatting with `format_document`.
+    1. Return a Dict with the key `context` and the value as the joined Documents.
+
+    ```py
+    # Format each document according to the prompt
+    doc_strings = [format_document(doc, self.document_prompt) for doc in docs]
+    # Join the documents together to put them in the prompt.
+    inputs = {
+        k: v
+        for k, v in kwargs.items()
+        if k in self.llm_chain.prompt.input_variables
+    }
+    inputs[self.document_variable_name] = self.document_separator.join(doc_strings)
+    ```
+
+    Ref: [StuffDocumentsChain](https://api.python.langchain.com/en/latest/_modules/langchain/chains/combine_documents/stuff.html#create_stuff_documents_chain)
+
 
 ```py
 document_prompt = PromptTemplate(
