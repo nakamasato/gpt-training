@@ -88,6 +88,44 @@ chain2 = prompt2 | model | StrOutputParser()
     chain.invoke({"input": "scrum"})
     ```
 
+## Implementation
+
+### [Runnable](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L103)
+
+- **invoke/ainvoke**: Transforms a single input into an output.
+- **batch/abatch**: Efficiently transforms multiple inputs into outputs.
+- **stream/astream**: Streams output from a single input as it's produced.
+- **astream_log**: Streams output and selected intermediate results from an input.
+
+```py
+class Runnable(Generic[Input, Output], ABC):
+```
+
+```py
+    def bind(self, **kwargs: Any) -> Runnable[Input, Output]:
+        """
+        Bind arguments to a Runnable, returning a new Runnable.
+        """
+        return RunnableBinding(bound=self, kwargs=kwargs, config={})
+```
+
+### [RunnableBinding](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L4217)
+
+
+[example](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L4237-L4251):
+
+```py
+# Create a runnable binding that invokes the ChatModel with the
+# additional kwarg `stop=['-']` when running it.
+from langchain_community.chat_models import ChatOpenAI
+model = ChatOpenAI()
+model.invoke('Say "Parrot-MAGIC"', stop=['-']) # Should return `Parrot`
+# Using it the easy way via `bind` method which returns a new
+# RunnableBinding
+runnable_binding = model.bind(stop=['-'])
+runnable_binding.invoke('Say "Parrot-MAGIC"') # Should return `Parrot`
+```
+
 ## Idea
 
 人間の情報検索の無意識な思考を反映できるのではないか。

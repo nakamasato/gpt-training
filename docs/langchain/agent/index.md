@@ -5,6 +5,7 @@
 ## 1. Getting Started
 
 1. Create a tool that splits a given string with a comma and muliply them.
+
     ```py
     def multiplier(a, b):
         return a * b
@@ -14,6 +15,7 @@
         a, b = string.split(",")
         return multiplier(int(a), int(b))
     ```
+
 1. Write the usage in the description.
 
     ```py
@@ -239,8 +241,49 @@ tools = [
 agent = create_structured_chat_agent(llm, tools, prompt)
 ```
 
+## 4. Implementation
+
+### 4.1. [create_react_agent](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/langchain/langchain/agents/react/agent.py#L16)
+
+The function `create_react_agent` just combines the `llm`, `tools`, `prompt`, `output_parser` and `tools_renderer` with LCEL.
+
+1. An agent is just a `Runnable`.
+1. The key part is `llm_with_stop = llm.bind(stop=["\nObservation"])`.
+
+```py
+def create_react_agent(
+    llm: BaseLanguageModel,
+    tools: Sequence[BaseTool],
+    prompt: BasePromptTemplate,
+    output_parser: Optional[AgentOutputParser] = None,
+    tools_renderer: ToolsRenderer = render_text_description,
+) -> Runnable:
+    missing_vars = {"tools", "tool_names", "agent_scratchpad"}.difference(
+        prompt.input_variables
+    )
+    if missing_vars:
+        raise ValueError(f"Prompt missing required variables: {missing_vars}")
+
+    prompt = prompt.partial(
+        tools=tools_renderer(list(tools)),
+        tool_names=", ".join([t.name for t in tools]),
+    )
+    llm_with_stop = llm.bind(stop=["\nObservation"])
+    output_parser = output_parser or ReActSingleInputOutputParser()
+    agent = (
+        RunnablePassthrough.assign(
+            agent_scratchpad=lambda x: format_log_to_str(x["intermediate_steps"]),
+        )
+        | prompt
+        | llm_with_stop
+        | output_parser
+    )
+    return agent
+```
+
+
 ## 5. Ref
 
-1. https://python.langchain.com/docs/modules/agents/agent_types/structured_chat
-1. https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass
+1. [Structured chat](https://python.langchain.com/docs/modules/agents/agent_types/structured_chat)
+1. [Defining Custom Tools](https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass)
 1. [agent_structured.py](https://github.com/nakamasato/gpt-training/blob/main/src/examples/agent_structured.py)

@@ -1,5 +1,8 @@
 # Agent
 
+!!! warning
+    Please check [Agent](index.md) for the latest information.
+
 ## Overview
 
 1. `Agent`は基本`AgentExecutor`から実行される
@@ -10,8 +13,10 @@
 
 ![](react_custom.drawio.svg)
 
+## Implementation (Old)
 
-## Implementation
+!!! warning
+    Please check [Agent](index.md) for the latest information.
 
 ### [AgentExecutor](https://github.com/langchain-ai/langchain/blob/a2d30428237695f076060dec881bae0258123775/libs/langchain/langchain/agents/agent.py#L820)
 
@@ -20,6 +25,7 @@
 実行されるときは、初期化された`agent_executor("Jiraからパフォーマンステストに関するチケットを取得してください。")` という形で呼ばれ、`AgentExecutor`の継承元の[Chain.\_\_call\_\_()](https://github.com/langchain-ai/langchain/blob/a2d30428237695f076060dec881bae0258123775/libs/langchain/langchain/chains/base.py#L252-L287) が呼ばれ、[AgentExecutor._call](https://github.com/langchain-ai/langchain/blob/a2d30428237695f076060dec881bae0258123775/libs/langchain/langchain/agents/agent.py#L1293-L1338)がその中で呼ばれる。そして、この中で`Agent`の`plan`を呼ぶ。
 
 `Chain.__call__`:
+
 ```py
     def __call__(
         self,
@@ -148,9 +154,12 @@ agent_executor = initialize_agent(
 
 ### OutputParser
 
-TODO
+[output_parser](../06_output_parser.md)
 
-## Agent Types
+## Agent Types (Old)
+
+!!! warning
+    Please check [Agent](index.md) for the latest information.
 
 |Agent Type| Plan |Prompt |OutputParser | Link|
 |---|---|---|---|---|
