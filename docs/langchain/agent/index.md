@@ -2,6 +2,14 @@
 
 - [Concepts](https://python.langchain.com/docs/modules/agents/concepts)
 
+```py
+next_action = agent.get_action(...)
+while next_action != AgentFinish:
+    observation = run(next_action)
+    next_action = agent.get_action(..., next_action, observation)
+return next_action
+```
+
 ## 1. Getting Started
 
 1. Create a tool that splits a given string with a comma and muliply them.
@@ -250,37 +258,50 @@ The function `create_react_agent` just combines the `llm`, `tools`, `prompt`, `o
 1. An agent is just a `Runnable`.
 1. The key part is `llm_with_stop = llm.bind(stop=["\nObservation"])`.
 
-```py
-def create_react_agent(
-    llm: BaseLanguageModel,
-    tools: Sequence[BaseTool],
-    prompt: BasePromptTemplate,
-    output_parser: Optional[AgentOutputParser] = None,
-    tools_renderer: ToolsRenderer = render_text_description,
-) -> Runnable:
-    missing_vars = {"tools", "tool_names", "agent_scratchpad"}.difference(
-        prompt.input_variables
-    )
-    if missing_vars:
-        raise ValueError(f"Prompt missing required variables: {missing_vars}")
-
-    prompt = prompt.partial(
-        tools=tools_renderer(list(tools)),
-        tool_names=", ".join([t.name for t in tools]),
-    )
-    llm_with_stop = llm.bind(stop=["\nObservation"])
-    output_parser = output_parser or ReActSingleInputOutputParser()
-    agent = (
-        RunnablePassthrough.assign(
-            agent_scratchpad=lambda x: format_log_to_str(x["intermediate_steps"]),
+    ```py
+    def create_react_agent(
+        llm: BaseLanguageModel,
+        tools: Sequence[BaseTool],
+        prompt: BasePromptTemplate,
+        output_parser: Optional[AgentOutputParser] = None,
+        tools_renderer: ToolsRenderer = render_text_description,
+    ) -> Runnable:
+        missing_vars = {"tools", "tool_names", "agent_scratchpad"}.difference(
+            prompt.input_variables
         )
-        | prompt
-        | llm_with_stop
-        | output_parser
-    )
-    return agent
-```
+        if missing_vars:
+            raise ValueError(f"Prompt missing required variables: {missing_vars}")
 
+        prompt = prompt.partial(
+            tools=tools_renderer(list(tools)),
+            tool_names=", ".join([t.name for t in tools]),
+        )
+        llm_with_stop = llm.bind(stop=["\nObservation"])
+        output_parser = output_parser or ReActSingleInputOutputParser()
+        agent = (
+            RunnablePassthrough.assign(
+                agent_scratchpad=lambda x: format_log_to_str(x["intermediate_steps"]),
+            )
+            | prompt
+            | llm_with_stop
+            | output_parser
+        )
+        return agent
+    ```
+
+    1. Th prompt must have `tools`, `tool_names` and `agent_scratchpad` as input variables.
+        1. we ususally use a promp from `hub.pull("hwchase17/react-chat")` which has these variables. (see [prompt](prompt.md))
+    1. The agent needs to be called with `intermediate_steps` and `chat_history` as inputs.
+        ```py
+        agent.invoke({"input": "Who is Japan's prime minister?", "intermediate_steps": [], "chat_history": []})
+        ```
+1. `AgentExecutor` is used to run the agent.
+
+    ```py
+    agent_executor = AgentExecutor(agent=agent, tools=tools, memory=memory, verbose=True, handle_parsing_errors=False)
+    ```
+
+    For more details, please read [AgentExecutor](agent_executor.md).
 
 ## 5. Ref
 
