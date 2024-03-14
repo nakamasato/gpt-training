@@ -1022,19 +1022,20 @@ httplib2 = ">=0.19.0"
 
 [[package]]
 name = "google-generativeai"
-version = "0.3.2"
+version = "0.4.1"
 description = "Google Generative AI High level API client library and tools."
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "google_generativeai-0.3.2-py3-none-any.whl", hash = "sha256:8761147e6e167141932dc14a7b7af08f2310dd56668a78d206c19bb8bd85bcd7"},
+    {file = "google_generativeai-0.4.1-py3-none-any.whl", hash = "sha256:89be3c00c2e688108fccefc50f47f45fc9d37ecd53c1ade9d86b5d982919c24a"},
 ]
 
 [package.dependencies]
 google-ai-generativelanguage = "0.4.0"
 google-api-core = "*"
-google-auth = "*"
+google-auth = ">=2.15.0"
 protobuf = "*"
+pydantic = "*"
 tqdm = "*"
 typing-extensions = "*"
 
@@ -1569,17 +1570,17 @@ extended-testing = ["faker (>=19.3.1,<20.0.0)", "jinja2 (>=3,<4)", "pandas (>=2.
 
 [[package]]
 name = "langchain-google-genai"
-version = "0.0.9"
+version = "0.0.11"
 description = "An integration package connecting Google's genai package and LangChain"
 optional = false
 python-versions = ">=3.9,<4.0"
 files = [
-    {file = "langchain_google_genai-0.0.9-py3-none-any.whl", hash = "sha256:82c0ca9540132a59b09fc38ff249a2dd06f8a587ed37c291a4fe7678d5566d15"},
-    {file = "langchain_google_genai-0.0.9.tar.gz", hash = "sha256:466a228032bb06b0c1def822e57cbf2dfe9e4d1cc91dffa473a3025eb760f0ef"},
+    {file = "langchain_google_genai-0.0.11-py3-none-any.whl", hash = "sha256:7e42900bf6850f58a6f9088d885f450ca9a2653c17cee5c19f3599ac17a285bd"},
+    {file = "langchain_google_genai-0.0.11.tar.gz", hash = "sha256:378b080e90d7ea1d6164b65847c5b1053346bb0781e629de9c2a3e4bb725317a"},
 ]
 
 [package.dependencies]
-google-generativeai = ">=0.3.1,<0.4.0"
+google-generativeai = ">=0.4.1,<0.5.0"
 langchain-core = ">=0.1,<0.2"
 
 [package.extras]
@@ -4167,4 +4168,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "506efa0b3738ffc287aad024e248890428b2ab20f93191525fc146406b21b552"
+content-hash = "08b4a26ae57648b92202c50aad465113de8da3a33d12137f0f152df680673741"
