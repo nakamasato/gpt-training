@@ -145,3 +145,7 @@ runnable_binding.invoke('Say "Parrot-MAGIC"') # Should return `Parrot`
 1. チケットにする
 
 自分の作業　↔ 人とのやりとり
+
+## Ref
+
+1. https://medium.com/@twjjosiah/chain-loops-in-langchain-expression-language-lcel-a38894db0cee
