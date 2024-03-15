@@ -77,3 +77,4 @@ Details: https://ai.google.dev/pricing
 1. https://ai.google.dev/pricing
 1. https://makersuite.google.com/app/
 1. [[langchain] ChatGoogleGenerativeAI](https://python.langchain.com/docs/integrations/chat/google_generative_ai)
+1. https://qiita.com/nakamasato/items/b8d76da6751df8d7bddc
