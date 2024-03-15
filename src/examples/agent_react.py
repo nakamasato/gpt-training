@@ -27,7 +27,6 @@ def main():
         tools=tools,
         prompt=prompt,
     )
-
     print(
         agent.invoke(
             {
