@@ -53,4 +53,13 @@ if prompt := st.chat_input():
 poetry run streamlit run src/projects/apps/streamlit/chat_with_history.py
 ```
 
+!!! note
+    `langchain_community` had a [bug](https://github.com/langchain-ai/langchain/issues/18684) that was fixed in [this PR](https://github.com/langchain-ai/langchain/pull/18834).
+    I confirmed it works with the latest version of `langchain_community` (0.0.28).
+
+- https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history
+- https://github.com/streamlit/streamlit/issues/7290
+
+## Ref
+
 1. [社員1000人以上が使う、Streamlit in Google Cloudのサーバレスプラットフォームを完全内製してみた](https://nttdocomo-developers.jp/entry/20231212_2)
