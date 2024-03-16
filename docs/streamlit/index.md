@@ -53,10 +53,14 @@ if prompt := st.chat_input():
 poetry run streamlit run src/projects/apps/streamlit/chat_with_history.py
 ```
 
+!!! note
+    `langchain_community` had a bug that was fixed in [this PR](https://github.com/langchain-ai/langchain/pull/18834).
+    I confirmed it works with the latest version of `langchain_community` (0.0.28).
+
 - https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history
 - https://github.com/streamlit/streamlit/issues/7290
 - https://github.com/langchain-ai/langchain/issues/18684
-- https://github.com/langchain-ai/langchain/pull/18834
+-
 
 ## Ref
 
