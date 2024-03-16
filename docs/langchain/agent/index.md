@@ -305,6 +305,10 @@ The function `create_react_agent` just combines the `llm`, `tools`, `prompt`, `o
 
 ## 5. Ref
 
-1. [Structured chat](https://python.langchain.com/docs/modules/agents/agent_types/structured_chat)
+1. [Structured chat](https://python.langchain.com/docs/modules/agents/agent_types/structured_chat): capable of using multi-input tools
 1. [Defining Custom Tools](https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass)
 1. [agent_structured.py](https://github.com/nakamasato/gpt-training/blob/main/src/examples/agent_structured.py)
+1. [AgentExecutor](https://www.notion.so/AgentExecutor-e41aa3019b87492ab86b4cd8530e4b31?pvs=4)
+1. [Agent](https://www.notion.so/Agent-6bc0903c92b141ff92ad396b905ce0c8?pvs=4)
+1. [ReadOnlySharedMemory](https://github.com/langchain-ai/langchain/pull/1491/)
+1. [Custom agent with tool retrieval](https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval): ToolのDescriptionのEmbeddingを作って、Vector検索で使うツールを選択する

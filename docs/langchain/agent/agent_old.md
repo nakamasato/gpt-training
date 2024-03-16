@@ -1,4 +1,4 @@
-# Agent
+# Agent (Old)
 
 !!! warning
     Please check [Agent](index.md) for the latest information.
@@ -502,11 +502,3 @@ poetry run python src/langchain/agent_custom.py -e search
     ```
 
     </details>
-
-## Ref
-
-1. https://python.langchain.com/en/latest/modules/agents/tools/multi_input_tool.html
-1. [AgentExecutor](https://www.notion.so/AgentExecutor-e41aa3019b87492ab86b4cd8530e4b31?pvs=4)
-1. [Agent](https://www.notion.so/Agent-6bc0903c92b141ff92ad396b905ce0c8?pvs=4)
-1. [ReadOnlySharedMemory](https://github.com/langchain-ai/langchain/pull/1491/)
-1. [Custom agent with tool retrieval](https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval): ToolのDescriptionのEmbeddingを作って、Vector検索で使うツールを選択する
