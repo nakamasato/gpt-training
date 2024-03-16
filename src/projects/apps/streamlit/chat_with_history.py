@@ -1,10 +1,3 @@
-# streamlit
-
-## basic chat app with memory
-
-![](chat-with-history.gif)
-
-```py
 # https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history
 
 from langchain_community.chat_message_histories import (
@@ -47,10 +40,3 @@ if prompt := st.chat_input():
     config = {"configurable": {"session_id": "any"}}
     response = chain_with_history.invoke({"question": prompt}, config)
     st.chat_message("ai").write(response.content)
-```
-
-```
-poetry run streamlit run src/projects/apps/streamlit/chat_with_history.py
-```
-
-1. [社員1000人以上が使う、Streamlit in Google Cloudのサーバレスプラットフォームを完全内製してみた](https://nttdocomo-developers.jp/entry/20231212_2)
