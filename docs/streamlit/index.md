@@ -53,4 +53,11 @@ if prompt := st.chat_input():
 poetry run streamlit run src/projects/apps/streamlit/chat_with_history.py
 ```
 
+- https://python.langchain.com/docs/integrations/memory/streamlit_chat_message_history
+- https://github.com/streamlit/streamlit/issues/7290
+- https://github.com/langchain-ai/langchain/issues/18684
+- https://github.com/langchain-ai/langchain/pull/18834
+
+## Ref
+
 1. [社員1000人以上が使う、Streamlit in Google Cloudのサーバレスプラットフォームを完全内製してみた](https://nttdocomo-developers.jp/entry/20231212_2)
