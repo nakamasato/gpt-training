@@ -57,6 +57,7 @@ testpaths = [
 pythonpath = [
     "src",
 ]
+addopts = "--junitxml=pytest.xml --cov-report=term-missing --cov=src tests/ -vvv -s"
 env = [
     "ENV=test",
     "OPENAI_API_KEY=dummy",
