@@ -16,19 +16,16 @@ Details: https://ai.google.dev/pricing
     KEY_ID=gemini-api-key
     ```
 
-1. Enable service
+1. Enable service `generativelanguage.googleapis.com`
 
     ```
-    gcloud services list --available --project $PROJECT --filter 'aiplatform'
-    NAME                                                TITLE
-    aiplatform.googleapis.com                           Vertex AI API
-    contactcenteraiplatform.googleapis.com              Contact Center AI Platform API
-    ml.googleapis.com                                   AI Platform Training & Prediction API
-    scai-platform-2-scaidata.cloudpartnerservices.goog  ScaiData ScaiPlatform - Free Real-Time Business Intelligence & Analytics
+    gcloud services list --available --project $PROJECT --filter 'generativelanguage'
+    NAME                               TITLE
+    generativelanguage.googleapis.com  Generative Language API
     ```
 
     ```
-    gcloud services enable aiplatform.googleapis.com --project $PROJECT
+    gcloud services enable generativelanguage.googleapis.com --project $PROJECT
     ```
 
 1. Set alias ([ref](https://cloud.google.com/service-usage/docs/set-up-development-environment))
@@ -37,49 +34,38 @@ Details: https://ai.google.dev/pricing
     alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
     ```
 
-1. Create API key
+1. Create API key with API target restriction.
 
     ```
-    gcurl https://apikeys.googleapis.com/v2/projects/$PROJECT/locations/global/keys?keyId=$KEY_ID -X POST -d '{"displayName" : "Gemini API key"}'
-    ```
-
-1. Add restriction
-    ```
-    gcurl https://apikeys.googleapis.com/v2/projects/$PROJECT/locations/global/keys/$KEY_ID\?updateMask\=restrictions \
-      --request PATCH \
-      --data '{
-        "restrictions" : {
-          "browserKeyRestrictions": {
-            "allowedReferrers": "aiplatform.googleapis.com"
-          }
-        }
-      }'
+    DISPLAY_NAME="Gemini API Key"
+    gcloud services api-keys create --display-name "$DISPLAY_NAME" --project $PROJECT --api-target=service=generativelanguage.googleapis.com
     ```
 
 1. Check API Key
     ```
-    gcurl https://apikeys.googleapis.com/v2/projects/$PROJECT/locations/global/keys/$KEY_ID
+    gcloud services api-keys list --project $PROJECT --format json | jq ".[] | select(.displayName == \"$DISPLAY_NAME\")"
     {
-      "name": "projects/742402882542/locations/global/keys/gemini-api-key",
-      "displayName": "Gemini API key",
-      "createTime": "2024-02-10T07:42:35.909516Z",
-      "uid": "c0169fc9-ab4f-4e8d-b8b9-438dcf7f82ef",
-      "updateTime": "2024-02-10T08:08:22.817143Z",
+      "createTime": "2024-02-23T12:58:04.334290Z",
+      "displayName": "Gemini API Key",
+      "etag": "W/\"dMMHgHoJFaTkh6z89v139Q==\"",
+      "name": "projects/xxxxx/locations/global/keys/xxxxxxx",
       "restrictions": {
-        "browserKeyRestrictions": {
-          "allowedReferrers": [
-            "aiplatform.googleapis.com"
-          ]
-        }
+        "apiTargets": [
+          {
+            "service": "generativelanguage.googleapis.com"
+          }
+        ]
       },
-      "etag": "W/\"zMOkAKcUizsvNs3NdtX+sA==\""
+      "uid": "xxxxxxxxxxxxxxx",
+      "updateTime": "2024-02-23T12:58:04.358444Z"
     }
     ```
 
 1. Get Key string
 
     ```
-    gcurl https://apikeys.googleapis.com/v2/projects/$PROJECT/locations/global/keys/$KEY_ID/keyString
+    gcloud services api-keys get-key-string projects/xxxxxxx/locations/global/keys/xxxxxxxxxxxxxxxx --project $PROJECT
+    keyString: XXXXXXXXXXXXXXXXXXXXX
     ```
 
     Set this value in `.env`
@@ -91,3 +77,4 @@ Details: https://ai.google.dev/pricing
 1. https://ai.google.dev/pricing
 1. https://makersuite.google.com/app/
 1. [[langchain] ChatGoogleGenerativeAI](https://python.langchain.com/docs/integrations/chat/google_generative_ai)
+1. https://qiita.com/nakamasato/items/b8d76da6751df8d7bddc

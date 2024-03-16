@@ -2,9 +2,18 @@
 
 - [Concepts](https://python.langchain.com/docs/modules/agents/concepts)
 
+```py
+next_action = agent.get_action(...)
+while next_action != AgentFinish:
+    observation = run(next_action)
+    next_action = agent.get_action(..., next_action, observation)
+return next_action
+```
+
 ## 1. Getting Started
 
 1. Create a tool that splits a given string with a comma and muliply them.
+
     ```py
     def multiplier(a, b):
         return a * b
@@ -14,6 +23,7 @@
         a, b = string.split(",")
         return multiplier(int(a), int(b))
     ```
+
 1. Write the usage in the description.
 
     ```py
@@ -239,8 +249,66 @@ tools = [
 agent = create_structured_chat_agent(llm, tools, prompt)
 ```
 
+## 4. Implementation
+
+### 4.1. [create_react_agent](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/langchain/langchain/agents/react/agent.py#L16)
+
+The function `create_react_agent` just combines the `llm`, `tools`, `prompt`, `output_parser` and `tools_renderer` with LCEL.
+
+1. An agent is just a `Runnable`.
+1. The key part is `llm_with_stop = llm.bind(stop=["\nObservation"])`.
+
+    ```py
+    def create_react_agent(
+        llm: BaseLanguageModel,
+        tools: Sequence[BaseTool],
+        prompt: BasePromptTemplate,
+        output_parser: Optional[AgentOutputParser] = None,
+        tools_renderer: ToolsRenderer = render_text_description,
+    ) -> Runnable:
+        missing_vars = {"tools", "tool_names", "agent_scratchpad"}.difference(
+            prompt.input_variables
+        )
+        if missing_vars:
+            raise ValueError(f"Prompt missing required variables: {missing_vars}")
+
+        prompt = prompt.partial(
+            tools=tools_renderer(list(tools)),
+            tool_names=", ".join([t.name for t in tools]),
+        )
+        llm_with_stop = llm.bind(stop=["\nObservation"])
+        output_parser = output_parser or ReActSingleInputOutputParser()
+        agent = (
+            RunnablePassthrough.assign(
+                agent_scratchpad=lambda x: format_log_to_str(x["intermediate_steps"]),
+            )
+            | prompt
+            | llm_with_stop
+            | output_parser
+        )
+        return agent
+    ```
+
+    1. Th prompt must have `tools`, `tool_names` and `agent_scratchpad` as input variables.
+        1. we ususally use a promp from `hub.pull("hwchase17/react-chat")` which has these variables. (see [prompt](prompt.md))
+    1. The agent needs to be called with `intermediate_steps` and `chat_history` as inputs.
+        ```py
+        agent.invoke({"input": "Who is Japan's prime minister?", "intermediate_steps": [], "chat_history": []})
+        ```
+1. `AgentExecutor` is used to run the agent.
+
+    ```py
+    agent_executor = AgentExecutor(agent=agent, tools=tools, memory=memory, verbose=True, handle_parsing_errors=False)
+    ```
+
+    For more details, please read [AgentExecutor](agent_executor.md).
+
 ## 5. Ref
 
-1. https://python.langchain.com/docs/modules/agents/agent_types/structured_chat
-1. https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass
+1. [Structured chat](https://python.langchain.com/docs/modules/agents/agent_types/structured_chat): capable of using multi-input tools
+1. [Defining Custom Tools](https://python.langchain.com/docs/modules/agents/tools/custom_tools#structuredtool-dataclass)
 1. [agent_structured.py](https://github.com/nakamasato/gpt-training/blob/main/src/examples/agent_structured.py)
+1. [AgentExecutor](https://www.notion.so/AgentExecutor-e41aa3019b87492ab86b4cd8530e4b31?pvs=4)
+1. [Agent](https://www.notion.so/Agent-6bc0903c92b141ff92ad396b905ce0c8?pvs=4)
+1. [ReadOnlySharedMemory](https://github.com/langchain-ai/langchain/pull/1491/)
+1. [Custom agent with tool retrieval](https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval): ToolのDescriptionのEmbeddingを作って、Vector検索で使うツールを選択する

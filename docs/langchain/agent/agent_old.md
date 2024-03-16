@@ -1,4 +1,7 @@
-# Agent
+# Agent (Old)
+
+!!! warning
+    Please check [Agent](index.md) for the latest information.
 
 ## Overview
 
@@ -10,8 +13,10 @@
 
 ![](react_custom.drawio.svg)
 
+## Implementation (Old)
 
-## Implementation
+!!! warning
+    Please check [Agent](index.md) for the latest information.
 
 ### [AgentExecutor](https://github.com/langchain-ai/langchain/blob/a2d30428237695f076060dec881bae0258123775/libs/langchain/langchain/agents/agent.py#L820)
 
@@ -20,6 +25,7 @@
 実行されるときは、初期化された`agent_executor("Jiraからパフォーマンステストに関するチケットを取得してください。")` という形で呼ばれ、`AgentExecutor`の継承元の[Chain.\_\_call\_\_()](https://github.com/langchain-ai/langchain/blob/a2d30428237695f076060dec881bae0258123775/libs/langchain/langchain/chains/base.py#L252-L287) が呼ばれ、[AgentExecutor._call](https://github.com/langchain-ai/langchain/blob/a2d30428237695f076060dec881bae0258123775/libs/langchain/langchain/agents/agent.py#L1293-L1338)がその中で呼ばれる。そして、この中で`Agent`の`plan`を呼ぶ。
 
 `Chain.__call__`:
+
 ```py
     def __call__(
         self,
@@ -148,9 +154,12 @@ agent_executor = initialize_agent(
 
 ### OutputParser
 
-TODO
+[output_parser](../06_output_parser.md)
 
-## Agent Types
+## Agent Types (Old)
+
+!!! warning
+    Please check [Agent](index.md) for the latest information.
 
 |Agent Type| Plan |Prompt |OutputParser | Link|
 |---|---|---|---|---|
@@ -493,11 +502,3 @@ poetry run python src/langchain/agent_custom.py -e search
     ```
 
     </details>
-
-## Ref
-
-1. https://python.langchain.com/en/latest/modules/agents/tools/multi_input_tool.html
-1. [AgentExecutor](https://www.notion.so/AgentExecutor-e41aa3019b87492ab86b4cd8530e4b31?pvs=4)
-1. [Agent](https://www.notion.so/Agent-6bc0903c92b141ff92ad396b905ce0c8?pvs=4)
-1. [ReadOnlySharedMemory](https://github.com/langchain-ai/langchain/pull/1491/)
-1. [Custom agent with tool retrieval](https://python.langchain.com/docs/modules/agents/how_to/custom_agent_with_tool_retrieval): ToolのDescriptionのEmbeddingを作って、Vector検索で使うツールを選択する
