@@ -1636,13 +1636,13 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.0.29"
+version = "0.0.30"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.29-py3-none-any.whl", hash = "sha256:ebb308f0afeffda6cc929c466aacfca73a7b561d4ba3fc190202c7bd3905702d"},
-    {file = "langgraph-0.0.29.tar.gz", hash = "sha256:12be459587ca7e753f06e94917028d54c7359664e0a04a8cedb0a7b595c4c996"},
+    {file = "langgraph-0.0.30-py3-none-any.whl", hash = "sha256:835d34d66d1ec1cad1825eee682f0c8a85edfd591ab552706a4f4211a3119b88"},
+    {file = "langgraph-0.0.30.tar.gz", hash = "sha256:58bb9faf081fdb4490cda8cef4421b01b64b241df92c5556c327b2c83cfd5e0f"},
 ]
 
 [package.dependencies]
@@ -4168,4 +4168,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "c36cd9c08ce276518a5b099549be307b351ec5ad717875c25c13b058b89c8103"
+content-hash = "dbd5fec60efccb2ba71fd841e15c1940504c1dd39841fedf23b8d0e46016134b"
