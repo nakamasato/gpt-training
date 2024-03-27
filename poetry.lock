@@ -1571,13 +1571,13 @@ extended-testing = ["faker (>=19.3.1,<20.0.0)", "jinja2 (>=3,<4)", "pandas (>=2.
 
 [[package]]
 name = "langchain-google-genai"
-version = "0.0.11"
+version = "1.0.1"
 description = "An integration package connecting Google's genai package and LangChain"
 optional = false
-python-versions = ">=3.9,<4.0"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_google_genai-0.0.11-py3-none-any.whl", hash = "sha256:7e42900bf6850f58a6f9088d885f450ca9a2653c17cee5c19f3599ac17a285bd"},
-    {file = "langchain_google_genai-0.0.11.tar.gz", hash = "sha256:378b080e90d7ea1d6164b65847c5b1053346bb0781e629de9c2a3e4bb725317a"},
+    {file = "langchain_google_genai-1.0.1-py3-none-any.whl", hash = "sha256:c59e7f49b3afb3d6d25366f83d47319e6825c8f0a9b95f4a591687dcb18862c0"},
+    {file = "langchain_google_genai-1.0.1.tar.gz", hash = "sha256:43b80ed2fbae3495381a4ed9d3978067c467fd5e5cf123aeaed79a9998b6e54a"},
 ]
 
 [package.dependencies]
@@ -4169,4 +4169,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "fa7db341e47fd5fb6c934ffb6d5dff148afaca36005870fe3b74f2d25858f1dc"
+content-hash = "4f9505ac49ba6a9e6300f2903d1fbc176d93b649edd9f23477f8dc88937d4000"
