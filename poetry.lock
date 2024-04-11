@@ -1640,17 +1640,17 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.0.34"
+version = "0.0.36"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.34-py3-none-any.whl", hash = "sha256:6415be72e273385452fdf7b13ecf63dc59157414a6a4d34876a2acf064db0fa5"},
-    {file = "langgraph-0.0.34.tar.gz", hash = "sha256:67e2819b86563b8e4f6d3bc58179f2a179ad07756a468135206fff903fa18ae9"},
+    {file = "langgraph-0.0.36-py3-none-any.whl", hash = "sha256:4396e3edbcce2e754c99ccc6c9b19847f987a401b5667a3e45c79d8b04f35701"},
+    {file = "langgraph-0.0.36.tar.gz", hash = "sha256:342edc503fd8177258f6ac890c64256b656c7d99812f217dc8240165863dec43"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.1.38,<0.2.0"
+langchain-core = ">=0.1.42,<0.2.0"
 
 [[package]]
 name = "langsmith"
@@ -4174,4 +4174,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "1606a09dc48c18d87d80d96807b3bf3ed1dd4058e6d1d0a93b5d6ca37f190396"
+content-hash = "d16af73129b94fd1b2d4dfb4b862bfbe4ff7616bb3c65f5448152b2b531ea223"
