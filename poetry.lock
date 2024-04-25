@@ -1534,13 +1534,13 @@ extended-testing = ["aiosqlite (>=0.19.0,<0.20.0)", "aleph-alpha-client (>=2.15.
 
 [[package]]
 name = "langchain-core"
-version = "0.1.45"
+version = "0.1.46"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_core-0.1.45-py3-none-any.whl", hash = "sha256:91eff20de0bcf5f025e1d8c4582cb597a9c17527965eb03b314486e7c834e7df"},
-    {file = "langchain_core-0.1.45.tar.gz", hash = "sha256:526532c1af279a9e2debe7a4e143ba6e980cf90b5ab2e0991c2230ee04c693e2"},
+    {file = "langchain_core-0.1.46-py3-none-any.whl", hash = "sha256:1c0befcd2665dd4aa153318aa9bf729071644b4c179e491769b8e583b4bf7441"},
+    {file = "langchain_core-0.1.46.tar.gz", hash = "sha256:17c416349f5c7a9808e70e3725749a3a2df5088f1ecca045c883871aa95f9c9e"},
 ]
 
 [package.dependencies]
@@ -1640,17 +1640,17 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.0.38"
+version = "0.0.39"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.38-py3-none-any.whl", hash = "sha256:8b26f025f2163019cb38e677f6cef8d8f944e791f7ddb84402c211e7432e8330"},
-    {file = "langgraph-0.0.38.tar.gz", hash = "sha256:c13ce73c4764787e31f20854ebae505140ee5b750e8ba07c29e45969ce591c7b"},
+    {file = "langgraph-0.0.39-py3-none-any.whl", hash = "sha256:acb4bae704a9467ba5e07c892174f345651b4c930853a37cb4ceab7964cf8222"},
+    {file = "langgraph-0.0.39.tar.gz", hash = "sha256:cafcc8254b41bae55c4429b7925af83c846fd5e4c24159d1e03b98b2ca7c79a9"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.1.42,<0.2.0"
+langchain-core = ">=0.1.46,<0.2.0"
 
 [[package]]
 name = "langsmith"
@@ -4190,4 +4190,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "89ff8cb1c35dd897f957b62f5196125b25c4bdb5b97f5c6b97e5a432ba7ae05e"
+content-hash = "242c46e12fa6a8e9c279c0167ce0a663878c6821fc8940e95f41a5108b5730bc"
