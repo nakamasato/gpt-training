@@ -9,3 +9,4 @@ pytest.xml
 experiment/gpt-engineer/sample/
 .venv
 pytest-coverage.txt
+*.mov

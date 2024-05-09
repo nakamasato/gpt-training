@@ -474,25 +474,25 @@ poetry run python src/langchain/agent_custom.py -e search
     <details>
 
     ```
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/python/search/libs/multiturn_agent.py", line 640, in <module>
+      File "/Users/m.naka/repos/nakamasato/gpt-training/python/search/libs/multiturn_agent.py", line 640, in <module>
         ai = agent.run(input=user)
              ^^^^^^^^^^^^^^^^^^^^^
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/langchain/chains/base.py", line 512, in run
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/langchain/chains/base.py", line 512, in run
         return self(kwargs, callbacks=callbacks, tags=tags, metadata=metadata)[
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/langchain/chains/base.py", line 314, in __call__
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/langchain/chains/base.py", line 314, in __call__
         final_outputs: Dict[str, Any] = self.prep_outputs(
                                         ^^^^^^^^^^^^^^^^^^
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/langchain/chains/base.py", line 410, in prep_outputs
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/langchain/chains/base.py", line 410, in prep_outputs
         self.memory.save_context(inputs, outputs)
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/langchain/memory/chat_memory.py", line 39, in save_context
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/langchain/memory/chat_memory.py", line 39, in save_context
         self.chat_memory.add_ai_message(output_str)
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/langchain_core/chat_history.py", line 59, in add_ai_message
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/langchain_core/chat_history.py", line 59, in add_ai_message
         self.add_message(AIMessage(content=message))
                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/langchain_core/load/serializable.py", line 97, in __init__
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/langchain_core/load/serializable.py", line 97, in __init__
         super().__init__(**kwargs)
-      File "/Users/m.naka/repos/kouzoh/kouzoh-p-naka/.venv/lib/python3.11/site-packages/pydantic/v1/main.py", line 341, in __init__
+      File "/Users/m.naka/repos/nakamasato/gpt-training/.venv/lib/python3.11/site-packages/pydantic/v1/main.py", line 341, in __init__
         raise validation_error
     pydantic.v1.error_wrappers.ValidationError: 2 validation errors for AIMessage
     content
