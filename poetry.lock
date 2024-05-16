@@ -1565,18 +1565,18 @@ extended-testing = ["faker (>=19.3.1,<20.0.0)", "jinja2 (>=3,<4)", "pandas (>=2.
 
 [[package]]
 name = "langchain-google-genai"
-version = "1.0.3"
+version = "1.0.4"
 description = "An integration package connecting Google's genai package and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_google_genai-1.0.3-py3-none-any.whl", hash = "sha256:423fde5888ca9800fe6944a2f4ea5ed34cb9b37908092d9228f700ceefa365d8"},
-    {file = "langchain_google_genai-1.0.3.tar.gz", hash = "sha256:c575782e7f5e48b93c061a20e8dc5c9549aeb526180a6bef4e057e80f07b821c"},
+    {file = "langchain_google_genai-1.0.4-py3-none-any.whl", hash = "sha256:e567cc401f8d629fce489ee031d258da7fa4b7da0abb8ed926d6990c650b659e"},
+    {file = "langchain_google_genai-1.0.4.tar.gz", hash = "sha256:b6beccfe7504ce9f8778a8df23dc49239fd91cf076a55d61759a09fc1373ca26"},
 ]
 
 [package.dependencies]
 google-generativeai = ">=0.5.2,<0.6.0"
-langchain-core = ">=0.1.45,<0.2"
+langchain-core = ">=0.1.45,<0.3"
 
 [package.extras]
 images = ["pillow (>=10.1.0,<11.0.0)"]
