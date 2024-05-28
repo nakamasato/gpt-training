@@ -50,6 +50,8 @@
 ## App
 
 1. [つくりながら学ぶ！AIアプリ開発入門 - LangChain & Streamlit による ChatGPT API 徹底活用](https://zenn.dev/ml_bear/books/d1f060a3f166a5)
+1. [LangChain `with_structured_output` メソッドによる構造化データ抽出](https://zenn.dev/ml_bear/articles/cb07549ec52175)
+1. [社内のデータアプリケーションをStreamlit + Cloud Runで実現する](https://zenn.dev/atamaplus/articles/6fbbd3362fbc66)
 1. [Streamlit with Google Cloud: Hello, world!](https://zenn.dev/google_cloud_jp/articles/streamlit-01-hello)
 1. [Streamlit with Google Cloud: Firebase 認証](https://zenn.dev/google_cloud_jp/articles/streamlit-02-firebase)
 1. [Streamlit with Google Cloud: GitHub、GitLab、Cloud Build での CI/CD](https://zenn.dev/google_cloud_jp/articles/streamlit-04-cicd)
