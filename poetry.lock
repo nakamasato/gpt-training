@@ -1616,13 +1616,13 @@ extended-testing = ["beautifulsoup4 (>=4.12.3,<5.0.0)", "lxml (>=4.9.3,<6.0)"]
 
 [[package]]
 name = "langchainhub"
-version = "0.1.17"
+version = "0.1.18"
 description = "The LangChain Hub API client"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchainhub-0.1.17-py3-none-any.whl", hash = "sha256:4c609b3948252c71670f0d98f73413b515cfd2f6701a7b40ce959203e6133e04"},
-    {file = "langchainhub-0.1.17.tar.gz", hash = "sha256:af7df0cb1cebc7a6e0864e8632ae48ecad39ed96568f699c78657b9d04e50b46"},
+    {file = "langchainhub-0.1.18-py3-none-any.whl", hash = "sha256:11501f15e7f34715ecc8892587daa35c6f2a3005e1f2926c9bcabd31fc2c100c"},
+    {file = "langchainhub-0.1.18.tar.gz", hash = "sha256:f2d0d8bf3abe4ca5e70511d8220bdc9ccea28d5267bcfd0e5ef9c53bd5bd3bad"},
 ]
 
 [package.dependencies]
