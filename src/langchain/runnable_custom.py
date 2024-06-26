@@ -5,7 +5,6 @@ from langchain_openai import ChatOpenAI
 from operator import itemgetter
 
 df = pd.read_csv("data/titanic.csv")
-print(df)
 
 
 def get_survived(df):
@@ -68,4 +67,24 @@ def example_runnable_assign():
     print(runnable.invoke({"table": "titanic", "column": "Survived", "value": 1, "title": "Graph Title"}))
 
 
-example_runnable_assign()
+def example_runnable_parallel():
+    """Use batch result as input for the next invoke
+          parallel ->
+        /            \
+        - parallel -> -> summarize
+    """
+    parallel = RunnableParallel(
+        batch_result=RunnableLambda(lambda x: f"SELECT * FROM {x['table']} WHERE {x['column']} = {x['value']}"),
+        batch_result2=RunnableLambda(lambda x: f"SELECT * FROM {x['table']} WHERE {x['column']} = {x['value']}"),
+    )
+
+    print(parallel.invoke({"table": "titanic", "column": "survived", "value": 1}))
+    chain = parallel | RunnableLambda(lambda x: "\n".join([v for k, v in x.items()]))
+    print(chain.invoke({"table": "titanic", "column": "survived", "value": 1}))
+    print(chain.batch([{"table": "titanic", "column": "Survived", "value": 1}, {"table": "titanic", "column": "Survived", "value": 0}]))
+
+
+# example_runnable_parallel()
+
+chain = itemgetter("lst") | RunnableLambda(lambda x: {i: e for i, e in enumerate(x)})
+print(chain.invoke({"lst": ["1", "2", "3"]}))
