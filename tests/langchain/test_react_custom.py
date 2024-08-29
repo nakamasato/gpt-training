@@ -1,6 +1,6 @@
 from langchain.agents import AgentExecutor
-from langchain.llms.fake import FakeListLLM
 from src.langchain.react_custom import ReActTestAgent, tools
+from langchain_community.llms import FakeListLLM
 
 
 def test_main():

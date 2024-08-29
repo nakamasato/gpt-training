@@ -819,6 +819,26 @@ paramiko = ["paramiko"]
 pgp = ["gpg"]
 
 [[package]]
+name = "fastapi"
+version = "0.112.2"
+description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "fastapi-0.112.2-py3-none-any.whl", hash = "sha256:db84b470bd0e2b1075942231e90e3577e12a903c4dc8696f0d206a7904a7af1c"},
+    {file = "fastapi-0.112.2.tar.gz", hash = "sha256:3d4729c038414d5193840706907a41839d839523da6ed0c2811f1168cac1798c"},
+]
+
+[package.dependencies]
+pydantic = ">=1.7.4,<1.8 || >1.8,<1.8.1 || >1.8.1,<2.0.0 || >2.0.0,<2.0.1 || >2.0.1,<2.1.0 || >2.1.0,<3.0.0"
+starlette = ">=0.37.2,<0.39.0"
+typing-extensions = ">=4.8.0"
+
+[package.extras]
+all = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.7)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
+standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "jinja2 (>=2.11.2)", "python-multipart (>=0.0.7)", "uvicorn[standard] (>=0.12.0)"]
+
+[[package]]
 name = "fastjsonschema"
 version = "2.20.0"
 description = "Fastest Python implementation of JSON schema"
@@ -1624,6 +1644,25 @@ qdrant = ["qdrant-client (>=1.3.1,<2.0.0)"]
 text-helpers = ["chardet (>=5.1.0,<6.0.0)"]
 
 [[package]]
+name = "langchain-cli"
+version = "0.0.30"
+description = "CLI for interacting with LangChain"
+optional = false
+python-versions = "<4.0,>=3.8.1"
+files = [
+    {file = "langchain_cli-0.0.30-py3-none-any.whl", hash = "sha256:78fdf84fb7dbbcb44801de2fd55c6af448b48ab7f9897c70a3db8d926eb51a5c"},
+    {file = "langchain_cli-0.0.30.tar.gz", hash = "sha256:7723720b601fdee245978da60d207f433418da7659f03f0673ad4598c845eb76"},
+]
+
+[package.dependencies]
+gitpython = ">=3.1.40,<4.0.0"
+langserve = {version = ">=0.0.51", extras = ["all"]}
+libcst = {version = ">=1.3.1,<2.0.0", markers = "python_version >= \"3.9\" and python_version < \"4.0\""}
+tomlkit = ">=0.12.2,<0.13.0"
+typer = {version = ">=0.9.0,<0.10.0", extras = ["all"]}
+uvicorn = ">=0.23.2,<0.24.0"
+
+[[package]]
 name = "langchain-community"
 version = "0.0.38"
 description = "Community contributed LangChain integrations."
@@ -1771,6 +1810,31 @@ files = [
 langchain-core = ">=0.1.52,<0.2.0"
 
 [[package]]
+name = "langserve"
+version = "0.2.2"
+description = ""
+optional = false
+python-versions = "<4.0.0,>=3.8.1"
+files = [
+    {file = "langserve-0.2.2-py3-none-any.whl", hash = "sha256:e2b1b4b5b6108a82a38e5a54468737a07ca21f448174ec594992bc6d215a14f5"},
+    {file = "langserve-0.2.2.tar.gz", hash = "sha256:8df558c157718963c647c6f7ec302f75811c88585f1f3a34d65662e1962c1957"},
+]
+
+[package.dependencies]
+fastapi = {version = ">=0.90.1,<1", optional = true, markers = "extra == \"client\" or extra == \"server\" or extra == \"all\""}
+httpx = ">=0.23.0"
+langchain-core = ">=0.1,<0.3"
+orjson = ">=2"
+pydantic = ">=1"
+pyproject-toml = ">=0.0.10,<0.0.11"
+sse-starlette = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"server\" or extra == \"all\""}
+
+[package.extras]
+all = ["fastapi (>=0.90.1,<1)", "sse-starlette (>=1.3.0,<2.0.0)"]
+client = ["fastapi (>=0.90.1,<1)"]
+server = ["fastapi (>=0.90.1,<1)", "sse-starlette (>=1.3.0,<2.0.0)"]
+
+[[package]]
 name = "langsmith"
 version = "0.1.104"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
@@ -1789,6 +1853,46 @@ pydantic = [
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
 ]
 requests = ">=2,<3"
+
+[[package]]
+name = "libcst"
+version = "1.4.0"
+description = "A concrete syntax tree with AST-like properties for Python 3.0 through 3.12 programs."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "libcst-1.4.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:279b54568ea1f25add50ea4ba3d76d4f5835500c82f24d54daae4c5095b986aa"},
+    {file = "libcst-1.4.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:3401dae41fe24565387a65baee3887e31a44e3e58066b0250bc3f3ccf85b1b5a"},
+    {file = "libcst-1.4.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d1989fa12d3cd79118ebd29ebe2a6976d23d509b1a4226bc3d66fcb7cb50bd5d"},
+    {file = "libcst-1.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:addc6d585141a7677591868886f6bda0577529401a59d210aa8112114340e129"},
+    {file = "libcst-1.4.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:17d71001cb25e94cfe8c3d997095741a8c4aa7a6d234c0f972bc42818c88dfaf"},
+    {file = "libcst-1.4.0-cp310-cp310-win_amd64.whl", hash = "sha256:2d47de16d105e7dd5f4e01a428d9f4dc1e71efd74f79766daf54528ce37f23c3"},
+    {file = "libcst-1.4.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:e6227562fc5c9c1efd15dfe90b0971ae254461b8b6b23c1b617139b6003de1c1"},
+    {file = "libcst-1.4.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:3399e6c95df89921511b44d8c5bf6a75bcbc2d51f1f6429763609ba005c10f6b"},
+    {file = "libcst-1.4.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:48601e3e590e2d6a7ab8c019cf3937c70511a78d778ab3333764531253acdb33"},
+    {file = "libcst-1.4.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f42797309bb725f0f000510d5463175ccd7155395f09b5e7723971b0007a976d"},
+    {file = "libcst-1.4.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:cb4e42ea107a37bff7f9fdbee9532d39f9ea77b89caa5c5112b37057b12e0838"},
+    {file = "libcst-1.4.0-cp311-cp311-win_amd64.whl", hash = "sha256:9d0cc3c5a2a51fa7e1d579a828c0a2e46b2170024fd8b1a0691c8a52f3abb2d9"},
+    {file = "libcst-1.4.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:7ece51d935bc9bf60b528473d2e5cc67cbb88e2f8146297e40ee2c7d80be6f13"},
+    {file = "libcst-1.4.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:81653dea1cdfa4c6520a7c5ffb95fa4d220cbd242e446c7a06d42d8636bfcbba"},
+    {file = "libcst-1.4.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f6abce0e66bba2babfadc20530fd3688f672d565674336595b4623cd800b91ef"},
+    {file = "libcst-1.4.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5da9d7dc83801aba3b8d911f82dc1a375db0d508318bad79d9fb245374afe068"},
+    {file = "libcst-1.4.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7c54aa66c86d8ece9c93156a2cf5ca512b0dce40142fe9e072c86af2bf892411"},
+    {file = "libcst-1.4.0-cp312-cp312-win_amd64.whl", hash = "sha256:62e2682ee1567b6a89c91853865372bf34f178bfd237853d84df2b87b446e654"},
+    {file = "libcst-1.4.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:b8ecdba8934632b4dadacb666cd3816627a6ead831b806336972ccc4ba7ca0e9"},
+    {file = "libcst-1.4.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:8e54c777b8d27339b70f304d16fc8bc8674ef1bd34ed05ea874bf4921eb5a313"},
+    {file = "libcst-1.4.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:061d6855ef30efe38b8a292b7e5d57c8e820e71fc9ec9846678b60a934b53bbb"},
+    {file = "libcst-1.4.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bb0abf627ee14903d05d0ad9b2c6865f1b21eb4081e2c7bea1033f85db2b8bae"},
+    {file = "libcst-1.4.0-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d024f44059a853b4b852cfc04fec33e346659d851371e46fc8e7c19de24d3da9"},
+    {file = "libcst-1.4.0-cp39-cp39-win_amd64.whl", hash = "sha256:3c6a8faab9da48c5b371557d0999b4ca51f4f2cbd37ee8c2c4df0ac01c781465"},
+    {file = "libcst-1.4.0.tar.gz", hash = "sha256:449e0b16604f054fa7f27c3ffe86ea7ef6c409836fe68fe4e752a1894175db00"},
+]
+
+[package.dependencies]
+pyyaml = ">=5.2"
+
+[package.extras]
+dev = ["Sphinx (>=5.1.1)", "black (==23.12.1)", "build (>=0.10.0)", "coverage (>=4.5.4)", "fixit (==2.1.0)", "flake8 (==7.0.0)", "hypothesis (>=4.36.0)", "hypothesmith (>=0.0.4)", "jinja2 (==3.1.4)", "jupyter (>=1.0.0)", "maturin (>=0.8.3,<1.6)", "nbsphinx (>=0.4.2)", "prompt-toolkit (>=2.0.9)", "pyre-check (==0.9.18)", "setuptools-rust (>=1.5.2)", "setuptools-scm (>=6.0.1)", "slotscheck (>=0.7.1)", "sphinx-rtd-theme (>=0.4.3)", "ufmt (==2.6.0)", "usort (==1.0.8.post1)"]
 
 [[package]]
 name = "markdown"
@@ -3069,6 +3173,23 @@ files = [
 ]
 
 [[package]]
+name = "pyproject-toml"
+version = "0.0.10"
+description = "Project intend to implement PEP 517, 518, 621, 631 and so on."
+optional = false
+python-versions = "*"
+files = [
+    {file = "pyproject-toml-0.0.10.tar.gz", hash = "sha256:f0ce0e9934ecb00c0e529b4a1c380edd3034c4be65516769c5f080bdb23dfcb3"},
+    {file = "pyproject_toml-0.0.10-py3-none-any.whl", hash = "sha256:257a7070617e1a0bcfd8f790817b30bd9193876023a9b9e7a6b4fc976acf4c3e"},
+]
+
+[package.dependencies]
+jsonschema = "*"
+setuptools = ">=42"
+toml = "*"
+wheel = "*"
+
+[[package]]
 name = "pytest"
 version = "8.3.2"
 description = "pytest: simple powerful testing with Python"
@@ -3694,6 +3815,26 @@ cryptography = ">=2.0"
 jeepney = ">=0.6"
 
 [[package]]
+name = "setuptools"
+version = "74.0.0"
+description = "Easily download, build, install, upgrade, and uninstall Python packages"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "setuptools-74.0.0-py3-none-any.whl", hash = "sha256:0274581a0037b638b9fc1c6883cc71c0210865aaa76073f7882376b641b84e8f"},
+    {file = "setuptools-74.0.0.tar.gz", hash = "sha256:a85e96b8be2b906f3e3e789adec6a9323abf79758ecfa3065bd740d81158b11e"},
+]
+
+[package.extras]
+check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1)", "ruff (>=0.5.2)"]
+core = ["importlib-metadata (>=6)", "importlib-resources (>=5.10.2)", "jaraco.text (>=3.7)", "more-itertools (>=8.8)", "packaging (>=24)", "platformdirs (>=2.6.2)", "tomli (>=2.0.1)", "wheel (>=0.43.0)"]
+cover = ["pytest-cov"]
+doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
+enabler = ["pytest-enabler (>=2.2)"]
+test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test", "packaging (>=23.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
+type = ["importlib-metadata (>=7.0.2)", "jaraco.develop (>=7.21)", "mypy (==1.11.*)", "pytest-mypy"]
+
+[[package]]
 name = "shellingham"
 version = "1.5.4"
 description = "Tool to Detect Surrounding Shell"
@@ -3836,6 +3977,40 @@ pymysql = ["pymysql"]
 sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
+name = "sse-starlette"
+version = "1.8.2"
+description = "SSE plugin for Starlette"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "sse_starlette-1.8.2-py3-none-any.whl", hash = "sha256:70cc7ef5aca4abe8a25dec1284cce4fe644dd7bf0c406d3e852e516092b7f849"},
+    {file = "sse_starlette-1.8.2.tar.gz", hash = "sha256:e0f9b8dec41adc092a0a6e0694334bd3cfd3084c44c497a6ebc1fb4bdd919acd"},
+]
+
+[package.dependencies]
+anyio = "*"
+fastapi = "*"
+starlette = "*"
+uvicorn = "*"
+
+[[package]]
+name = "starlette"
+version = "0.38.2"
+description = "The little ASGI library that shines."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "starlette-0.38.2-py3-none-any.whl", hash = "sha256:4ec6a59df6bbafdab5f567754481657f7ed90dc9d69b0c9ff017907dd54faeff"},
+    {file = "starlette-0.38.2.tar.gz", hash = "sha256:c7c0441065252160993a1a37cf2a73bb64d271b17303e0b0c1eb7191cfb12d75"},
+]
+
+[package.dependencies]
+anyio = ">=3.4.0,<5"
+
+[package.extras]
+full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart (>=0.0.7)", "pyyaml"]
+
+[[package]]
 name = "streamlit"
 version = "1.38.0"
 description = "A faster way to build and share data apps"
@@ -3964,13 +4139,13 @@ files = [
 
 [[package]]
 name = "tomlkit"
-version = "0.13.2"
+version = "0.12.5"
 description = "Style preserving TOML library"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.7"
 files = [
-    {file = "tomlkit-0.13.2-py3-none-any.whl", hash = "sha256:7a974427f6e119197f670fbbbeae7bef749a6c14e793db934baefc1b5f03efde"},
-    {file = "tomlkit-0.13.2.tar.gz", hash = "sha256:fff5fe59a87295b278abd31bec92c15d9bc4a06885ab12bcea52c71119392e79"},
+    {file = "tomlkit-0.12.5-py3-none-any.whl", hash = "sha256:af914f5a9c59ed9d0762c7b64d3b5d5df007448eb9cd2edc8a46b1eafead172f"},
+    {file = "tomlkit-0.12.5.tar.gz", hash = "sha256:eef34fba39834d4d6b73c9ba7f3e4d1c417a4e56f89a7e96e090dd0d24b8fb3c"},
 ]
 
 [[package]]
@@ -4023,6 +4198,30 @@ files = [
     {file = "trove_classifiers-2024.7.2-py3-none-any.whl", hash = "sha256:ccc57a33717644df4daca018e7ec3ef57a835c48e96a1e71fc07eb7edac67af6"},
     {file = "trove_classifiers-2024.7.2.tar.gz", hash = "sha256:8328f2ac2ce3fd773cbb37c765a0ed7a83f89dc564c7d452f039b69249d0ac35"},
 ]
+
+[[package]]
+name = "typer"
+version = "0.9.4"
+description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "typer-0.9.4-py3-none-any.whl", hash = "sha256:aa6c4a4e2329d868b80ecbaf16f807f2b54e192209d7ac9dd42691d63f7a54eb"},
+    {file = "typer-0.9.4.tar.gz", hash = "sha256:f714c2d90afae3a7929fcd72a3abb08df305e1ff61719381384211c4070af57f"},
+]
+
+[package.dependencies]
+click = ">=7.1.1,<9.0.0"
+colorama = {version = ">=0.4.3,<0.5.0", optional = true, markers = "extra == \"all\""}
+rich = {version = ">=10.11.0,<14.0.0", optional = true, markers = "extra == \"all\""}
+shellingham = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"all\""}
+typing-extensions = ">=3.7.4.3"
+
+[package.extras]
+all = ["colorama (>=0.4.3,<0.5.0)", "rich (>=10.11.0,<14.0.0)", "shellingham (>=1.3.0,<2.0.0)"]
+dev = ["autoflake (>=1.3.1,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)", "pre-commit (>=2.17.0,<3.0.0)"]
+doc = ["cairosvg (>=2.5.2,<3.0.0)", "mdx-include (>=1.4.1,<2.0.0)", "mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=8.1.4,<9.0.0)", "pillow (>=9.3.0,<10.0.0)"]
+test = ["black (>=22.3.0,<23.0.0)", "coverage (>=6.2,<7.0)", "isort (>=5.0.6,<6.0.0)", "mypy (==0.971)", "pytest (>=4.4.0,<8.0.0)", "pytest-cov (>=2.10.0,<5.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "pytest-xdist (>=1.32.0,<4.0.0)", "rich (>=10.11.0,<14.0.0)", "shellingham (>=1.3.0,<2.0.0)"]
 
 [[package]]
 name = "types-requests"
@@ -4104,6 +4303,24 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "uvicorn"
+version = "0.23.2"
+description = "The lightning-fast ASGI server."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "uvicorn-0.23.2-py3-none-any.whl", hash = "sha256:1f9be6558f01239d4fdf22ef8126c39cb1ad0addf76c40e760549d2c2f43ab53"},
+    {file = "uvicorn-0.23.2.tar.gz", hash = "sha256:4d3cc12d7727ba72b64d12d3cc7743124074c0a69f7b201512fc50c3e3f1569a"},
+]
+
+[package.dependencies]
+click = ">=7.0"
+h11 = ">=0.8"
+
+[package.extras]
+standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)", "pyyaml (>=5.1)", "uvloop (>=0.14.0,!=0.15.0,!=0.15.1)", "watchfiles (>=0.13)", "websockets (>=10.4)"]
+
+[[package]]
 name = "virtualenv"
 version = "20.26.3"
 description = "Virtual Python Environment builder"
@@ -4183,6 +4400,20 @@ files = [
 
 [package.dependencies]
 bracex = ">=2.1.1"
+
+[[package]]
+name = "wheel"
+version = "0.44.0"
+description = "A built-package format for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wheel-0.44.0-py3-none-any.whl", hash = "sha256:2376a90c98cc337d18623527a97c31797bd02bad0033d41547043a1cbfbe448f"},
+    {file = "wheel-0.44.0.tar.gz", hash = "sha256:a29c3f2817e95ab89aa4660681ad547c0e9547f20e75b0562fe7723c9a2a9d49"},
+]
+
+[package.extras]
+test = ["pytest (>=6.0.0)", "setuptools (>=65)"]
 
 [[package]]
 name = "wikipedia"
@@ -4377,4 +4608,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "30d9af196f53268653653d19e08e5165f3beda9dda04fefe79f568bd03b51e80"
+content-hash = "3b1fc03055ba9df355675ccb17592e6a34f7e9967a9bab284efc729e9e71770d"

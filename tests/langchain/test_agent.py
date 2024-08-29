@@ -1,7 +1,7 @@
 from langchain_core.tools import Tool
 
 from langchain.agents import initialize_agent
-from langchain.llms.fake import FakeListLLM
+from langchain_community.llms import FakeListLLM
 
 
 def multiplier(a, b):

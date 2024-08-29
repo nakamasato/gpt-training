@@ -16,23 +16,17 @@ from langchain.agents import (
     AgentExecutor,
     AgentType,
     BaseSingleActionAgent,
-    Tool,
-    initialize_agent,
-    tool,
-)
-from langchain.callbacks.base import BaseCallbackHandler, BaseCallbackManager
+    initialize_agent)
 from langchain.chains.llm import LLMChain
-from langchain.chat_models.base import BaseChatModel
 from langchain.memory import ConversationBufferMemory, ReadOnlySharedMemory
-from langchain.prompts import MessagesPlaceholder, PromptTemplate
-from langchain.prompts.chat import ChatPromptTemplate, HumanMessagePromptTemplate
-from langchain.schema import (
-    AgentAction,
-    AgentFinish,
-    BaseOutputParser,
-    OutputParserException,
-    SystemMessage,
-)
+from langchain_core.agents import AgentAction, AgentFinish
+from langchain_core.callbacks import BaseCallbackHandler, BaseCallbackManager
+from langchain_core.exceptions import OutputParserException
+from langchain_core.language_models import BaseChatModel
+from langchain_core.messages import SystemMessage
+from langchain_core.output_parsers import BaseOutputParser
+from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate, MessagesPlaceholder, PromptTemplate
+from langchain_core.tools import Tool, tool
 
 MEMORY_KEY = "chat_history"
 

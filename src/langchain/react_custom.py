@@ -4,12 +4,12 @@ from typing import Any, Sequence, Union
 # from langchain.agents.react.output_parser import ReActOutputParser
 from langchain_openai import OpenAI
 
-from langchain.agents import AgentExecutor, Tool
+from langchain.agents import AgentExecutor
 from langchain.agents.agent import Agent, AgentOutputParser
-from langchain.prompts.base import BasePromptTemplate
-from langchain.prompts.prompt import PromptTemplate
-from langchain.schema import AgentAction, AgentFinish, OutputParserException
-from langchain.tools.base import BaseTool
+from langchain_core.agents import AgentAction, AgentFinish
+from langchain_core.exceptions import OutputParserException
+from langchain_core.prompts import BasePromptTemplate, PromptTemplate
+from langchain_core.tools import BaseTool, Tool
 
 ##########
 # define tools

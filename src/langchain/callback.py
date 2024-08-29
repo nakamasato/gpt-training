@@ -2,10 +2,8 @@ from typing import Any, Dict, List, Optional
 from uuid import UUID
 
 from langchain_openai import ChatOpenAI
-
-from langchain.callbacks.base import BaseCallbackHandler
-from langchain.callbacks.stdout import StdOutCallbackHandler
-from langchain.schema import HumanMessage
+from langchain_core.callbacks import BaseCallbackHandler, StdOutCallbackHandler
+from langchain_core.messages import HumanMessage
 
 
 class MyCustomHandler(BaseCallbackHandler):

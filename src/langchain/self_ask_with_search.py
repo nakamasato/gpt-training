@@ -4,8 +4,9 @@ from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_community.utilities import SerpAPIWrapper
 from langchain_openai import ChatOpenAI
 
-from langchain.agents import AgentType, Tool, initialize_agent
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.agents import AgentType, initialize_agent
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
+from langchain_core.tools import Tool
 
 
 def main(llm, search_tool):

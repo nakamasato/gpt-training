@@ -8,7 +8,6 @@ import operator
 from typing import Annotated, Sequence, TypedDict
 
 from langchain.agents import AgentExecutor, create_openai_tools_agent
-from langchain.output_parsers.openai_functions import JsonOutputFunctionsParser
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -16,6 +15,7 @@ from langchain_experimental.tools import PythonREPLTool
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from pydantic import BaseModel
+from langchain_core.output_parsers.openai_functions import JsonOutputFunctionsParser
 
 
 class MemberAgentConfig(BaseModel):

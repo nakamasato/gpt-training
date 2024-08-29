@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain import hub
 from langchain.agents import AgentExecutor
 from langchain.agents.tool_calling_agent.base import create_tool_calling_agent
-from langchain.tools import tool
+from langchain_core.tools import tool
 
 search = TavilySearchResults()
 

@@ -4,8 +4,8 @@ from langchain_core.prompts import PromptTemplate
 
 from examples.agent_react_custom import CUSTOM_PROMPT, tools
 from langchain.agents import AgentExecutor, create_react_agent
-from langchain.llms.fake import FakeListLLM
 from langchain.memory import ConversationBufferMemory
+from langchain_community.llms import FakeListLLM
 
 
 def test_multiplier():

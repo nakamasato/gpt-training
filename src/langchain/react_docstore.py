@@ -1,10 +1,11 @@
 # import wikipedia
 
-from langchain_community.llms import OpenAI
 
-from langchain.agents import AgentExecutor, AgentType, Tool, initialize_agent
+from langchain.agents import AgentExecutor, AgentType, initialize_agent
 from langchain.agents.react.base import DocstoreExplorer
-from langchain.docstore.wikipedia import Wikipedia
+from langchain_community.docstore import Wikipedia
+from langchain_core.tools import Tool
+from langchain_openai import OpenAI
 
 # wikipedia.set_lang("ja")
 # build tools

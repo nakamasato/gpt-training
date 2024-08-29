@@ -1,11 +1,10 @@
-from langchain_core.tools import Tool
+from langchain_core.tools import StructuredTool, Tool
 from langchain_openai import ChatOpenAI
 
 import langchain
 from langchain import hub
 from langchain.agents import AgentExecutor, create_structured_chat_agent
 from langchain.memory import ConversationBufferMemory
-from langchain.tools import StructuredTool
 from src.libs.agents import create_google_agent_executor
 from src.libs.tools import multiplier
 

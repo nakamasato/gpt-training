@@ -1,6 +1,7 @@
-from langchain.agents import AgentExecutor, Tool
-from langchain.llms.fake import FakeListLLM
+from langchain.agents import AgentExecutor
 from src.langchain.react_with_tool_and_llm import ReActTestAgent, get_birthplace
+from langchain_community.llms import FakeListLLM
+from langchain_core.tools import Tool
 
 
 def test_react_with_tool_and_llm():

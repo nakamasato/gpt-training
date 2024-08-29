@@ -1,9 +1,8 @@
 from typing import List
 
 from langchain_community.document_loaders import TextLoader
-
-from langchain.schema import Document
-from langchain.text_splitter import MarkdownTextSplitter, RecursiveCharacterTextSplitter
+from langchain_core.documents import Document
+from langchain_text_splitters import MarkdownTextSplitter, RecursiveCharacterTextSplitter
 
 
 def create_documents(texts):

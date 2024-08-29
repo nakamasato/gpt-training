@@ -1,7 +1,6 @@
 from unittest.mock import patch
-
-from langchain.llms.fake import FakeListLLM
 from src.examples.agent_structured import execute
+from langchain_community.llms import FakeListLLM
 
 
 @patch("src.libs.tools.google")
