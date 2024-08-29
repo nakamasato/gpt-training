@@ -1,7 +1,7 @@
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.llms.fake import FakeListLLM
-from langchain.tools import Tool
 from src.langchain.self_ask_with_search import main
+from langchain_community.llms import FakeListLLM
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
+from langchain_core.tools import Tool
 
 
 def search(query):

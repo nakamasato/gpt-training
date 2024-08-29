@@ -1,6 +1,6 @@
 from langchain.agents import AgentExecutor, initialize_agent
-from langchain.llms.fake import FakeListLLM
 from src.langchain.react_docstore import tools
+from langchain_community.llms import FakeListLLM
 
 
 def test_react_docstore_tool():

@@ -1,6 +1,5 @@
 from langchain_community.utilities import GoogleSearchAPIWrapper
-
-from langchain.agents import Tool
+from langchain_core.tools import Tool
 
 
 def multiplier(a, b):

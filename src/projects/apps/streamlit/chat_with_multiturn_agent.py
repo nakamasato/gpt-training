@@ -1,10 +1,11 @@
 import streamlit as st
 from langchain_community.callbacks import StreamlitCallbackHandler
 
-from langchain.memory import ConversationBufferMemory, StreamlitChatMessageHistory
-from langchain.prompts import MessagesPlaceholder
-from langchain.schema import SystemMessage
+from langchain.memory import ConversationBufferMemory
 from src.examples.agent_multiturn import MEMORY_KEY, get_multiturn_agent
+from langchain_community.chat_message_histories import StreamlitChatMessageHistory
+from langchain_core.messages import SystemMessage
+from langchain_core.prompts import MessagesPlaceholder
 
 SESSION_KEY_MESSAGE = MEMORY_KEY
 SESSION_KEY_AGENT = "agent"

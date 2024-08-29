@@ -1,13 +1,11 @@
 from typing import Any, Sequence
 
-from langchain_community.llms import OpenAI
-
-from langchain.agents import AgentExecutor, Tool
+from langchain.agents import AgentExecutor
 from langchain.agents.agent import Agent, AgentOutputParser
 from langchain.agents.react.output_parser import ReActOutputParser
-from langchain.prompts.base import BasePromptTemplate
-from langchain.prompts.prompt import PromptTemplate
-from langchain.tools.base import BaseTool
+from langchain_core.prompts import BasePromptTemplate, PromptTemplate
+from langchain_core.tools import BaseTool, Tool
+from langchain_openai import OpenAI
 
 ##########
 # define tools

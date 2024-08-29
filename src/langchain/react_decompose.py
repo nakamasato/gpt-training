@@ -5,13 +5,6 @@ from langchain_openai import OpenAI
 
 from langchain.agents import AgentExecutor
 from langchain.agents.agent import Agent, AgentOutputParser
-
-# from langchain.agents.react.output_parser import ReActOutputParser
-from langchain.callbacks.manager import CallbackManager
-from langchain.prompts.base import BasePromptTemplate
-from langchain.prompts.prompt import PromptTemplate
-from langchain.schema import AgentAction, AgentFinish, OutputParserException
-from langchain.tools.base import BaseTool
 from src.langchain.react_custom import (
     EXAMPLES,
     SUFFIX,
@@ -22,6 +15,11 @@ from src.langchain.react_custom import (
     WORD_THOUGHT,
     tools,
 )
+from langchain_core.agents import AgentAction, AgentFinish
+from langchain_core.callbacks import CallbackManager
+from langchain_core.exceptions import OutputParserException
+from langchain_core.prompts import BasePromptTemplate, PromptTemplate
+from langchain_core.tools import BaseTool
 
 prompt = PromptTemplate.from_examples(EXAMPLES, SUFFIX, ["word_question", "input", "agent_scratchpad"])
 prompt = prompt.partial(word_question=WORD_QUESTION)

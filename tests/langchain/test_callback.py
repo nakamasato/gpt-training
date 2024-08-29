@@ -1,5 +1,5 @@
-from langchain.llms.fake import FakeListLLM
 from src.langchain.callback import PromptStdoutHandler
+from langchain_community.llms import FakeListLLM
 
 
 def test_callback():

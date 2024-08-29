@@ -6,9 +6,8 @@ from langchain_core.messages import BaseMessage, FunctionMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import ToolExecutor, ToolInvocation
-
-from langchain.tools.render import format_tool_to_openai_function
 from src.libs.tools import TOOL_GOOGLE
+from langchain_core.utils.function_calling import format_tool_to_openai_function
 
 
 def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):

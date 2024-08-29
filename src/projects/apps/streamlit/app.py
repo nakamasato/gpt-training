@@ -10,11 +10,11 @@ from src.examples.langgraph_agent_supervisor import MemberAgentConfig, construct
 from src.libs.llm import get_llm
 from langchain_openai import ChatOpenAI
 from src.libs.tools import TOOL_GOOGLE, TOOL_PARSE_MULTIPLIER
-from langchain.prompts import PromptTemplate
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
-from langchain.callbacks.base import BaseCallbackHandler
 from streamlit.delta_generator import DeltaGenerator
 import pandas as pd
+from langchain_core.callbacks import BaseCallbackHandler
+from langchain_core.prompts import PromptTemplate
 
 
 # failing with

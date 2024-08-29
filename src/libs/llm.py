@@ -1,8 +1,7 @@
 import os
 
 from langchain_openai import OpenAI
-
-from langchain.llms.fake import FakeListLLM
+from langchain_community.llms import FakeListLLM
 
 
 def get_llm():
