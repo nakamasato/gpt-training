@@ -146,7 +146,7 @@ def construct_graph(supervisor_chain, agents: dict[str, AgentExecutor]):
 
 
 if __name__ == "__main__":
-    llm = ChatOpenAI(model="gpt-4")
+    llm = ChatOpenAI(model="gpt-4o-mini")
 
     AGENT_MEMBERS = [
         MemberAgentConfig(

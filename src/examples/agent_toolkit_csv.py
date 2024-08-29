@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain.agents.agent_types import AgentType
 
 agent = create_csv_agent(
-    ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613", verbose=True),
+    ChatOpenAI(temperature=0, model="gpt-4o-mini", verbose=True),
     "data/titanic.csv",
     verbose=True,
     agent_type=AgentType.OPENAI_FUNCTIONS,
