@@ -12,11 +12,7 @@ from pydantic.v1 import (  # https://github.com/langchain-ai/langchain/issues/94
 )
 
 import langchain
-from langchain.agents import (
-    AgentExecutor,
-    AgentType,
-    BaseSingleActionAgent,
-    initialize_agent)
+from langchain.agents import AgentExecutor, AgentType, BaseSingleActionAgent, initialize_agent
 from langchain.chains.llm import LLMChain
 from langchain.memory import ConversationBufferMemory, ReadOnlySharedMemory
 from langchain_core.agents import AgentAction, AgentFinish
