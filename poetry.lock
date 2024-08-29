@@ -1694,6 +1694,21 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<9.0.0"
 typing-extensions = ">=4.7"
 
 [[package]]
+name = "langchain-experimental"
+version = "0.0.64"
+description = "Building applications with LLMs through composability"
+optional = false
+python-versions = "<4.0,>=3.8.1"
+files = [
+    {file = "langchain_experimental-0.0.64-py3-none-any.whl", hash = "sha256:c1a06a1198f05e17e4ce97832004ba4716f7920d0d68ff57f29158e93b198360"},
+    {file = "langchain_experimental-0.0.64.tar.gz", hash = "sha256:453f77f2126e058052900a62406e1fb58721a37763f5865327e466ddcf4d6779"},
+]
+
+[package.dependencies]
+langchain-community = ">=0.2.10,<0.3.0"
+langchain-core = ">=0.2.27,<0.3.0"
+
+[[package]]
 name = "langchain-google-genai"
 version = "1.0.10"
 description = "An integration package connecting Google's genai package and LangChain"
@@ -4580,4 +4595,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "c80c15fbdae2a26ec521e5b17b193e89e2a2e3f1a6a6230018f82a08f0bf082b"
+content-hash = "2199074ebc34c712eb2f8d1d58a06d814e5c51ac4c5bc4bfdab07999fdb33ca0"
