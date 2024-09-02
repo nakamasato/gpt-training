@@ -56,6 +56,8 @@
 1. [Streamlit with Google Cloud: Hello, world!](https://zenn.dev/google_cloud_jp/articles/streamlit-01-hello)
 1. [Streamlit with Google Cloud: Firebase 認証](https://zenn.dev/google_cloud_jp/articles/streamlit-02-firebase)
 1. [Streamlit with Google Cloud: GitHub、GitLab、Cloud Build での CI/CD](https://zenn.dev/google_cloud_jp/articles/streamlit-04-cicd)
+1. [streamlitでLangGraphによる自己修正RAGを実装してみよう！](https://zenn.dev/tsuzukia/articles/e4db5889a9a02c)
+1. [LangGraphによる自己修正RAGを実行してみよう！](https://zenn.dev/tsuzukia/articles/0724729c2b733e)
 
 ## ChatGPT
 
