@@ -1803,13 +1803,13 @@ langchain-core = ">=0.2.22,<0.3"
 
 [[package]]
 name = "langserve"
-version = "0.2.2"
+version = "0.2.3"
 description = ""
 optional = false
 python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "langserve-0.2.2-py3-none-any.whl", hash = "sha256:e2b1b4b5b6108a82a38e5a54468737a07ca21f448174ec594992bc6d215a14f5"},
-    {file = "langserve-0.2.2.tar.gz", hash = "sha256:8df558c157718963c647c6f7ec302f75811c88585f1f3a34d65662e1962c1957"},
+    {file = "langserve-0.2.3-py3-none-any.whl", hash = "sha256:9ded64f47b967337a0ec236563bd0ca0b3c40ee24805b6c1b724fe144ac1dc18"},
+    {file = "langserve-0.2.3.tar.gz", hash = "sha256:50b4eedbc4865483154c3f65f7cc9a4d4cf983efd6c96a8624ab5a9abddcb466"},
 ]
 
 [package.dependencies]
