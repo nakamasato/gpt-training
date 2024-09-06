@@ -1686,8 +1686,8 @@ jsonpatch = ">=1.33,<2.0"
 langsmith = ">=0.1.75,<0.2.0"
 packaging = ">=23.2,<25"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 PyYAML = ">=5.3"
 tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<9.0.0"
@@ -1774,13 +1774,13 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.2.17"
+version = "0.2.18"
 description = "Building stateful, multi-actor applications with LLMs"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.2.17-py3-none-any.whl", hash = "sha256:06692dc5483c26a4df43398a2703518db8a00313c71f357ec31279c94c7c8321"},
-    {file = "langgraph-0.2.17.tar.gz", hash = "sha256:536c0fa91c6f3dbb3517ce978e7c25e4ca3252afe83bc28d5eda9052ef042c75"},
+    {file = "langgraph-0.2.18-py3-none-any.whl", hash = "sha256:a4263135167ab0c9cb181eb7f42c04ea9856d9f562d1584660e768cd50c2a741"},
+    {file = "langgraph-0.2.18.tar.gz", hash = "sha256:6cdc8002c851f36f6ae189917bca80bf45fd96de3dc2ea99301454b275389268"},
 ]
 
 [package.dependencies]
@@ -1841,8 +1841,8 @@ files = [
 httpx = ">=0.23.0,<1"
 orjson = ">=3.9.14,<4.0.0"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 requests = ">=2,<3"
 
@@ -2980,8 +2980,8 @@ files = [
 annotated-types = ">=0.4.0"
 pydantic-core = "2.20.1"
 typing-extensions = [
-    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
     {version = ">=4.6.1", markers = "python_version < \"3.13\""},
+    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
 ]
 
 [package.extras]
