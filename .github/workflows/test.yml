@@ -32,25 +32,9 @@ jobs:
           set -o pipefail
           poetry run pytest | tee pytest-coverage.txt
 
-      - name: find comment
-        uses: peter-evans/find-comment@v3
-        id: fc
-        with:
-          issue-number: ${{ github.event.number }}
-          body-includes: ${{ env.COMMENT_BODY_IDENTIFIER }}
-
-      - name: delete comment
-        if: steps.fc.outputs.comment-id != 0
-        uses: jungwinter/comment@v1
-        with:
-          type: delete
-          comment_id: ${{ steps.fc.outputs.comment-id }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: pytest coverage comment
         id: pytest-coverage-comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
-          pytest-coverage-path: pytest-coverage.txt
-          junitxml-path: pytest.xml
-          coverage-path-prefix: .
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
