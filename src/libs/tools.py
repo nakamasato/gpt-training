@@ -1,4 +1,4 @@
-from langchain_community.utilities import GoogleSearchAPIWrapper
+from langchain_google_community import GoogleSearchAPIWrapper
 from langchain_core.tools import Tool
 
 
