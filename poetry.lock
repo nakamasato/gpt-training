@@ -1743,18 +1743,18 @@ typing-extensions = ">=4.7"
 
 [[package]]
 name = "langchain-experimental"
-version = "0.3.0"
+version = "0.3.1"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_experimental-0.3.0-py3-none-any.whl", hash = "sha256:c2d14baa3257bf1ba71aba61139ff9403e409d3559127b722c4993f926c3d3c4"},
-    {file = "langchain_experimental-0.3.0.tar.gz", hash = "sha256:c8718a0521caffe4aa9896e6951944490c5ff4dd2956c08f1da0f68839e34397"},
+    {file = "langchain_experimental-0.3.1-py3-none-any.whl", hash = "sha256:db38ec45d5598e0feff563adb29ed982e8e9f0b792e512429ca8cc3d8fc57469"},
+    {file = "langchain_experimental-0.3.1.tar.gz", hash = "sha256:6f89a889d4be2bf65076bd8d61b3d36e94855d20f18ea5c0664e00700f2afd58"},
 ]
 
 [package.dependencies]
 langchain-community = ">=0.3.0,<0.4.0"
-langchain-core = ">=0.3.0,<0.4.0"
+langchain-core = ">=0.3.5,<0.4.0"
 
 [[package]]
 name = "langchain-google-community"
