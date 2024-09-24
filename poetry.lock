@@ -1857,13 +1857,13 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.2.26"
+version = "0.2.27"
 description = "Building stateful, multi-actor applications with LLMs"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.2.26-py3-none-any.whl", hash = "sha256:e7c85ab742c5af603288ee216ff81c390e98be518b37a083137ee86adac082b9"},
-    {file = "langgraph-0.2.26.tar.gz", hash = "sha256:f805d19ff8b726a127c4e5dcda6026753478003e5c15904121e60d8a9fd2eee6"},
+    {file = "langgraph-0.2.27-py3-none-any.whl", hash = "sha256:2ed1a521209737f50833d433a1c0ffef3a1f0e2a94f6ffda97f5bc2d673db010"},
+    {file = "langgraph-0.2.27.tar.gz", hash = "sha256:b9e98fe011100a0a52f0c6936ce672330fd245b81cd6fe5ae30c0eb34663b99a"},
 ]
 
 [package.dependencies]
