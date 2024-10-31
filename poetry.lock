@@ -1910,17 +1910,17 @@ types-requests = ">=2.31.0.2,<3.0.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.2.40"
+version = "0.2.41"
 description = "Building stateful, multi-actor applications with LLMs"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.2.40-py3-none-any.whl", hash = "sha256:e117d37d8b529ceb9dd08402ff26501888d6785f2e46555b48e6ac0a95324c27"},
-    {file = "langgraph-0.2.40.tar.gz", hash = "sha256:36442f692983a81a798f4d4617afbffb6a418a74408f5142f776c10a8b3d4db9"},
+    {file = "langgraph-0.2.41-py3-none-any.whl", hash = "sha256:a13639d9d42f6f783422eca56298fdbb7e7f6882e6a8440efc6d3d733ebd50c8"},
+    {file = "langgraph-0.2.41.tar.gz", hash = "sha256:d233e3425ed0b29194af7af109e8884adfb52a8a8a9d781c76391b35239185d6"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.2.39,<0.4"
+langchain-core = ">=0.2.42,<0.3.0 || >0.3.0,<0.3.1 || >0.3.1,<0.3.2 || >0.3.2,<0.3.3 || >0.3.3,<0.3.4 || >0.3.4,<0.3.5 || >0.3.5,<0.3.6 || >0.3.6,<0.3.7 || >0.3.7,<0.3.8 || >0.3.8,<0.3.9 || >0.3.9,<0.3.10 || >0.3.10,<0.3.11 || >0.3.11,<0.3.12 || >0.3.12,<0.3.13 || >0.3.13,<0.4.0"
 langgraph-checkpoint = ">=2.0.0,<3.0.0"
 langgraph-sdk = ">=0.1.32,<0.2.0"
 
