@@ -1057,8 +1057,8 @@ googleapis-common-protos = ">=1.56.2,<2.0.dev0"
 grpcio = {version = ">=1.49.1,<2.0dev", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 grpcio-status = {version = ">=1.49.1,<2.0.dev0", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0dev", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<6.0.0.dev0"
 requests = ">=2.18.0,<3.0.0.dev0"
@@ -1777,13 +1777,13 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10"
 
 [[package]]
 name = "langchain-core"
-version = "0.3.16"
+version = "0.3.17"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_core-0.3.16-py3-none-any.whl", hash = "sha256:0b67ea0d7d305f2fbf77a2ba1ce63c14167a0bfdc59fc07ed6df18da013e2a5e"},
-    {file = "langchain_core-0.3.16.tar.gz", hash = "sha256:53b024240fa5c14a952aa7954c28878d44491d1be8adc5e01567bac231ad43a0"},
+    {file = "langchain_core-0.3.17-py3-none-any.whl", hash = "sha256:40e60343c35ffae681b9e4f2b0ac17c44229287566e743e2d26ccb932ab0100e"},
+    {file = "langchain_core-0.3.17.tar.gz", hash = "sha256:9e992e8f9f783af78d652a84ee5c99186a35c503812535c86528fb6796134d62"},
 ]
 
 [package.dependencies]
@@ -1791,8 +1791,8 @@ jsonpatch = ">=1.33,<2.0"
 langsmith = ">=0.1.125,<0.2.0"
 packaging = ">=23.2,<25"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=2.5.2,<3.0.0", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 PyYAML = ">=5.3"
 tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10.0.0"
@@ -1867,17 +1867,17 @@ images = ["pillow (>=10.1.0,<11.0.0)"]
 
 [[package]]
 name = "langchain-openai"
-version = "0.2.7"
+version = "0.2.8"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_openai-0.2.7-py3-none-any.whl", hash = "sha256:e3c2c958a3e25e67d96c07bb4ea56e45f244e307b3cb3b2d0965d80209775a26"},
-    {file = "langchain_openai-0.2.7.tar.gz", hash = "sha256:a65233cb8d25b456a5392a681552443f4fe831c6a70f9d26ab5127331155964c"},
+    {file = "langchain_openai-0.2.8-py3-none-any.whl", hash = "sha256:0116b104d203377d2f4f61095e1d3ce1ba50e446d1a75397eaf0d1fcdf2c0d7b"},
+    {file = "langchain_openai-0.2.8.tar.gz", hash = "sha256:48d22fa05bb8f7b371be47d05c7a3f42a68ff0e704647b86cc1bfc44e140f01b"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.3.16,<0.4.0"
+langchain-core = ">=0.3.17,<0.4.0"
 openai = ">=1.54.0,<2.0.0"
 tiktoken = ">=0.7,<1"
 
@@ -1997,8 +1997,8 @@ files = [
 httpx = ">=0.23.0,<1"
 orjson = ">=3.9.14,<4.0.0"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 requests = ">=2,<3"
 requests-toolbelt = ">=1.0.0,<2.0.0"
@@ -3227,8 +3227,8 @@ files = [
 annotated-types = ">=0.6.0"
 pydantic-core = "2.23.4"
 typing-extensions = [
-    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
     {version = ">=4.6.1", markers = "python_version < \"3.13\""},
+    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
 ]
 
 [package.extras]
