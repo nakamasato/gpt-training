@@ -5,10 +5,7 @@ from typing import Any, List, Set, Tuple, Union
 
 import requests
 from langchain_openai import ChatOpenAI
-from pydantic import (  # https://github.com/langchain-ai/langchain/issues/9441
-    BaseModel,
-    Field,
-)
+from pydantic import BaseModel, Field
 
 import langchain
 from langchain.agents import AgentExecutor, AgentType, BaseSingleActionAgent, initialize_agent
@@ -156,7 +153,7 @@ class PartsOrderInput(BaseModel):
     email: str = Field(description="注文される方のメールアドレスです。")
     product_name: str = Field(description="部品注文の対象となる商品の名称です。例:'PG 1/24 ダンバイン'")
     product_no: str = Field(description="部品注文の対象となる商品の箱や説明書に記載されている6桁の数字の文字列です。")
-    part_no_and_quantities: list[dict[str, str]] = Field(
+    part_no_and_quantities: list[dict[str, str]] | None = Field(
         description=(
             "注文する部品とその個数の表現する dict の list です。\n"
             'dict は key "part_no"の value が部品名称の文字列、key "quantity"の value が個数を意味する整数です。\n'
@@ -255,27 +252,24 @@ def parts_order(
         part_no_and_quantities_str = "    ***"
 
     # 注文情報のテンプレート
-    order_template = (
-        f"・お名前: {name}\n"
-        f"・お名前(カナ): {kana}\n"
-        f"・郵便番号: {post_code}\n"
-        f"・住所: {address}\n"
-        f"・電話番号: {tel}\n"
-        f"・メールアドレス: {email}\n"
-        f"・商品名: {product_name}\n"
-        f"・商品番号: {product_no}\n"
-        f"・ご注文の部品\n"
-        f"    {part_no_and_quantities_str}"
-    )
+    order_template = f"""- お名前: {name}
+- お名前(カナ): {kana}
+- 郵便番号: {post_code}
+- 住所: {address}
+- 電話番号: {tel}
+- メールアドレス: {email}
+- 商品名: {product_name}
+- 商品番号: {product_no}
+- ご注文の部品: {part_no_and_quantities_str}"""
 
     # 追加情報要求のテンプレート
-    request_information_template = f'ご注文には以下の情報が必要です。"***" の項目を教えてください。\n' f"\n" f"{order_template}"
+    request_information_template = f'ご注文には以下の情報が必要です。"***" の項目を教えてください。\n\n{order_template}'
 
     # 注文確認のテンプレート
-    confirm_template = f"最終確認です。以下の内容で部品を注文しますが、よろしいですか?\n" f"\n{order_template}"
+    confirm_template = f"最終確認です。以下の内容で部品を注文しますが、よろしいですか?\n\n{order_template}"
 
     # 注文完了のテンプレート
-    complete_template = f"以下の内容で部品を注文しました。\n" f"\n{order_template}\n" f"\n2営業日以内にご指定のメールアドレスに注文確認メールが届かない場合は、\n" f"弊社HPからお問い合わせください。"
+    complete_template = f"以下の内容で部品を注文しました。\n\n{order_template}\n\n2営業日以内にご指定のメールアドレスに注文確認メールが届かない場合は、\n弊社HPからお問い合わせください。"
 
     if has_required and confirmed:
         # TODO invoke order here!
