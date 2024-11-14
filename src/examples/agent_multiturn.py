@@ -263,8 +263,7 @@ def parts_order(
 - メールアドレス: {email}
 - 商品名: {product_name}
 - 商品番号: {product_no}
-- ご注文の部品
-{part_no_and_quantities_str}"""
+- ご注文の部品: {part_no_and_quantities_str}"""
 
     # 追加情報要求のテンプレート
     request_information_template = f'ご注文には以下の情報が必要です。"***" の項目を教えてください。\n\n{order_template}'
