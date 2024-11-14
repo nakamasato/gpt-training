@@ -83,7 +83,8 @@ def process():
         with st.chat_message(MESSAGE_TYPE_ASSISTANT):
             st_callback = StreamlitCallbackHandler(st.container())
             response = agent.run(input=user_input, callbacks=[st_callback])
-            st.markdown(response)
+            print(response)
+            st.write(response)
 
 
 def main():
