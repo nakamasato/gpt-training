@@ -5,10 +5,7 @@ from typing import Any, List, Set, Tuple, Union
 
 import requests
 from langchain_openai import ChatOpenAI
-from pydantic import (  # https://github.com/langchain-ai/langchain/issues/9441
-    BaseModel,
-    Field,
-)
+from pydantic import BaseModel, Field
 
 import langchain
 from langchain.agents import AgentExecutor, AgentType, BaseSingleActionAgent, initialize_agent
