@@ -5,9 +5,8 @@ from typing import Any, List, Set, Tuple, Union
 
 import requests
 from langchain_openai import ChatOpenAI
-from pydantic.v1 import (  # https://github.com/langchain-ai/langchain/issues/9441
+from pydantic import (  # https://github.com/langchain-ai/langchain/issues/9441
     BaseModel,
-    Extra,
     Field,
 )
 
@@ -35,7 +34,7 @@ HOROSCOPE_SYSTEM_PROMPT = """あなたは星占いの専門家です。
 誕生日がわかる場合は、例えば"4月24日"であれば"04/24"の形式に変換した上で horoscope 関数を使って占いを行って下さい。
 """
 
-MODEL = "gpt-3.5-turbo"
+MODEL = "gpt-4o-mini"
 
 
 class HoroscopeInput(BaseModel):
@@ -458,7 +457,7 @@ class DestinationOutputParser(BaseOutputParser[str]):
     destinations: Set[str]
 
     class Config:
-        extra = Extra.allow
+        extra = "allow"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -483,7 +482,7 @@ class DispatcherAgent(BaseSingleActionAgent):
     verbose: bool = False
 
     class Config:
-        extra = Extra.allow
+        extra = "allow"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

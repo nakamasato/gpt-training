@@ -25,7 +25,7 @@ def init_page():
 
 
 def select_model():
-    st.sidebar.radio("Choose a model:", ("gpt-3.5-turbo", "gpt-4"), key="GPT_MODEL")
+    st.sidebar.radio("Choose a model:", ("gpt-4o-mini", "gpt-4o", "gpt-o1-preview"), key="GPT_MODEL")
 
     # サイドバーにスライダーを追加し、temperatureを0から2までの範囲で選択可能にする
     # 初期値は0.0、刻み幅は0.1とする
