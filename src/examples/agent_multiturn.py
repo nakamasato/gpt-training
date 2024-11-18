@@ -16,8 +16,10 @@ from langgraph.graph.state import CompiledStateGraph
 from langgraph.prebuilt import ToolNode
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
-
+from langchain.globals import set_debug
 import langchain
+
+set_debug(True)
 
 MEMORY_KEY = "chat_history"
 
@@ -345,17 +347,20 @@ def get_parts_order_agent(llm: BaseChatModel) -> CompiledStateGraph:
         return END
 
     def call_model(state: MessagesState):
+        """実際のところつねにこれだけがよばれてmodel_with_tools.invokeでToolがよばれている。"""
         print("---- call model ----")
         messages = state["messages"]
         print(messages)
-        response = model_with_tools.invoke(input={"messages": messages})
+        response = model_with_tools.invoke(messages)
+        print(f"{response=}")
         print("---- call model end ----")
         return {"messages": [response]}
 
     def invoke_tool_node(state):
         """invoke tool call
-        NodeToolとは違う
+        NodeToolとは違うが結局これがよばれてない。
         """
+        print("AAAAAAAAAAAAAAAAAA")
         print("---- invoke tool node ----")
         tool_msg = parts_order.invoke(state["messages"][-1].tool_calls[0])
         print(tool_msg)
@@ -373,6 +378,8 @@ def get_parts_order_agent(llm: BaseChatModel) -> CompiledStateGraph:
     workflow.add_edge("tools", "agent")
 
     app = workflow.compile()
+
+    print(app.get_graph().draw_mermaid())
 
     return app
 
