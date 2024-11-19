@@ -33,7 +33,7 @@ pytest-env = "^1.1.3"
 poetry-dotenv-plugin = "^0.2.0"
 mkdocs-awesome-pages-plugin = "^2.9.2"
 ruff = "^0.7.0"
-langchain-cli = "^0.0.31"
+langchain-cli = "^0.0.32"
 
 [tool.ruff]
 exclude = [
