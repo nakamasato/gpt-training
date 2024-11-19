@@ -1043,8 +1043,8 @@ googleapis-common-protos = ">=1.56.2,<2.0.dev0"
 grpcio = {version = ">=1.49.1,<2.0dev", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 grpcio-status = {version = ">=1.49.1,<2.0.dev0", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0dev", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<6.0.0.dev0"
 requests = ">=2.18.0,<3.0.0.dev0"
@@ -1719,22 +1719,22 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10"
 
 [[package]]
 name = "langchain-cli"
-version = "0.0.31"
+version = "0.0.32"
 description = "CLI for interacting with LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_cli-0.0.31-py3-none-any.whl", hash = "sha256:e8b754d17e30d9a76d2cc3de36128f0bd857476827d643c0b7a442943a173268"},
-    {file = "langchain_cli-0.0.31.tar.gz", hash = "sha256:41b1bee98ebd3f89b6326a01ce29182cfcdeec5685efe2c0d89ff901e314834a"},
+    {file = "langchain_cli-0.0.32-py3-none-any.whl", hash = "sha256:a40a1143a687d0dd7f4af161990adde58f18209029fdf1205b64ad7be89b30aa"},
+    {file = "langchain_cli-0.0.32.tar.gz", hash = "sha256:ecf0037380791b194ff04054cbee8da3994967b56e659143fe493ada4797001f"},
 ]
 
 [package.dependencies]
-gitpython = ">=3.1.40,<4.0.0"
+gitpython = ">=3,<4"
 gritql = ">=0.1.1,<0.2.0"
 langserve = {version = ">=0.0.51", extras = ["all"]}
-tomlkit = ">=0.12.2,<0.13.0"
+tomlkit = ">=0.12"
 typer = {version = ">=0.9.0,<0.10.0", extras = ["all"]}
-uvicorn = ">=0.23.2,<0.24.0"
+uvicorn = ">=0.23,<1.0"
 
 [[package]]
 name = "langchain-community"
@@ -1777,8 +1777,8 @@ jsonpatch = ">=1.33,<2.0"
 langsmith = ">=0.1.125,<0.2.0"
 packaging = ">=23.2,<25"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=2.5.2,<3.0.0", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 PyYAML = ">=5.3"
 tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10.0.0"
@@ -1980,8 +1980,8 @@ files = [
 httpx = ">=0.23.0,<1"
 orjson = ">=3.9.14,<4.0.0"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 requests = ">=2,<3"
 requests-toolbelt = ">=1.0.0,<2.0.0"
@@ -3210,8 +3210,8 @@ files = [
 annotated-types = ">=0.6.0"
 pydantic-core = "2.23.4"
 typing-extensions = [
-    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
     {version = ">=4.6.1", markers = "python_version < \"3.13\""},
+    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
 ]
 
 [package.extras]
@@ -4766,4 +4766,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "9bccb05bffa4ab3a2bff6648324ed77c833a4c14a4b1ba2d1eddaa4d1543e901"
+content-hash = "d9687aaed5ee7b209d23267673165f98534060ee15eefe78736a8d456fb192af"
