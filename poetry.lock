@@ -1834,22 +1834,19 @@ vision = ["google-cloud-vision (>=3.7.2,<4.0.0)"]
 
 [[package]]
 name = "langchain-google-genai"
-version = "2.0.4"
+version = "2.0.5"
 description = "An integration package connecting Google's genai package and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_google_genai-2.0.4-py3-none-any.whl", hash = "sha256:bb2d9cb1d0e97cf772bf37a02063bd41ae9d6309eb49a7b2491bad34a88817bc"},
-    {file = "langchain_google_genai-2.0.4.tar.gz", hash = "sha256:2ac2e5c5a8ad5a7d22e6d1e169af1ecae4afc77ca53e7dadf72e11a543f874b5"},
+    {file = "langchain_google_genai-2.0.5-py3-none-any.whl", hash = "sha256:d33fe5c32dccffc91c47fa30c99ece4c136c1a7d1330b154b7df43029b041bf3"},
+    {file = "langchain_google_genai-2.0.5.tar.gz", hash = "sha256:f027d845091b147537481c1e17adb25a8acfca1fa3b3c7b7c7ca16463ad37173"},
 ]
 
 [package.dependencies]
 google-generativeai = ">=0.8.0,<0.9.0"
 langchain-core = ">=0.3.15,<0.4"
 pydantic = ">=2,<3"
-
-[package.extras]
-images = ["pillow (>=10.1.0,<11.0.0)"]
 
 [[package]]
 name = "langchain-openai"
