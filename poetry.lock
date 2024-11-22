@@ -1719,13 +1719,13 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10"
 
 [[package]]
 name = "langchain-cli"
-version = "0.0.32"
+version = "0.0.33"
 description = "CLI for interacting with LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_cli-0.0.32-py3-none-any.whl", hash = "sha256:a40a1143a687d0dd7f4af161990adde58f18209029fdf1205b64ad7be89b30aa"},
-    {file = "langchain_cli-0.0.32.tar.gz", hash = "sha256:ecf0037380791b194ff04054cbee8da3994967b56e659143fe493ada4797001f"},
+    {file = "langchain_cli-0.0.33-py3-none-any.whl", hash = "sha256:d9c1bd02280a82f92e00cf0e6fa9b5c9c196d09549eabde8be6de6ab7025dd88"},
+    {file = "langchain_cli-0.0.33.tar.gz", hash = "sha256:bf661a07fa81c0d286a391c6a73e4d32fa39fecd9b83b1acc4264c3f7ca42c8c"},
 ]
 
 [package.dependencies]
@@ -4766,4 +4766,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "d9687aaed5ee7b209d23267673165f98534060ee15eefe78736a8d456fb192af"
+content-hash = "d7d30480a6f6b98aa5cd470c93077bdcded687f042e4f972a72c552c8ef1cc75"
