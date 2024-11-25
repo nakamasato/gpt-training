@@ -1,24 +1,25 @@
 import argparse
 import datetime
+import functools
 import json
-from typing import Any, List, Set, Tuple, Union
+import operator
+from typing import Annotated, List, Literal, Sequence
 
 import requests
-from langchain_openai import ChatOpenAI
-from pydantic import BaseModel, Field
-
-import langchain
-from langchain.agents import AgentExecutor, AgentType, BaseSingleActionAgent, initialize_agent
-from langchain.chains.llm import LLMChain
-from langchain.memory import ConversationBufferMemory, ReadOnlySharedMemory
-from langchain_core.agents import AgentAction, AgentFinish
-from langchain_core.callbacks import BaseCallbackHandler, BaseCallbackManager
-from langchain_core.exceptions import OutputParserException
 from langchain_core.language_models import BaseChatModel
-from langchain_core.messages import SystemMessage
-from langchain_core.output_parsers import BaseOutputParser
-from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate, MessagesPlaceholder, PromptTemplate
-from langchain_core.tools import Tool, tool
+from langchain_core.messages import AIMessage, BaseMessage, SystemMessage
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.tools import tool
+from langchain_openai import ChatOpenAI
+from langgraph.graph import END, START, MessagesState, StateGraph
+from langgraph.graph.state import CompiledStateGraph
+from langgraph.prebuilt import ToolNode
+from pydantic import BaseModel, Field
+from typing_extensions import TypedDict
+from langchain.globals import set_debug
+import langchain
+
+set_debug(True)
 
 MEMORY_KEY = "chat_history"
 
@@ -78,22 +79,44 @@ def horoscope(birthday):
     return content
 
 
-def get_horoscope_agent(llm: BaseChatModel, memory, chat_history, verbose: bool = False) -> AgentExecutor:
+def get_horoscope_agent(llm: BaseChatModel) -> CompiledStateGraph:
     horoscope_tools = [horoscope]
+    tool_node = ToolNode(horoscope_tools)
 
-    agent_kwargs = {
-        "system_message": SystemMessage(content=HOROSCOPE_SYSTEM_PROMPT),
-        "extra_prompt_messages": [chat_history],
-    }
-    horoscope_agent = initialize_agent(
-        tools=horoscope_tools,
-        llm=llm,
-        agent=AgentType.OPENAI_FUNCTIONS,
-        verbose=verbose,
-        agent_kwargs=agent_kwargs,
-        memory=memory,
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", HOROSCOPE_SYSTEM_PROMPT),
+            MessagesPlaceholder(variable_name="messages"),
+        ]
     )
-    return horoscope_agent
+
+    model_with_tools = prompt | llm.bind_tools(horoscope_tools)
+
+    def should_continue(state: MessagesState):
+        messages = state["messages"]
+        last_message = messages[-1]
+        if last_message.tool_calls:
+            return "tools"
+        return END
+
+    def call_model(state: MessagesState):
+        messages = state["messages"]
+        response = model_with_tools.invoke(messages)
+        return {"messages": [response]}
+
+    workflow = StateGraph(MessagesState)
+
+    # Define the two nodes we will cycle between
+    workflow.add_node("agent", call_model)
+    workflow.add_node("tools", tool_node)
+
+    workflow.add_edge(START, "agent")
+    workflow.add_conditional_edges("agent", should_continue, ["tools", END])
+    workflow.add_edge("tools", "agent")
+
+    app = workflow.compile()
+
+    return app
 
 
 PARTS_ORDER_SYSTEM_PROMPT = """あなたはプラモデルの部品の個別注文を受け付ける担当者です。
@@ -299,126 +322,71 @@ parts_order 関数は次に示す例外を除いて confirmed = false で実行�
 """
 
 
-def get_parts_order_agent(memory, chat_history, verbose: bool = False) -> AgentExecutor:
+def get_parts_order_agent(llm: BaseChatModel) -> CompiledStateGraph:
     parts_order_tools = [parts_order]
+    # tool_node = ToolNode(parts_order_tools)
 
-    gpt35_po = ChatOpenAI(
-        temperature=0,
-        model=MODEL,
-        model_kwargs={"top_p": 0.1, "function_call": {"name": "parts_order"}},
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            SystemMessage(content=PARTS_ORDER_SYSTEM_PROMPT),
+            MessagesPlaceholder(variable_name="messages"),
+            SystemMessage(content=PARTS_ORDER_SSUFFIX_PROMPT),
+        ]
     )
 
-    print(gpt35_po._default_params)
+    model_with_tools = prompt | llm.bind_tools(parts_order_tools)
 
-    agent_kwargs = {
-        "system_message": SystemMessage(content=PARTS_ORDER_SYSTEM_PROMPT),
-        "extra_prompt_messages": [chat_history],
-    }
-    parts_order_agent = initialize_agent(
-        parts_order_tools,
-        gpt35_po,
-        agent=AgentType.OPENAI_FUNCTIONS,
-        verbose=verbose,
-        agent_kwargs=agent_kwargs,
-        memory=memory,
-    )
+    def should_continue(state: MessagesState):
+        print("---- should continue ----")
+        messages = state["messages"]
+        last_message = messages[-1]
+        print(last_message)
+        print("---- should continue end ----")
+        if last_message.tool_calls:
+            return "tools"
+        return END
 
-    messages = []
-    messages.extend(parts_order_agent.agent.prompt.messages[:3])
-    messages.append(SystemMessage(content=PARTS_ORDER_SSUFFIX_PROMPT))
-    messages.append(parts_order_agent.agent.prompt.messages[3])
-    parts_order_agent.agent.prompt.messages = messages
+    def call_model(state: MessagesState):
+        """実際のところつねにこれだけがよばれてmodel_with_tools.invokeでToolがよばれている。"""
+        print("---- call model ----")
+        messages = state["messages"]
+        print(messages)
+        response = model_with_tools.invoke(messages)
+        print(f"{response=}")
+        print("---- call model end ----")
+        return {"messages": [response]}
 
-    return parts_order_agent
+    def invoke_tool_node(state):
+        """invoke tool call
+        NodeToolとは違うが結局これがよばれてない。
+        """
+        print("AAAAAAAAAAAAAAAAAA")
+        print("---- invoke tool node ----")
+        tool_msg = parts_order.invoke(state["messages"][-1].tool_calls[0])
+        print(tool_msg)
+        print("---- invoke tool node end ----")
+        return {"messages": [tool_msg]}
+
+    workflow = StateGraph(MessagesState)
+
+    # Define the two nodes we will cycle between
+    workflow.add_node("agent", call_model)
+    workflow.add_node("tools", invoke_tool_node)
+
+    workflow.add_edge(START, "agent")
+    workflow.add_conditional_edges("agent", should_continue, ["tools", END])
+    workflow.add_edge("tools", "agent")
+
+    app = workflow.compile()
+
+    print(app.get_graph().draw_mermaid())
+
+    return app
 
 
 DEFAULT_SYSTEM_PROMPT = """あなたはAIのアシスタントです。
 ユーザーの質問に答えたり、議論したり、日常会話を楽しんだりします。
 """
-
-
-def get_multiturn_agent(memory, chat_history, verbose: bool = False) -> AgentExecutor:
-    """multiturn Agent"""
-    gpt35 = ChatOpenAI(temperature=0, model=MODEL, model_kwargs={"top_p": 0.1})
-
-    gpt35_po = ChatOpenAI(
-        temperature=0,
-        model=MODEL,
-        model_kwargs={"top_p": 0.1, "function_call": {"name": "parts_order"}},
-    )
-    readonly_memory = ReadOnlySharedMemory(memory=memory)
-
-    agent_kwargs = {
-        "system_message": SystemMessage(content=HOROSCOPE_SYSTEM_PROMPT),
-        "extra_prompt_messages": [chat_history],
-    }
-    horoscope_agent = initialize_agent(
-        tools=[horoscope],
-        llm=gpt35,
-        agent=AgentType.OPENAI_FUNCTIONS,
-        verbose=verbose,
-        agent_kwargs=agent_kwargs,
-        memory=readonly_memory,  # ★
-    )
-
-    agent_kwargs = {
-        "system_message": SystemMessage(content=PARTS_ORDER_SYSTEM_PROMPT),
-        "extra_prompt_messages": [chat_history],
-    }
-    parts_order_agent = initialize_agent(
-        tools=[parts_order],
-        llm=gpt35_po,
-        agent=AgentType.OPENAI_FUNCTIONS,
-        verbose=verbose,
-        agent_kwargs=agent_kwargs,
-        memory=readonly_memory,  # ★
-    )
-
-    messages = []
-    messages.extend(parts_order_agent.agent.prompt.messages[:3])
-    messages.append(SystemMessage(content=PARTS_ORDER_SSUFFIX_PROMPT))
-    messages.append(parts_order_agent.agent.prompt.messages[3])
-    parts_order_agent.agent.prompt.messages = messages
-
-    chat_prompt_template = ChatPromptTemplate.from_messages(
-        [
-            SystemMessage(content=DEFAULT_SYSTEM_PROMPT),
-            chat_history,
-            HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=["input"], template="{input}")),
-        ]
-    )
-
-    default_chain = LLMChain(llm=gpt35, prompt=chat_prompt_template, memory=readonly_memory, verbose=verbose)
-
-    tools = [
-        Tool.from_function(
-            func=horoscope_agent.run,
-            name="horoscope_agent",
-            description="星占いの担当者です。星占いに関係する会話の対応はこの担当者に任せるべきです。",
-            args_schema=HoroscopeAgentInput,
-            return_direct=True,
-        ),
-        Tool.from_function(
-            func=parts_order_agent.run,
-            name="parts_order_agent",
-            description="プラモデルの部品の個別注文の担当者です。プラモデルの部品注文やキャンセルに関係する会話の対応はこの担当者に任せるべきです。",
-            args_schema=PartsOrderAgentInput,
-            return_direct=True,
-        ),
-        Tool.from_function(
-            func=default_chain.run,
-            name="DEFAULT",
-            description="一般的な会話の担当者です。一般的で特定の専門家に任せるべきでない会話の対応はこの担当者に任せるべきです。",
-            args_schema=DefaultAgentInput,
-            return_direct=True,
-        ),
-    ]
-
-    dispatcher_agent = DispatcherAgent(chat_model=gpt35, readonly_memory=readonly_memory, tools=tools, verbose=verbose)
-
-    agent = AgentExecutor.from_agent_and_tools(agent=dispatcher_agent, tools=tools, memory=memory, verbose=verbose)
-
-    return agent
 
 
 ROUTER_TEMPLATE = """あなたの仕事はユーザーとあなたとの会話内容を読み、
@@ -447,101 +415,102 @@ ROUTER_PROMPT_SUFFIX = """<< 出力形式の指定 >>
 """
 
 
-class DestinationOutputParser(BaseOutputParser[str]):
-    destinations: Set[str]
-
-    class Config:
-        extra = "allow"
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.destinations_and_default = list(self.destinations) + ["DEFAULT"]
-
-    def parse(self, text: str) -> str:
-        matched = [int(d in text) for d in self.destinations_and_default]
-        if sum(matched) != 1:
-            raise OutputParserException(f"DestinationOutputParser expected output value includes " f"one(and only one) of {self.destinations_and_default}. " f"Received {text}.")
-
-        return self.destinations_and_default[matched.index(1)]
-
-    @property
-    def _type(self) -> str:
-        return "destination_output_parser"
+members = ["horoscope", "parts_order", "default"]
+system_prompt = (
+    "You are a supervisor tasked with managing a conversation between the"
+    " following workers:  {members}. Given the following user request,"
+    " respond with the worker to act next. Each worker will perform a"
+    " task and respond with their results and status. When finished,"
+    " respond with FINISH."
+)
+options = ["FINISH"] + members
 
 
-class DispatcherAgent(BaseSingleActionAgent):
-    chat_model: BaseChatModel
-    readonly_memory: ReadOnlySharedMemory
-    tools: List[Tool]
-    verbose: bool = False
-
-    class Config:
-        extra = "allow"
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        destinations = "\n".join([f"{tool.name}: {tool.description}" for tool in self.tools])
-        router_template = ROUTER_TEMPLATE.format(destinations=destinations)
-        router_prompt_template = ChatPromptTemplate.from_messages(
-            [
-                SystemMessage(content=router_template),
-                MessagesPlaceholder(variable_name=MEMORY_KEY),
-                HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=["input"], template="{input}")),
-                SystemMessage(content=ROUTER_PROMPT_SUFFIX),
-            ]
-        )
-        self.router_chain = LLMChain(
-            llm=self.chat_model,
-            prompt=router_prompt_template,
-            memory=self.readonly_memory,
-            verbose=self.verbose,
-        )
-
-        self.route_parser = DestinationOutputParser(destinations=set([tool.name for tool in self.tools]))
-
-    @property
-    def input_keys(self):
-        return ["input"]
-
-    def plan(
-        self,
-        intermediate_steps: List[Tuple[AgentAction, str]],
-        callbacks: list[BaseCallbackHandler] | BaseCallbackManager | None = ...,
-        **kwargs: Any,
-    ) -> Union[AgentAction, AgentFinish]:
-        router_output = self.router_chain.run(kwargs["input"])
-        try:
-            destination = self.route_parser.parse(router_output)
-        except OutputParserException:
-            destination = "DEFAULT"
-
-        return AgentAction(tool=destination, tool_input=kwargs["input"], log="")
-
-    async def aplan(
-        self,
-        intermediate_steps: List[Tuple[AgentAction, str]],
-        callbacks: list[BaseCallbackHandler] | BaseCallbackManager | None = ...,
-        **kwargs: Any,
-    ) -> Union[AgentAction, AgentFinish]:
-        router_output = await self.router_chain.arun(kwargs["input"])
-        try:
-            destination = self.route_parser.parse(router_output)
-        except OutputParserException:
-            destination = "DEFAULT"
-
-        return AgentAction(tool=destination, tool_input=kwargs["input"], log="")
+class routeResponse(BaseModel):
+    next: Literal[*options]
 
 
-class HoroscopeAgentInput(BaseModel):
-    user_utterance: str = Field(description="星占いの専門家に伝達するユーザーの直近の発話内容です。")
+def create_supervisor_agnet(llm: BaseChatModel, members: List[str]) -> CompiledStateGraph:
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", system_prompt),
+            MessagesPlaceholder(variable_name="messages"),
+            (
+                "system",
+                "Given the conversation above, who should act next?" " Or should we FINISH? Select one of: {options}",
+            ),
+        ]
+    ).partial(options=str(options), members=", ".join(members))
 
+    supervisor_chain = prompt | llm.with_structured_output(routeResponse)
 
-class PartsOrderAgentInput(BaseModel):
-    user_utterance: str = Field(description="プラモデルの部品の個別注文の担当者に伝達するユーザーの直近の発話内容です。")
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            SystemMessage(content=DEFAULT_SYSTEM_PROMPT),
+            MessagesPlaceholder(variable_name="messages"),
+        ]
+    )
 
+    default_chain = prompt | llm
 
-class DefaultAgentInput(BaseModel):
-    user_utterance: str = Field(description="一般的な内容を担当する担当者に伝達するユーザーの直近の発話内容です。")
+    def default_node(state):
+        print("---- default node ----")
+        res = default_chain.invoke(state)
+        print("---- default node end ----")
+        return {"messages": [res]}
+
+    def agent_node(state, agent, name):
+        print(f"---- {name} node ----")
+        result = agent.invoke(state)
+        print(f"---- {name} node end ----")
+        return {"messages": [AIMessage(content=result["messages"][-1].content, name=name)]}
+
+    def supervisor_node(state):
+        print("---- supervisor node ----")
+
+        res = supervisor_chain.invoke(state)
+        print(res)
+        print("---- supervisor node end ----")
+        return res
+
+    def reply_node(state):
+        """memberからのmessageををそのまま帰す"""
+        return {"messages": [state["messages"][-1]]}
+
+    # The agent state is the input to each node in the graph
+    class AgentState(TypedDict):
+        # The annotation tells the graph that new messages will always
+        # be added to the current states
+        messages: Annotated[Sequence[BaseMessage], operator.add]
+        # The 'next' field indicates where to route to next
+        next: str
+
+    horoscope_app = get_horoscope_agent(llm=llm)
+    horoscope_node = functools.partial(agent_node, agent=horoscope_app, name="horoscope")
+
+    parts_order_app = get_parts_order_agent(llm)
+    parts_order_node = functools.partial(agent_node, agent=parts_order_app, name="parts_order")
+
+    workflow = StateGraph(AgentState)
+    # node
+    workflow.add_node("horoscope", horoscope_node)
+    workflow.add_node("parts_order", parts_order_node)
+    workflow.add_node("default", default_node)
+    workflow.add_node("supervisor", supervisor_node)
+    workflow.add_node("reply", reply_node)
+
+    # edges
+    for member in members:
+        workflow.add_edge(member, "reply")
+
+    conditional_map = {k: k for k in members}
+    conditional_map["FINISH"] = END
+    workflow.add_conditional_edges("supervisor", lambda state: state["next"], conditional_map)
+    workflow.add_edge("reply", END)
+    workflow.add_edge(START, "supervisor")
+
+    app = workflow.compile()
+    return app
 
 
 if __name__ == "__main__":
@@ -554,22 +523,23 @@ if __name__ == "__main__":
     llm = ChatOpenAI(
         temperature=0,
         model=MODEL,
-        model_kwargs={"top_p": 0.1},
+        top_p=0.1,
         verbose=args.verbose,
     )
-    memory = ConversationBufferMemory(memory_key=MEMORY_KEY, return_messages=True)
-    chat_history = MessagesPlaceholder(variable_name=MEMORY_KEY)
+    messages = []
     if args.type == "one":
-        agent = get_horoscope_agent(llm=llm, memory=memory, chat_history=chat_history, verbose=args.verbose)
+        agent = get_horoscope_agent(llm=llm)
     elif args.type == "two":
-        agent = get_parts_order_agent(memory=memory, chat_history=chat_history, verbose=args.verbose)
+        agent = get_parts_order_agent(llm)
     elif args.type == "multiturn":
-        agent = get_multiturn_agent(memory=memory, chat_history=chat_history, verbose=args.verbose)
+        agent = create_supervisor_agnet(llm=llm, members=members)
 
     # 会話ループ
     user = ""
     while user != "exit":
         user = input("入力してください:")
         print(user)
-        ai = agent.run(input=user)
-        print(ai)
+        messages.append(("human", user))
+        state = agent.invoke(input={"messages": messages})
+        print(state["messages"][-1].content)
+        messages.append(("ai", state["messages"][-1].content))
