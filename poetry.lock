@@ -1802,13 +1802,13 @@ langchain-core = ">=0.3.15,<0.4.0"
 
 [[package]]
 name = "langchain-google-community"
-version = "2.0.2"
+version = "2.0.3"
 description = "An integration package connecting miscellaneous Google's products and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_google_community-2.0.2-py3-none-any.whl", hash = "sha256:9ccf73051dc932c7cd1c2de156c1a2348c9160803f620940a059bca5ca6c0bde"},
-    {file = "langchain_google_community-2.0.2.tar.gz", hash = "sha256:c19440d6b3b065f2d73ee3af6a6e151cb3b3e7ebb2616d395f303bb71c90557f"},
+    {file = "langchain_google_community-2.0.3-py3-none-any.whl", hash = "sha256:feb6bcccf9e2c5d6e8ef029a1900ef5fa1ee0cd5499d555c603d79c1b7319597"},
+    {file = "langchain_google_community-2.0.3.tar.gz", hash = "sha256:2d77f8c9bd6da546b9e3f92517441abfcb2730f9b5beaff17a36d7bdb5687bbc"},
 ]
 
 [package.dependencies]
