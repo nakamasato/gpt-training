@@ -23,7 +23,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python & Poetry
-        uses: nakamasato/github-actions/setup-poetry@1.6.2
+        uses: nakamasato/github-actions/setup-poetry@1.6.3
         with:
           install-dependencies: true
 
