@@ -1,8 +1,9 @@
-from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
+from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda, RunnableBranch
 import pandas as pd
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from operator import itemgetter
+from random import randint
 
 df = pd.read_csv("data/titanic.csv")
 print(df)
@@ -68,4 +69,17 @@ def example_runnable_assign():
     print(runnable.invoke({"table": "titanic", "column": "Survived", "value": 1, "title": "Graph Title"}))
 
 
-example_runnable_assign()
+def example_runnable_branch():
+    # branch
+    extract_message_chain = RunnableLambda(lambda x: [] if randint(0, 1) == 0 else ["message"])  # randomize message
+    message_summary_chain = RunnableLambda(lambda x: f"this is the summary of {len(x['message'])} messages")  # emulate chain with LLM
+
+    # chain
+    chain_with_branch = RunnablePassthrough.assign(message=extract_message_chain) | RunnableBranch(
+        (lambda x: bool(x["message"]), message_summary_chain),
+        lambda x: "メッセージが見つかりませんでした。",  # 空の場合に返す固定の結果を定義
+    )
+    print(chain_with_branch.batch([{"message": []}, {"message": ["message"]}, {"message": ["message", "message"]}]))
+
+
+example_runnable_branch()
