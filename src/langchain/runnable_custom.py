@@ -71,15 +71,15 @@ def example_runnable_assign():
 
 def example_runnable_branch():
     # branch
-    extract_message_chain = RunnableLambda(lambda x: [] if randint(0, 1) == 0 else ["message"])  # randomize message
+    extract_message_chain = RunnableLambda(lambda x: {"message": ["message"] * randint(0, 2)})  # randomize message
     message_summary_chain = RunnableLambda(lambda x: f"this is the summary of {len(x['message'])} messages")  # emulate chain with LLM
 
     # chain
-    chain_with_branch = RunnablePassthrough.assign(message=extract_message_chain) | RunnableBranch(
+    chain_with_branch = extract_message_chain | RunnableBranch(
         (lambda x: bool(x["message"]), message_summary_chain),
-        lambda x: "メッセージが見つかりませんでした。",  # 空の場合に返す固定の結果を定義
+        lambda x: "no message found",  # fixed result when empty
     )
-    print(chain_with_branch.batch([{"message": []}, {"message": ["message"]}, {"message": ["message", "message"]}]))
+    print(chain_with_branch.batch([{}, {}, {}]))
 
 
 example_runnable_branch()
