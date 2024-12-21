@@ -2187,13 +2187,13 @@ min-versions = ["babel (==2.9.0)", "click (==7.0)", "colorama (==0.4)", "ghp-imp
 
 [[package]]
 name = "mkdocs-awesome-pages-plugin"
-version = "2.9.3"
+version = "2.10.0"
 description = "An MkDocs plugin that simplifies configuring page titles and their order"
 optional = false
 python-versions = ">=3.8.1"
 files = [
-    {file = "mkdocs_awesome_pages_plugin-2.9.3-py3-none-any.whl", hash = "sha256:1ba433d4e7edaf8661b15b93267f78f78e2e06ca590fc0e651ea36b191d64ae4"},
-    {file = "mkdocs_awesome_pages_plugin-2.9.3.tar.gz", hash = "sha256:bdf6369871f41bb17f09c3cfb573367732dfcceb5673d7a2c5c76ac2567b242f"},
+    {file = "mkdocs_awesome_pages_plugin-2.10.0-py3-none-any.whl", hash = "sha256:2487936b3d2ca0961c9c560a14d998e58b6b616e531cc08839534232052e9129"},
+    {file = "mkdocs_awesome_pages_plugin-2.10.0.tar.gz", hash = "sha256:25c7b43b549782c495a41ed93db638a871f697469d86a035d389ade21ebf92ea"},
 ]
 
 [package.dependencies]
