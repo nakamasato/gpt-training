@@ -1,13 +1,11 @@
-import json
 import operator
 from typing import Annotated, Sequence, TypedDict
 
-from langchain_core.messages import BaseMessage, FunctionMessage, HumanMessage
+from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
-from langgraph.prebuilt import ToolExecutor, ToolInvocation
+from langgraph.prebuilt import ToolNode
 from src.libs.tools import TOOL_GOOGLE
-from langchain_core.utils.function_calling import format_tool_to_openai_function
 
 
 def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):
@@ -15,11 +13,10 @@ def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):
     tools = [
         TOOL_GOOGLE,
     ]
-    tool_executor = ToolExecutor(tools)
+    tool_node = ToolNode(tools=tools)
 
-    # 3. Bind the functions to the model
-    functions = [format_tool_to_openai_function(t) for t in tools]
-    llm = llm.bind_functions(functions)
+    # 3. Bind the tools to the model
+    llm = llm.bind_tools(tools)
 
     # 4. Define AgentState
     class AgentState(TypedDict):
@@ -32,12 +29,10 @@ def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):
     def should_continue(state):
         messages = state["messages"]
         last_message = messages[-1]
-        # If there is no function call, then we finish
-        if "function_call" not in last_message.additional_kwargs:
-            return "end"
-        # Otherwise if there is, we continue
-        else:
+        if last_message.tool_calls:
             return "continue"
+        else:
+            return "end"
 
     # Define the function that calls the model
     def call_model(state):
@@ -46,24 +41,6 @@ def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):
         # We return a list, because this will get added to the existing list
         return {"messages": [response]}
 
-    # Define the function to execute tools
-    def call_tool(state):
-        messages = state["messages"]
-        # Based on the continue condition
-        # we know the last message involves a function call
-        last_message = messages[-1]
-        # We construct an ToolInvocation from the function_call
-        action = ToolInvocation(
-            tool=last_message.additional_kwargs["function_call"]["name"],
-            tool_input=json.loads(last_message.additional_kwargs["function_call"]["arguments"]),
-        )
-        # We call the tool_executor and get back a response
-        response = tool_executor.invoke(action)
-        # We use the response to create a FunctionMessage
-        function_message = FunctionMessage(content=str(response), name=action.tool)
-        # We return a list, because this will get added to the existing list
-        return {"messages": [function_message]}
-
     # 6. Define the graph
 
     # Define a new graph
@@ -71,7 +48,7 @@ def create_example(llm=ChatOpenAI(temperature=0, streaming=True)):
 
     # Define the two nodes we will cycle between
     workflow.add_node("agent", call_model)
-    workflow.add_node("action", call_tool)
+    workflow.add_node("action", tool_node)
 
     # Set the entrypoint as `agent`
     # This means that this node is the first one called
