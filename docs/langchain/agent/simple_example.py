@@ -1,7 +1,7 @@
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_openai import ChatOpenAI
 
-from langchain import hub
+from langchain_core.prompts import ChatPromptTemplate
 from langchain.agents import AgentExecutor
 from langchain.agents.tool_calling_agent.base import create_tool_calling_agent
 from langchain_core.tools import tool
@@ -17,7 +17,14 @@ def multiply(a: int, b: int) -> int:
 
 tools = [search, multiply]
 
-prompt = hub.pull("hwchase17/openai-functions-agent")
+prompt = ChatPromptTemplate(
+    messages=[
+        ("system", "You are a helpful assistant"),
+        ("placeholder", "{chat_history}"),
+        ("human", "{input}"),
+        ("placeholder", "{placeholder}"),
+    ]
+)
 
 llm = ChatOpenAI(model="gpt-4", temperature=0)
 agent = create_tool_calling_agent(llm, tools, prompt)

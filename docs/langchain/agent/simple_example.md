@@ -67,6 +67,8 @@ prompt = hub.pull("hwchase17/openai-functions-agent")
 prompt.messages
 ```
 
+[langchainhubをやめた](https://qiita.com/nakamasato/items/1cf783df76583d7b52f5)
+
 ```
 >>> prompt.messages
 [SystemMessagePromptTemplate(prompt=PromptTemplate(input_variables=[], template='You are a helpful assistant')), MessagesPlaceholder(variable_name='chat_history', optional=True), HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=['input'], template='{input}')), MessagesPlaceholder(variable_name='agent_scratchpad')]
