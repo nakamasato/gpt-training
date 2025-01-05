@@ -40,6 +40,8 @@ return next_action
     prompt = hub.pull("hwchase17/react-chat")
     ```
 
+    [langchainhubをやめた](https://qiita.com/nakamasato/items/1cf783df76583d7b52f5)
+
 1. Create Agent
 
     ```py
