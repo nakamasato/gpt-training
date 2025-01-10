@@ -1154,8 +1154,8 @@ googleapis-common-protos = ">=1.56.2,<2.0.dev0"
 grpcio = {version = ">=1.49.1,<2.0dev", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 grpcio-status = {version = ">=1.49.1,<2.0.dev0", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0dev", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<6.0.0.dev0"
 requests = ">=2.18.0,<3.0.0.dev0"
@@ -2016,8 +2016,8 @@ jsonpatch = ">=1.33,<2.0"
 langsmith = ">=0.1.125,<0.3"
 packaging = ">=23.2,<25"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=2.5.2,<3.0.0", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 PyYAML = ">=5.3"
 tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10.0.0"
@@ -2108,17 +2108,17 @@ pydantic = ">=2,<3"
 
 [[package]]
 name = "langchain-openai"
-version = "0.2.14"
+version = "0.3.0"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_openai-0.2.14-py3-none-any.whl", hash = "sha256:d232496662f79ece9a11caf7d798ba863e559c771bc366814f7688e0fe664fe8"},
-    {file = "langchain_openai-0.2.14.tar.gz", hash = "sha256:7a514f309e356b182a337c0ed36ab3fbe34d9834a235a3b85cb7f91ae775d978"},
+    {file = "langchain_openai-0.3.0-py3-none-any.whl", hash = "sha256:49c921a22d272b04749a61e78bffa83aecdb8840b24b69f2909e115a357a9a5b"},
+    {file = "langchain_openai-0.3.0.tar.gz", hash = "sha256:88d623eeb2aaa1fff65c2b419a4a1cfd37d3a1d504e598b87cf0bc822a3b70d0"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.3.27,<0.4.0"
+langchain-core = ">=0.3.29,<0.4.0"
 openai = ">=1.58.1,<2.0.0"
 tiktoken = ">=0.7,<1"
 
@@ -2221,8 +2221,8 @@ files = [
 httpx = ">=0.23.0,<1"
 orjson = {version = ">=3.9.14,<4.0.0", markers = "platform_python_implementation != \"PyPy\""}
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 requests = ">=2,<3"
 requests-toolbelt = ">=1.0.0,<2.0.0"
@@ -5328,4 +5328,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "832dc0baad0f6ddabbea6450095f7cf6203d597541adab5353be455842b8afec"
+content-hash = "5d9acb2af2e6e288415a01ef012e536765ca124b78a657198887fda7497b2c33"
