@@ -279,6 +279,44 @@ files = [
 ]
 
 [[package]]
+name = "boto3"
+version = "1.35.97"
+description = "The AWS SDK for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "boto3-1.35.97-py3-none-any.whl", hash = "sha256:8e49416216a6e3a62c2a0c44fba4dd2852c85472e7b702516605b1363867d220"},
+    {file = "boto3-1.35.97.tar.gz", hash = "sha256:7d398f66a11e67777c189d1f58c0a75d9d60f98d0ee51b8817e828930bf19e4e"},
+]
+
+[package.dependencies]
+botocore = ">=1.35.97,<1.36.0"
+jmespath = ">=0.7.1,<2.0.0"
+s3transfer = ">=0.10.0,<0.11.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
+
+[[package]]
+name = "botocore"
+version = "1.35.97"
+description = "Low-level, data-driven core of boto 3."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "botocore-1.35.97-py3-none-any.whl", hash = "sha256:fed4f156b1a9b8ece53738f702ba5851b8c6216b4952de326547f349cc494f14"},
+    {file = "botocore-1.35.97.tar.gz", hash = "sha256:88f2fab29192ffe2f2115d5bafbbd823ff4b6eb2774296e03ec8b5b0fe074f61"},
+]
+
+[package.dependencies]
+jmespath = ">=0.7.1,<2.0.0"
+python-dateutil = ">=2.1,<3.0.0"
+urllib3 = {version = ">=1.25.4,<2.2.0 || >2.2.0,<3", markers = "python_version >= \"3.10\""}
+
+[package.extras]
+crt = ["awscrt (==0.22.0)"]
+
+[[package]]
 name = "bracex"
 version = "2.5.post1"
 description = "Bash style brace expander."
@@ -291,13 +329,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.1.18"
+version = "0.1.19"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = ">=3.11"
 files = [
-    {file = "browser_use-0.1.18-py3-none-any.whl", hash = "sha256:c5e1dfdc47040bd7519e8bf63ab972a6543c6f3a39520b8fa0e50a90aa7d1b6b"},
-    {file = "browser_use-0.1.18.tar.gz", hash = "sha256:c8dbea9259ded476055b881b6b847a959797045be004cdbe6b5b0becffef36c8"},
+    {file = "browser_use-0.1.19-py3-none-any.whl", hash = "sha256:83ad5b13518ef72777a396aebfb0cf8da733f45b2afafe51650b42889bfc185b"},
+    {file = "browser_use-0.1.19.tar.gz", hash = "sha256:99e835786f6012efa13712a01df0c34b25166f0c0deab63604c115b437fb8162"},
 ]
 
 [package.dependencies]
@@ -305,6 +343,7 @@ beautifulsoup4 = ">=4.12.3"
 httpx = ">=0.27.2"
 langchain = ">=0.3.14"
 langchain-anthropic = ">=0.3.1"
+langchain-aws = ">=0.2.10"
 langchain-fireworks = ">=0.2.5"
 langchain-google-genai = ">=2.0.8"
 langchain-openai = ">=0.2.14"
@@ -1815,6 +1854,17 @@ files = [
 ]
 
 [[package]]
+name = "jmespath"
+version = "1.0.1"
+description = "JSON Matching Expressions"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
+    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
+]
+
+[[package]]
 name = "jsonpatch"
 version = "1.33"
 description = "Apply JSON-Patches (RFC 6902)"
@@ -1955,6 +2005,23 @@ anthropic = ">=0.41.0,<1"
 defusedxml = ">=0.7.1,<0.8.0"
 langchain-core = ">=0.3.27,<0.4.0"
 pydantic = ">=2.7.4,<3.0.0"
+
+[[package]]
+name = "langchain-aws"
+version = "0.2.10"
+description = "An integration package connecting AWS and LangChain"
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "langchain_aws-0.2.10-py3-none-any.whl", hash = "sha256:37e4a8d5d1a7d2f493c62ba181e5eb0eb36f4b235dc239b070507dec5b042eed"},
+    {file = "langchain_aws-0.2.10.tar.gz", hash = "sha256:af733cb328e795a3b7189221b4aab694743176c00487749ff885d6297f9860a4"},
+]
+
+[package.dependencies]
+boto3 = ">=1.35.74"
+langchain-core = ">=0.3.27,<0.4.0"
+numpy = {version = ">=1.26.0,<3", markers = "python_version >= \"3.12\""}
+pydantic = ">=2,<3"
 
 [[package]]
 name = "langchain-cli"
@@ -4508,6 +4575,23 @@ files = [
     {file = "ruff-0.9.1-py3-none-win_arm64.whl", hash = "sha256:1cd76c7f9c679e6e8f2af8f778367dca82b95009bc7b1a85a47f1521ae524fa7"},
     {file = "ruff-0.9.1.tar.gz", hash = "sha256:fd2b25ecaf907d6458fa842675382c8597b3c746a2dde6717fe3415425df0c17"},
 ]
+
+[[package]]
+name = "s3transfer"
+version = "0.10.4"
+description = "An Amazon S3 Transfer Manager"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "s3transfer-0.10.4-py3-none-any.whl", hash = "sha256:244a76a24355363a68164241438de1b72f8781664920260c48465896b712a41e"},
+    {file = "s3transfer-0.10.4.tar.gz", hash = "sha256:29edc09801743c21eb5ecbc617a152df41d3c287f67b615f73e5f750583666a7"},
+]
+
+[package.dependencies]
+botocore = ">=1.33.2,<2.0a.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.33.2,<2.0a.0)"]
 
 [[package]]
 name = "secretstorage"
