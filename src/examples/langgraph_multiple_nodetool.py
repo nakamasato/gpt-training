@@ -117,5 +117,6 @@ if __name__ == "__main__":
     print(app.get_graph().draw_mermaid())
     # 7. Use
     inputs = {"custom_messages": [HumanMessage(content="本日の日付の年、月、日を掛け算した値と天気から占ってください。")]}
-    for e in app.stream(inputs):
+    # you can specify run_name, metadata for langsmith
+    for e in app.stream(inputs, config={"run_name": "ExampleAgent", "metadata": {"tenant": "t1"}, "project": "t1"}):
         print(e)
