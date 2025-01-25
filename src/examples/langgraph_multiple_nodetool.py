@@ -51,9 +51,6 @@ def create_example(llm=ChatOpenAI(model="gpt-4o-mini", temperature=0, streaming=
 
     # Define the function that determines whether to continue or not
     def should_continue(state):
-        # run = get_current_run_tree()
-        # if run:
-        #     run.add_metadata("tenant", state["tenant"])
         messages = state["custom_messages"]
         last_message = messages[-1]
         # If there is no function call, then we finish
