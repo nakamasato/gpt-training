@@ -340,25 +340,24 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.1.28"
+version = "0.1.24"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = ">=3.11"
 files = [
-    {file = "browser_use-0.1.28-py3-none-any.whl", hash = "sha256:485c6894e427404ef54d8a38296c6c3a6d9f3214ef271f869d7ceb6b04d9d130"},
-    {file = "browser_use-0.1.28.tar.gz", hash = "sha256:626eed9a9d3e62adc6d93c77f9fa93a7013ba92c2e5c779b79351e9de7ff51e1"},
+    {file = "browser_use-0.1.24-py3-none-any.whl", hash = "sha256:710073930edfaeea2c69a219255dc8acfd961d49417a55d2056d60ab5501b81f"},
+    {file = "browser_use-0.1.24.tar.gz", hash = "sha256:2ddee34e6cea7fd249d0d0567de6382db3371df4d419dc55806f7bead24d33ac"},
 ]
 
 [package.dependencies]
 beautifulsoup4 = ">=4.12.3"
 httpx = ">=0.27.2"
-langchain = "0.3.14"
-langchain-anthropic = "0.3.3"
-langchain-aws = ">=0.2.11"
-langchain-fireworks = ">=0.2.6"
-langchain-google-genai = "2.0.8"
-langchain-ollama = "0.2.2"
-langchain-openai = "0.3.1"
+langchain = ">=0.3.14"
+langchain-anthropic = ">=0.3.1"
+langchain-aws = ">=0.2.10"
+langchain-fireworks = ">=0.2.5"
+langchain-google-genai = ">=2.0.8"
+langchain-openai = ">=0.3.0"
 lmnr = {version = ">=0.4.53", extras = ["langchain"]}
 maincontentextractor = ">=0.0.4"
 playwright = ">=1.49.0"
@@ -2228,33 +2227,18 @@ langchain-core = ">=0.3.27,<0.4.0"
 pydantic = ">=2,<3"
 
 [[package]]
-name = "langchain-ollama"
-version = "0.2.2"
-description = "An integration package connecting Ollama and LangChain"
-optional = false
-python-versions = "<4.0,>=3.9"
-files = [
-    {file = "langchain_ollama-0.2.2-py3-none-any.whl", hash = "sha256:8a1ee72dbb6ea3b3ace1d9dd317e472d667a8ed491328550da59f4893a6796f8"},
-    {file = "langchain_ollama-0.2.2.tar.gz", hash = "sha256:2d9bcb06ffdbe43c7c6906c46e710d36d33b6b99cd4975cbf54060f13e51c875"},
-]
-
-[package.dependencies]
-langchain-core = ">=0.3.27,<0.4.0"
-ollama = ">=0.4.4,<1"
-
-[[package]]
 name = "langchain-openai"
-version = "0.3.1"
+version = "0.3.2"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_openai-0.3.1-py3-none-any.whl", hash = "sha256:5cf2a1e115b12570158d89c22832fa381803c3e1e11d1eb781195c8d9e454bd5"},
-    {file = "langchain_openai-0.3.1.tar.gz", hash = "sha256:cce314f1437b2cad73e0ed2b55e74dc399bc1bbc43594c4448912fb51c5e4447"},
+    {file = "langchain_openai-0.3.2-py3-none-any.whl", hash = "sha256:8674183805e26d3ae3f78cc44f79fe0b2066f61e2de0e7e18be3b86f0d3b2759"},
+    {file = "langchain_openai-0.3.2.tar.gz", hash = "sha256:c2c80ac0208eb7cefdef96f6353b00fa217979ffe83f0a21cc8666001df828c1"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.3.30,<0.4.0"
+langchain-core = ">=0.3.31,<0.4.0"
 openai = ">=1.58.1,<2.0.0"
 tiktoken = ">=0.7,<1"
 
@@ -3176,21 +3160,6 @@ files = [
     {file = "numpy-2.2.2-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:356ca982c188acbfa6af0d694284d8cf20e95b1c3d0aefa8929376fea9146f60"},
     {file = "numpy-2.2.2.tar.gz", hash = "sha256:ed6906f61834d687738d25988ae117683705636936cc605be0bb208b23df4d8f"},
 ]
-
-[[package]]
-name = "ollama"
-version = "0.4.7"
-description = "The official Python client for Ollama."
-optional = false
-python-versions = "<4.0,>=3.8"
-files = [
-    {file = "ollama-0.4.7-py3-none-any.whl", hash = "sha256:85505663cca67a83707be5fb3aeff0ea72e67846cea5985529d8eca4366564a1"},
-    {file = "ollama-0.4.7.tar.gz", hash = "sha256:891dcbe54f55397d82d289c459de0ea897e103b86a3f1fad0fdb1895922a75ff"},
-]
-
-[package.dependencies]
-httpx = ">=0.27,<0.29"
-pydantic = ">=2.9.0,<3.0.0"
 
 [[package]]
 name = "openai"
