@@ -340,13 +340,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.1.32"
+version = "0.1.34"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.1.32-py3-none-any.whl", hash = "sha256:f256fba5b7f84624e79faa9529ce2148bbdc954d46be5e10ff48a4d1f49a270e"},
-    {file = "browser_use-0.1.32.tar.gz", hash = "sha256:a108086a70aab5a914100c109c0b555f0635d41c89b7a2fa345efb26b883954a"},
+    {file = "browser_use-0.1.34-py3-none-any.whl", hash = "sha256:ad36995a6dc2d074b6174ea0304ff95ec2ce4aafda3f32eb8893f38f34d49c84"},
+    {file = "browser_use-0.1.34.tar.gz", hash = "sha256:f075146187e6084258600461dab06a0ab2d8b607f21d8d97f3962245371e1451"},
 ]
 
 [package.dependencies]
@@ -361,6 +361,7 @@ langchain-ollama = "0.2.2"
 langchain-openai = "0.3.1"
 lmnr = {version = ">=0.4.53", extras = ["langchain"]}
 maincontentextractor = ">=0.0.4"
+markdownify = "0.14.1"
 playwright = ">=1.49.0"
 posthog = ">=3.7.0"
 pydantic = ">=2.10.4"
@@ -2653,6 +2654,21 @@ plugins = ["mdit-py-plugins"]
 profiling = ["gprof2dot"]
 rtd = ["jupyter_sphinx", "mdit-py-plugins", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx_book_theme"]
 testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
+
+[[package]]
+name = "markdownify"
+version = "0.14.1"
+description = "Convert HTML to markdown."
+optional = false
+python-versions = "*"
+files = [
+    {file = "markdownify-0.14.1-py3-none-any.whl", hash = "sha256:4c46a6c0c12c6005ddcd49b45a5a890398b002ef51380cd319db62df5e09bc2a"},
+    {file = "markdownify-0.14.1.tar.gz", hash = "sha256:a62a7a216947ed0b8dafb95b99b2ef4a0edd1e18d5653c656f68f03db2bfb2f1"},
+]
+
+[package.dependencies]
+beautifulsoup4 = ">=4.9,<5"
+six = ">=1.15,<2"
 
 [[package]]
 name = "markupsafe"
