@@ -346,28 +346,26 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.1.37"
+version = "0.1.24"
 description = "Make websites accessible for AI agents"
 optional = false
-python-versions = "<4.0,>=3.11"
+python-versions = ">=3.11"
 files = [
-    {file = "browser_use-0.1.37-py3-none-any.whl", hash = "sha256:46d52302ea6b19840362e399cfd77afd99c79ccc99a0a1751d1663ed0444d8ea"},
-    {file = "browser_use-0.1.37.tar.gz", hash = "sha256:8a0ef607c8a40e0be0c52d860344f6e6c43156acabe5e324141fdfd43c18e9f1"},
+    {file = "browser_use-0.1.24-py3-none-any.whl", hash = "sha256:710073930edfaeea2c69a219255dc8acfd961d49417a55d2056d60ab5501b81f"},
+    {file = "browser_use-0.1.24.tar.gz", hash = "sha256:2ddee34e6cea7fd249d0d0567de6382db3371df4d419dc55806f7bead24d33ac"},
 ]
 
 [package.dependencies]
 beautifulsoup4 = ">=4.12.3"
 httpx = ">=0.27.2"
-langchain = "0.3.14"
-langchain-anthropic = "0.3.3"
-langchain-aws = ">=0.2.11"
-langchain-fireworks = ">=0.2.6"
-langchain-google-genai = "2.0.8"
-langchain-ollama = "0.2.2"
-langchain-openai = "0.3.1"
-lmnr = {version = ">=0.4.59", extras = ["langchain"]}
+langchain = ">=0.3.14"
+langchain-anthropic = ">=0.3.1"
+langchain-aws = ">=0.2.10"
+langchain-fireworks = ">=0.2.5"
+langchain-google-genai = ">=2.0.8"
+langchain-openai = ">=0.3.0"
+lmnr = {version = ">=0.4.53", extras = ["langchain"]}
 maincontentextractor = ">=0.0.4"
-markdownify = "0.14.1"
 playwright = ">=1.49.0"
 posthog = ">=3.7.0"
 pydantic = ">=2.10.4"
@@ -2127,13 +2125,13 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10"
 
 [[package]]
 name = "langchain-core"
-version = "0.3.34"
+version = "0.3.35"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_core-0.3.34-py3-none-any.whl", hash = "sha256:a057ebeddd2158d3be14bde341b25640ddf958b6989bd6e47160396f5a8202ae"},
-    {file = "langchain_core-0.3.34.tar.gz", hash = "sha256:26504cf1e8e6c310adad907b890d4e3c147581cfa7434114f6dc1134fe4bc6d3"},
+    {file = "langchain_core-0.3.35-py3-none-any.whl", hash = "sha256:81a4097226e180fa6c64e2d2ab38dcacbbc23b64fc109fb15622910fe8951670"},
+    {file = "langchain_core-0.3.35.tar.gz", hash = "sha256:328688228ece259da734417d477994a69cf8202dea9ed4271f2d792e3575c6fc"},
 ]
 
 [package.dependencies]
@@ -2232,33 +2230,18 @@ langchain-core = ">=0.3.27,<0.4.0"
 pydantic = ">=2,<3"
 
 [[package]]
-name = "langchain-ollama"
-version = "0.2.2"
-description = "An integration package connecting Ollama and LangChain"
-optional = false
-python-versions = "<4.0,>=3.9"
-files = [
-    {file = "langchain_ollama-0.2.2-py3-none-any.whl", hash = "sha256:8a1ee72dbb6ea3b3ace1d9dd317e472d667a8ed491328550da59f4893a6796f8"},
-    {file = "langchain_ollama-0.2.2.tar.gz", hash = "sha256:2d9bcb06ffdbe43c7c6906c46e710d36d33b6b99cd4975cbf54060f13e51c875"},
-]
-
-[package.dependencies]
-langchain-core = ">=0.3.27,<0.4.0"
-ollama = ">=0.4.4,<1"
-
-[[package]]
 name = "langchain-openai"
-version = "0.3.1"
+version = "0.3.6"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_openai-0.3.1-py3-none-any.whl", hash = "sha256:5cf2a1e115b12570158d89c22832fa381803c3e1e11d1eb781195c8d9e454bd5"},
-    {file = "langchain_openai-0.3.1.tar.gz", hash = "sha256:cce314f1437b2cad73e0ed2b55e74dc399bc1bbc43594c4448912fb51c5e4447"},
+    {file = "langchain_openai-0.3.6-py3-none-any.whl", hash = "sha256:05f0869f6cc963e2ec9e2e54ea1038d9c2af784c67f0e217040dfc918b31649a"},
+    {file = "langchain_openai-0.3.6.tar.gz", hash = "sha256:7daf92e1cd98865ab5213ec5bec2cbd6c28f011e250714978b3a99c7e4fc88ce"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.3.30,<0.4.0"
+langchain-core = ">=0.3.35,<1.0.0"
 openai = ">=1.58.1,<2.0.0"
 tiktoken = ">=0.7,<1"
 
@@ -2655,21 +2638,6 @@ plugins = ["mdit-py-plugins"]
 profiling = ["gprof2dot"]
 rtd = ["jupyter_sphinx", "mdit-py-plugins", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx_book_theme"]
 testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
-
-[[package]]
-name = "markdownify"
-version = "0.14.1"
-description = "Convert HTML to markdown."
-optional = false
-python-versions = "*"
-files = [
-    {file = "markdownify-0.14.1-py3-none-any.whl", hash = "sha256:4c46a6c0c12c6005ddcd49b45a5a890398b002ef51380cd319db62df5e09bc2a"},
-    {file = "markdownify-0.14.1.tar.gz", hash = "sha256:a62a7a216947ed0b8dafb95b99b2ef4a0edd1e18d5653c656f68f03db2bfb2f1"},
-]
-
-[package.dependencies]
-beautifulsoup4 = ">=4.9,<5"
-six = ">=1.15,<2"
 
 [[package]]
 name = "markupsafe"
@@ -3195,21 +3163,6 @@ files = [
     {file = "numpy-2.2.2-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:356ca982c188acbfa6af0d694284d8cf20e95b1c3d0aefa8929376fea9146f60"},
     {file = "numpy-2.2.2.tar.gz", hash = "sha256:ed6906f61834d687738d25988ae117683705636936cc605be0bb208b23df4d8f"},
 ]
-
-[[package]]
-name = "ollama"
-version = "0.4.7"
-description = "The official Python client for Ollama."
-optional = false
-python-versions = "<4.0,>=3.8"
-files = [
-    {file = "ollama-0.4.7-py3-none-any.whl", hash = "sha256:85505663cca67a83707be5fb3aeff0ea72e67846cea5985529d8eca4366564a1"},
-    {file = "ollama-0.4.7.tar.gz", hash = "sha256:891dcbe54f55397d82d289c459de0ea897e103b86a3f1fad0fdb1895922a75ff"},
-]
-
-[package.dependencies]
-httpx = ">=0.27,<0.29"
-pydantic = ">=2.9.0,<3.0.0"
 
 [[package]]
 name = "openai"
