@@ -297,13 +297,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.1.39"
+version = "0.1.40"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.1.39-py3-none-any.whl", hash = "sha256:aacfec5152671456e17c910dc7660796d0ab6380c39a5fb561483c1720306eb4"},
-    {file = "browser_use-0.1.39.tar.gz", hash = "sha256:658c79373338ab00ba466e5967feaa0b77f0094f2e6c468c7317a1f157828ce4"},
+    {file = "browser_use-0.1.40-py3-none-any.whl", hash = "sha256:8deb6846bec00819bf150808357406e7847204c383351147c1f3d261c1904fb9"},
+    {file = "browser_use-0.1.40.tar.gz", hash = "sha256:ddafcda30a9f9fe0f63612af5bf19a0ec03454d2774f54543eee70eef7ab369f"},
 ]
 
 [package.dependencies]
