@@ -1229,8 +1229,8 @@ files = [
 google-api-core = {version = ">=1.34.1,<2.0.dev0 || >=2.11.dev0,<3.0.0dev", extras = ["grpc"]}
 google-auth = ">=2.14.1,<2.24.0 || >2.24.0,<2.25.0 || >2.25.0,<3.0.0dev"
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0dev", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=3.20.2,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<6.0.0dev"
 
@@ -1251,8 +1251,8 @@ googleapis-common-protos = ">=1.56.2,<2.0.dev0"
 grpcio = {version = ">=1.49.1,<2.0dev", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 grpcio-status = {version = ">=1.49.1,<2.0.dev0", optional = true, markers = "python_version >= \"3.11\" and extra == \"grpc\""}
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0dev", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0dev", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<6.0.0.dev0"
 requests = ">=2.18.0,<3.0.0.dev0"
@@ -2158,8 +2158,8 @@ jsonpatch = ">=1.33,<2.0"
 langsmith = ">=0.1.125,<0.4"
 packaging = ">=23.2,<25"
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=2.5.2,<3.0.0", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 PyYAML = ">=5.3"
 tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10.0.0"
@@ -2200,25 +2200,26 @@ requests = ">=2,<3"
 
 [[package]]
 name = "langchain-google-community"
-version = "2.0.4"
+version = "2.0.7"
 description = "An integration package connecting miscellaneous Google's products and LangChain"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_google_community-2.0.4-py3-none-any.whl", hash = "sha256:9faca1a35352897b8e9afcb8ac7d0cdb5fa45d1e7c583026fece2c67f78daeb7"},
-    {file = "langchain_google_community-2.0.4.tar.gz", hash = "sha256:4d6ae5ca9982417bde3399ddad914ba4cba9fe0bf508c715fd9f63e92245d84f"},
+    {file = "langchain_google_community-2.0.7-py3-none-any.whl", hash = "sha256:4502d63a1d1ce39f4a34cf7974c87700a40e00c15dbe15b7970b2708c5d9ca1f"},
+    {file = "langchain_google_community-2.0.7.tar.gz", hash = "sha256:ca73dade3bcc141bca38a3753c32d68325f45a3bccf1588d17ef84fe049f63aa"},
 ]
 
 [package.dependencies]
-google-api-core = ">=2.17.1,<3.0.0"
-google-api-python-client = ">=2.122.0,<3.0.0"
-google-cloud-core = ">=2.4.1,<3.0.0"
-grpcio = ">=1.62.0,<2.0.0"
+google-api-core = ">=2.24.1,<3.0.0"
+google-api-python-client = ">=2.161.0,<3.0.0"
+google-cloud-core = ">=2.4.2,<3.0.0"
+grpcio = ">=1.70.0,<2.0.0"
 langchain-community = ">=0.3.0,<0.4.0"
 langchain-core = ">=0.3.0,<0.4"
 
 [package.extras]
 bigquery = ["google-cloud-bigquery (>=3.21.0,<4.0.0)"]
+calendar = ["google-auth (>=2.36.0,<3.0.0)", "google-auth-oauthlib (>=1.2.0,<2.0.0)"]
 docai = ["gapic-google-longrunning (>=0.11.2,<0.12.0)", "google-cloud-contentwarehouse (>=0.7.7,<0.8.0)", "google-cloud-documentai (>=2.26.0,<3.0.0)", "google-cloud-documentai-toolbox (>=0.13.3a0,<0.14.0)"]
 drive = ["google-auth-httplib2 (>=0.2.0,<0.3.0)", "google-auth-oauthlib (>=1.2.0,<2.0.0)"]
 featurestore = ["db-dtypes (>=1.2.0,<2.0.0)", "google-cloud-aiplatform (>=1.56.0,<2.0.0)", "google-cloud-bigquery-storage (>=2.6.0,<3)", "pandas (>=1.0.0)", "pandas (>=2.0.0,<3.0)", "pyarrow (>=6.0.1)", "pydantic (>=2.7.4,<3.0.0)"]
@@ -2363,8 +2364,8 @@ files = [
 httpx = ">=0.23.0,<1"
 orjson = {version = ">=3.9.14,<4.0.0", markers = "platform_python_implementation != \"PyPy\""}
 pydantic = [
-    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
+    {version = ">=2.7.4,<3.0.0", markers = "python_full_version >= \"3.12.4\""},
 ]
 requests = ">=2,<3"
 requests-toolbelt = ">=1.0.0,<2.0.0"
