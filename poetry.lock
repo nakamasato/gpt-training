@@ -2051,20 +2051,20 @@ langchain-core = ">=0.3.51,<1.0.0"
 
 [[package]]
 name = "langgraph"
-version = "0.3.34"
+version = "0.4.0"
 description = "Building stateful, multi-actor applications with LLMs"
 optional = false
-python-versions = "<4.0,>=3.9.0"
+python-versions = ">=3.9"
 files = [
-    {file = "langgraph-0.3.34-py3-none-any.whl", hash = "sha256:4bf8af313ce7686e8a7597ca5441341ec89f9a9fe73ba1b07c116755efa3117d"},
-    {file = "langgraph-0.3.34.tar.gz", hash = "sha256:d4107b2101ee4a6f93f33b0fac1064d46ac3491f783200affac29f229ab0b93c"},
+    {file = "langgraph-0.4.0-py3-none-any.whl", hash = "sha256:d04a8f480b9c382e43fd1c658c49908c78c0fbd6a4ce70c29dc4ba934c79c542"},
+    {file = "langgraph-0.4.0.tar.gz", hash = "sha256:a5168395586478f7474fed0f5f65e8da4dafda19c0c236d63e4652f059df3b04"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.1,<0.4"
+langchain-core = {version = ">=0.1", markers = "python_version < \"4.0\""}
 langgraph-checkpoint = ">=2.0.10,<3.0.0"
-langgraph-prebuilt = ">=0.1.8,<0.2"
-langgraph-sdk = ">=0.1.42,<0.2.0"
+langgraph-prebuilt = {version = ">=0.1.8", markers = "python_version < \"4.0\""}
+langgraph-sdk = {version = ">=0.1.42", markers = "python_version < \"4.0\""}
 xxhash = ">=3.5.0,<4.0.0"
 
 [[package]]
@@ -5471,4 +5471,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "3eb408d9d9b3ca3954aa2620c6d2c8369f2bae5bf9540a4f5d3f699167d1c0aa"
+content-hash = "7cbe1ce2bda7ba043f67684b338aba78388a25ff73183c3becd8a153692284a0"
