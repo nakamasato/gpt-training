@@ -353,19 +353,19 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.1.42"
+version = "0.1.43"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.1.42-py3-none-any.whl", hash = "sha256:21188cc01c29aa0057375335189f818d7e570b1f20bae5f4c5ae055c1e1d03be"},
-    {file = "browser_use-0.1.42.tar.gz", hash = "sha256:9f0ed24272ed36751c49c627e9cb0aa2d31850c42ddc0b212cdcf0e724af921e"},
+    {file = "browser_use-0.1.43-py3-none-any.whl", hash = "sha256:c1dd8bd47d9315c12dba720883c9c64db9deb13cbe872bc0ca5a135a4edcd596"},
+    {file = "browser_use-0.1.43.tar.gz", hash = "sha256:a33316bf13782eaad5f75e4bef55d401d7b06c4686edb6f4b5fbe3676e512ec4"},
 ]
 
 [package.dependencies]
 anyio = ">=4.9.0"
 botocore = ">=1.37.23"
-faiss-cpu = ">=1.10.0"
+faiss-cpu = ">=1.9.0"
 google-api-core = ">=2.24.0"
 httpx = ">=0.27.2"
 langchain = ">=0.3.21"
