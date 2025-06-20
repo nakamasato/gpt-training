@@ -243,6 +243,20 @@ tests = ["cloudpickle", "hypothesis", "mypy (>=1.11.1)", "pympler", "pytest (>=4
 tests-mypy = ["mypy (>=1.11.1)", "pytest-mypy-plugins"]
 
 [[package]]
+name = "authlib"
+version = "1.6.0"
+description = "The ultimate Python library in building OAuth and OpenID Connect servers and clients."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "authlib-1.6.0-py2.py3-none-any.whl", hash = "sha256:91685589498f79e8655e8a8947431ad6288831d643f11c55c2143ffcc738048d"},
+    {file = "authlib-1.6.0.tar.gz", hash = "sha256:4367d32031b7af175ad3a323d571dc7257b7099d55978087ceae4a0d88cd3210"},
+]
+
+[package.dependencies]
+cryptography = "*"
+
+[[package]]
 name = "babel"
 version = "2.17.0"
 description = "Internationalization utilities"
@@ -319,44 +333,6 @@ files = [
 ]
 
 [[package]]
-name = "boto3"
-version = "1.38.36"
-description = "The AWS SDK for Python"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "boto3-1.38.36-py3-none-any.whl", hash = "sha256:34c27d7317cadb62c0e9856e5d5aa0271ef47202d340584831048bc7ac904136"},
-    {file = "boto3-1.38.36.tar.gz", hash = "sha256:efe0aaa060f8fedd76e5c942055f051aee0432fc722d79d8830a9fd9db83593e"},
-]
-
-[package.dependencies]
-botocore = ">=1.38.36,<1.39.0"
-jmespath = ">=0.7.1,<2.0.0"
-s3transfer = ">=0.13.0,<0.14.0"
-
-[package.extras]
-crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
-
-[[package]]
-name = "botocore"
-version = "1.38.36"
-description = "Low-level, data-driven core of boto 3."
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "botocore-1.38.36-py3-none-any.whl", hash = "sha256:b6a50b853f6d23af9edfed89a59800c6bc1687a947cdd3492879f7d64e002d30"},
-    {file = "botocore-1.38.36.tar.gz", hash = "sha256:4a1ced1a4218bdff0ed5b46abb54570d473154ddefafa5d121a8d96e4b76ebc1"},
-]
-
-[package.dependencies]
-jmespath = ">=0.7.1,<2.0.0"
-python-dateutil = ">=2.1,<3.0.0"
-urllib3 = {version = ">=1.25.4,<2.2.0 || >2.2.0,<3", markers = "python_version >= \"3.10\""}
-
-[package.extras]
-crt = ["awscrt (==0.23.8)"]
-
-[[package]]
 name = "bracex"
 version = "2.5.post1"
 description = "Bash style brace expander."
@@ -369,24 +345,25 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.2.7"
+version = "0.3.1"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.2.7-py3-none-any.whl", hash = "sha256:bc534a369ef85ff3905abae05dab1d4a996676ad285a3dff9aa6c5211854872d"},
-    {file = "browser_use-0.2.7.tar.gz", hash = "sha256:a2e0b0eb34e6fb5ef46e4e10ad0b4a42854fc2445d3e53b3ba393b9295019725"},
+    {file = "browser_use-0.3.1-py3-none-any.whl", hash = "sha256:773ace737c93d54ff2d95d734c5bd746e03c10e38d916a89a90effa6d101ec9b"},
+    {file = "browser_use-0.3.1.tar.gz", hash = "sha256:862cfef984c9af84b3ba4ac13cd23e232bea1f8ec7e83d5afa3e58c8491fb66b"},
 ]
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
 anyio = ">=4.9.0"
+authlib = ">=1.6.0"
+bubus = ">=1.1.0"
 faiss-cpu = ">=1.11.0"
 google-api-core = ">=2.25.0"
 httpx = ">=0.28.1"
 langchain = ">=0.3.25"
 langchain-anthropic = "0.3.15"
-langchain-aws = ">=0.2.24"
 langchain-core = "0.3.64"
 langchain-deepseek = ">=0.1.3"
 langchain-google-genai = "2.1.5"
@@ -408,10 +385,29 @@ typing-extensions = ">=4.12.2"
 uuid7 = ">=0.1.0"
 
 [package.extras]
-all = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "rich (>=14.0.0)", "sentence-transformers (>=4.0.2)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
+all = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-aws (>=0.2.24)", "rich (>=14.0.0)", "sentence-transformers (>=4.0.2)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
-examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)", "stagehand-py (>=0.3.6)"]
+eval = ["lmnr[all] (>=0.6.11)"]
+examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)", "langchain-aws (>=0.2.24)", "stagehand-py (>=0.3.6)"]
 memory = ["sentence-transformers (>=4.0.2)"]
+
+[[package]]
+name = "bubus"
+version = "1.1.0"
+description = "Advanced Pydantic-powered event bus with async support"
+optional = false
+python-versions = "<4.0,>=3.11"
+files = [
+    {file = "bubus-1.1.0-py3-none-any.whl", hash = "sha256:c541fe77bf4444cce724fc49025ea7d996d37346cf708e46974142f9e4eb7577"},
+    {file = "bubus-1.1.0.tar.gz", hash = "sha256:4a5125e4bd3868947023ada5d33a6fbeb29ceeb0448999ca50f5dfe4e349a267"},
+]
+
+[package.dependencies]
+aiofiles = ">=24.1.0"
+anyio = ">=4.9.0"
+pydantic = ">=2.11.5"
+typing-extensions = ">=4.12.2"
+uuid7 = ">=0.1.0"
 
 [[package]]
 name = "build"
@@ -1940,17 +1936,6 @@ files = [
 ]
 
 [[package]]
-name = "jmespath"
-version = "1.0.1"
-description = "JSON Matching Expressions"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
-    {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
-]
-
-[[package]]
 name = "jsonpatch"
 version = "1.33"
 description = "Apply JSON-Patches (RFC 6902)"
@@ -2092,23 +2077,6 @@ files = [
 anthropic = ">=0.52.0,<1"
 langchain-core = ">=0.3.63,<1.0.0"
 pydantic = ">=2.7.4,<3.0.0"
-
-[[package]]
-name = "langchain-aws"
-version = "0.2.25"
-description = "An integration package connecting AWS and LangChain"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "langchain_aws-0.2.25-py3-none-any.whl", hash = "sha256:60132f53ab57bf1ce0f606abfef8a41bbbd170ac6019754dc2f5463650f56f79"},
-    {file = "langchain_aws-0.2.25.tar.gz", hash = "sha256:80754c7508c9e7771f5e97e46a40e3f41a33c4839d780acc92e75a64950165f0"},
-]
-
-[package.dependencies]
-boto3 = ">=1.37.24"
-langchain-core = ">=0.3.64,<0.4.0"
-numpy = {version = ">=1.26.0,<3", markers = "python_version >= \"3.12\""}
-pydantic = ">=2.10.0,<3"
 
 [[package]]
 name = "langchain-cli"
@@ -8094,23 +8062,6 @@ files = [
 ]
 
 [[package]]
-name = "s3transfer"
-version = "0.13.0"
-description = "An Amazon S3 Transfer Manager"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "s3transfer-0.13.0-py3-none-any.whl", hash = "sha256:0148ef34d6dd964d0d8cf4311b2b21c474693e57c2e069ec708ce043d2b527be"},
-    {file = "s3transfer-0.13.0.tar.gz", hash = "sha256:f5e6db74eb7776a37208001113ea7aa97695368242b364d73e91c981ac522177"},
-]
-
-[package.dependencies]
-botocore = ">=1.37.4,<2.0a.0"
-
-[package.extras]
-crt = ["botocore[crt] (>=1.37.4,<2.0a.0)"]
-
-[[package]]
 name = "screeninfo"
 version = "0.8.1"
 description = "Fetch location and size of physical screens."
@@ -9174,4 +9125,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7125a456a7202c0d31667fb7cb6ee0014dfc465820b6d6b1e44421f3333300bf"
+content-hash = "92ba094ee0a073159214162c55507b50b481291c841944c32b8afbc76959aa82"
