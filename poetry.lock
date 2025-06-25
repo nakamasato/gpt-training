@@ -1486,6 +1486,7 @@ optional = false
 python-versions = "*"
 files = [
     {file = "gritql-0.2.0-py2.py3-none-any.whl", hash = "sha256:6a37f4a6388c09801c25de8753546ca11d4b8a3ad527742821eb032ad069cd13"},
+    {file = "gritql-0.2.0-py3-none-any.whl", hash = "sha256:de95dd6d027184b0c388f1b8864c0c71fa889154c55d360f427adfd00b28ac9c"},
     {file = "gritql-0.2.0.tar.gz", hash = "sha256:09e26e3d3152d3ec2e4fa80c0af4f2fe1436c82a2c6343cec6ab74ae61474bae"},
 ]
 
