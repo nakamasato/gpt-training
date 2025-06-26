@@ -2116,18 +2116,18 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10"
 
 [[package]]
 name = "langchain-core"
-version = "0.3.64"
+version = "0.3.66"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "langchain_core-0.3.64-py3-none-any.whl", hash = "sha256:e844c425329d450cb3010001d86b61fd59a6a17691641109bae39322c85e27dd"},
-    {file = "langchain_core-0.3.64.tar.gz", hash = "sha256:71b51bf77003eb57e74b8fa2a84ac380e24aa7357f173b51645c5834b9fc0d62"},
+    {file = "langchain_core-0.3.66-py3-none-any.whl", hash = "sha256:65cd6c3659afa4f91de7aa681397a0c53ff9282425c281e53646dd7faf16099e"},
+    {file = "langchain_core-0.3.66.tar.gz", hash = "sha256:350c92e792ec1401f4b740d759b95f297710a50de29e1be9fbfff8676ef62117"},
 ]
 
 [package.dependencies]
 jsonpatch = ">=1.33,<2.0"
-langsmith = ">=0.3.45,<0.4"
+langsmith = ">=0.3.45"
 packaging = ">=23.2,<25"
 pydantic = ">=2.7.4"
 PyYAML = ">=5.3"
@@ -2202,18 +2202,18 @@ pydantic = ">=2,<3"
 
 [[package]]
 name = "langchain-openai"
-version = "0.3.21"
+version = "0.3.26"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "langchain_openai-0.3.21-py3-none-any.whl", hash = "sha256:9d1f447af2e15d5d6b7e0c5552052e08d1dd4aa1c9b537bcde47534792a7f244"},
-    {file = "langchain_openai-0.3.21.tar.gz", hash = "sha256:470126f54b754b55a421bd0ffcb53671355700b42f0689a80187d53df20c6759"},
+    {file = "langchain_openai-0.3.26-py3-none-any.whl", hash = "sha256:2f216b92195e43fc30a28af8842cf704e72abe3b0ae2cbf85004ca75c5274575"},
+    {file = "langchain_openai-0.3.26.tar.gz", hash = "sha256:6f8420f164095834477d13715bc08a7553cdc229df30110d390c3d8880b728f3"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.3.64,<1.0.0"
-openai = ">=1.68.2,<2.0.0"
+langchain-core = ">=0.3.66,<1.0.0"
+openai = ">=1.86.0,<2.0.0"
 tiktoken = ">=0.7,<1"
 
 [[package]]
