@@ -346,13 +346,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.3.3"
+version = "0.4.0"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.3.3-py3-none-any.whl", hash = "sha256:00ff31fac0fa4a3f50289babd18947f45f009c775e620da5d60511fed94907d7"},
-    {file = "browser_use-0.3.3.tar.gz", hash = "sha256:561dddbfb0ae7e9dcfa0b78c6c0942b2a1e072727fd2aa01da2318fff231acc1"},
+    {file = "browser_use-0.4.0-py3-none-any.whl", hash = "sha256:56ceead95413e06289627acc6b49995fbe548106e2b70d7d27b779faed4e3330"},
+    {file = "browser_use-0.4.0.tar.gz", hash = "sha256:44f59d3977f3caa4fdd28cbdb434f445cb4d2107faf19f9cf116fa6d3e0eac6c"},
 ]
 
 [package.dependencies]
@@ -370,6 +370,7 @@ mem0ai = ">=0.1.106"
 openai = ">=1.81.0"
 patchright = ">=1.52.5"
 playwright = ">=1.52.0"
+portalocker = ">=2.7.0,<3.0.0"
 posthog = ">=3.7.0"
 psutil = ">=7.0.0"
 pydantic = ">=2.11.5"
@@ -382,11 +383,10 @@ typing-extensions = ">=4.12.2"
 uuid7 = ">=0.1.0"
 
 [package.extras]
-all = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "faiss-cpu (>=1.10.0)", "imgcat (>=0.6.0)", "rich (>=14.0.0)", "sentence-transformers (>=4.0.2)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
+all = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "rich (>=14.0.0)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
 eval = ["anyio (>=4.9.0)", "lmnr[all] (>=0.6.11)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
 examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)", "stagehand-py (>=0.3.6)"]
-memory = ["faiss-cpu (>=1.10.0)", "sentence-transformers (>=4.0.2)"]
 
 [[package]]
 name = "bubus"
@@ -9153,4 +9153,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "02d5a5bae8ca77ca420abf78cabf35f1eff4ec128b942abcc1fbd6d374ba197b"
+content-hash = "58f932321005c3c8214e5f4cab17a40a095e61292d0c341af7981aa43090bd2d"
