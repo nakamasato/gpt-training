@@ -347,13 +347,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.4.0"
+version = "0.4.2"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.4.0-py3-none-any.whl", hash = "sha256:56ceead95413e06289627acc6b49995fbe548106e2b70d7d27b779faed4e3330"},
-    {file = "browser_use-0.4.0.tar.gz", hash = "sha256:44f59d3977f3caa4fdd28cbdb434f445cb4d2107faf19f9cf116fa6d3e0eac6c"},
+    {file = "browser_use-0.4.2-py3-none-any.whl", hash = "sha256:f02e7fa9c62694694ea95c8ac649f94c4266e41a809c71e2a4d86159b143b9e5"},
+    {file = "browser_use-0.4.2.tar.gz", hash = "sha256:1e2cf3d6b0e1d58e88a4f37df0548577ec393ad9399dcd950047be05e61fdbda"},
 ]
 
 [package.dependencies]
@@ -368,6 +368,7 @@ groq = ">=0.28.0"
 httpx = ">=0.28.1"
 markdownify = "1.1.0"
 mem0ai = ">=0.1.106"
+ollama = ">=0.5.1"
 openai = ">=1.81.0"
 patchright = ">=1.52.5"
 playwright = ">=1.52.0"
@@ -384,10 +385,11 @@ typing-extensions = ">=4.12.2"
 uuid7 = ">=0.1.0"
 
 [package.extras]
-all = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "rich (>=14.0.0)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
+all = ["boto3 (>=1.38.45)", "botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "rich (>=14.0.0)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
+aws = ["boto3 (>=1.38.45)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
-eval = ["anyio (>=4.9.0)", "lmnr[all] (>=0.6.11)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
-examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)", "stagehand-py (>=0.3.6)"]
+eval = ["anyio (>=4.9.0)", "datamodel-code-generator (>=0.26.0)", "lmnr[all] (>=0.6.11)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
+examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "stagehand-py (>=0.3.6)"]
 
 [[package]]
 name = "bubus"
@@ -2947,6 +2949,21 @@ files = [
     {file = "numpy-2.3.1-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:e610832418a2bc09d974cc9fecebfa51e9532d6190223bc5ef6a7402ebf3b5cb"},
     {file = "numpy-2.3.1.tar.gz", hash = "sha256:1ec9ae20a4226da374362cca3c62cd753faf2f951440b0e3b98e93c235441d2b"},
 ]
+
+[[package]]
+name = "ollama"
+version = "0.5.1"
+description = "The official Python client for Ollama."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "ollama-0.5.1-py3-none-any.whl", hash = "sha256:4c8839f35bc173c7057b1eb2cbe7f498c1a7e134eafc9192824c8aecb3617506"},
+    {file = "ollama-0.5.1.tar.gz", hash = "sha256:5a799e4dc4e7af638b11e3ae588ab17623ee019e496caaf4323efbaa8feeff93"},
+]
+
+[package.dependencies]
+httpx = ">=0.27"
+pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
