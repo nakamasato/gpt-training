@@ -347,13 +347,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.4.2"
+version = "0.4.4"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.4.2-py3-none-any.whl", hash = "sha256:f02e7fa9c62694694ea95c8ac649f94c4266e41a809c71e2a4d86159b143b9e5"},
-    {file = "browser_use-0.4.2.tar.gz", hash = "sha256:1e2cf3d6b0e1d58e88a4f37df0548577ec393ad9399dcd950047be05e61fdbda"},
+    {file = "browser_use-0.4.4-py3-none-any.whl", hash = "sha256:084c76d4de04f459807a57c93b6bde45eefbc6bfc1b57f2cd97f39ad63b20b5e"},
+    {file = "browser_use-0.4.4.tar.gz", hash = "sha256:e517c8e1115786de79c21ad2caf02ff7263bd18c71dfa2cf66ac80f372eded90"},
 ]
 
 [package.dependencies]
@@ -367,7 +367,6 @@ google-genai = ">=1.21.1"
 groq = ">=0.28.0"
 httpx = ">=0.28.1"
 markdownify = "1.1.0"
-mem0ai = ">=0.1.106"
 ollama = ">=0.5.1"
 openai = ">=1.81.0"
 patchright = ">=1.52.5"
@@ -1628,32 +1627,6 @@ files = [
 ]
 
 [[package]]
-name = "h2"
-version = "4.2.0"
-description = "Pure-Python HTTP/2 protocol implementation"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "h2-4.2.0-py3-none-any.whl", hash = "sha256:479a53ad425bb29af087f3458a61d30780bc818e4ebcf01f0b536ba916462ed0"},
-    {file = "h2-4.2.0.tar.gz", hash = "sha256:c8a52129695e88b1a0578d8d2cc6842bbd79128ac685463b887ee278126ad01f"},
-]
-
-[package.dependencies]
-hpack = ">=4.1,<5"
-hyperframe = ">=6.1,<7"
-
-[[package]]
-name = "hpack"
-version = "4.1.0"
-description = "Pure-Python HPACK header encoding"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "hpack-4.1.0-py3-none-any.whl", hash = "sha256:157ac792668d995c657d93111f46b4535ed114f0c9c8d672271bbec7eae1b496"},
-    {file = "hpack-4.1.0.tar.gz", hash = "sha256:ec5eca154f7056aa06f196a557655c5b009b382873ac8d1e66e79e87535f1dca"},
-]
-
-[[package]]
 name = "httpcore"
 version = "1.0.9"
 description = "A minimal low-level HTTP client."
@@ -1702,7 +1675,6 @@ files = [
 [package.dependencies]
 anyio = "*"
 certifi = "*"
-h2 = {version = ">=3,<5", optional = true, markers = "extra == \"http2\""}
 httpcore = "==1.*"
 idna = "*"
 
@@ -1722,17 +1694,6 @@ python-versions = ">=3.9"
 files = [
     {file = "httpx_sse-0.4.1-py3-none-any.whl", hash = "sha256:cba42174344c3a5b06f255ce65b350880f962d99ead85e776f23c6618a377a37"},
     {file = "httpx_sse-0.4.1.tar.gz", hash = "sha256:8f44d34414bc7b21bf3602713005c5df4917884f76072479b21f68befa4ea26e"},
-]
-
-[[package]]
-name = "hyperframe"
-version = "6.1.0"
-description = "Pure-Python HTTP/2 framing"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "hyperframe-6.1.0-py3-none-any.whl", hash = "sha256:b03380493a519fce58ea5af42e4a42317bf9bd425596f7a0835ffce80f1a42e5"},
-    {file = "hyperframe-6.1.0.tar.gz", hash = "sha256:f630908a00854a7adeabd6382b43923a4c4cd4b821fcb527e6ab9e15382a3b08"},
 ]
 
 [[package]]
@@ -2501,33 +2462,6 @@ files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
 ]
-
-[[package]]
-name = "mem0ai"
-version = "0.1.112"
-description = "Long-term memory for AI Agents"
-optional = false
-python-versions = "<4.0,>=3.9"
-files = [
-    {file = "mem0ai-0.1.112-py3-none-any.whl", hash = "sha256:8aadd5d1d5080e7628cb0970bf4cde2eade2bbc185bc124b512102dfe2ba19d6"},
-    {file = "mem0ai-0.1.112.tar.gz", hash = "sha256:248d244f96741a42a12a400496b331056dff953e7c1fbba9bb8b811d239a9fb2"},
-]
-
-[package.dependencies]
-openai = ">=1.33.0"
-posthog = ">=3.5.0"
-pydantic = ">=2.7.3"
-pytz = ">=2024.1"
-qdrant-client = ">=1.9.1"
-sqlalchemy = ">=2.0.31"
-
-[package.extras]
-dev = ["isort (>=5.13.2)", "pytest (>=8.2.2)", "ruff (>=0.6.5)"]
-extras = ["boto3 (>=1.34.0)", "elasticsearch (>=8.0.0)", "langchain-community (>=0.0.0)", "langchain-memgraph (>=0.1.0)", "opensearch-py (>=2.0.0)", "sentence-transformers (>=2.2.2)"]
-graph = ["langchain-neo4j (>=0.4.0)", "neo4j (>=5.23.1)", "rank-bm25 (>=0.2.2)"]
-llms = ["google-genai (>=1.0.0)", "google-generativeai (>=0.3.0)", "groq (>=0.3.0)", "litellm (>=0.1.0)", "ollama (>=0.1.0)", "together (>=0.2.10)", "vertexai (>=0.1.0)"]
-test = ["pytest (>=8.2.2)", "pytest-asyncio (>=0.23.7)", "pytest-mock (>=3.14.0)"]
-vector-stores = ["azure-search-documents (>=11.4.0b8)", "chromadb (>=0.4.24)", "faiss-cpu (>=1.7.4)", "pinecone (<7.0.0)", "pinecone-text (>=0.1.1)", "upstash-vector (>=0.1.0)", "vecs (>=0.4.0)", "weaviate-client (>=4.4.0)"]
 
 [[package]]
 name = "mergedeep"
@@ -7580,33 +7514,6 @@ files = [
 
 [package.dependencies]
 pyyaml = "*"
-
-[[package]]
-name = "qdrant-client"
-version = "1.14.3"
-description = "Client library for the Qdrant vector search engine"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "qdrant_client-1.14.3-py3-none-any.whl", hash = "sha256:66faaeae00f9b5326946851fe4ca4ddb1ad226490712e2f05142266f68dfc04d"},
-    {file = "qdrant_client-1.14.3.tar.gz", hash = "sha256:bb899e3e065b79c04f5e47053d59176150c0a5dabc09d7f476c8ce8e52f4d281"},
-]
-
-[package.dependencies]
-grpcio = ">=1.41.0"
-httpx = {version = ">=0.20.0", extras = ["http2"]}
-numpy = [
-    {version = ">=1.26", markers = "python_version == \"3.12\""},
-    {version = ">=2.1.0", markers = "python_version >= \"3.13\""},
-]
-portalocker = ">=2.7.0,<3.0.0"
-protobuf = ">=3.20.0"
-pydantic = ">=1.10.8,<2.0.dev0 || >2.2.0"
-urllib3 = ">=1.26.14,<3"
-
-[package.extras]
-fastembed = ["fastembed (>=0.7,<0.8)"]
-fastembed-gpu = ["fastembed-gpu (>=0.7,<0.8)"]
 
 [[package]]
 name = "rapidfuzz"
