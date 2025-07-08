@@ -348,13 +348,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.4.5"
+version = "0.5.0"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.4.5-py3-none-any.whl", hash = "sha256:42be3191d20d5e5266f1b68569f04799b8a420080ae36ed38cd8841240257947"},
-    {file = "browser_use-0.4.5.tar.gz", hash = "sha256:162d6e656b9567d0b2a97cbcdf4e602f548f541650977e6201baff3f94f7e763"},
+    {file = "browser_use-0.5.0-py3-none-any.whl", hash = "sha256:a42e72103dc425810c856e8353853f765f4ddb641bb060080280fe2ce4355c6f"},
+    {file = "browser_use-0.5.0.tar.gz", hash = "sha256:2042b5be827cddb3a00c5c4534df417871e323b62e18efe7a4551fd67e230f86"},
 ]
 
 [package.dependencies]
@@ -362,7 +362,7 @@ aiofiles = ">=24.1.0"
 anthropic = ">=0.54.0"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
-bubus = ">=1.2.2"
+bubus = ">=1.4.1"
 google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
@@ -371,6 +371,7 @@ google-genai = ">=1.21.1"
 groq = ">=0.28.0"
 httpx = ">=0.28.1"
 markdownify = "1.1.0"
+mcp = ">=1.10.1"
 ollama = ">=0.5.1"
 openai = ">=1.81.0"
 patchright = ">=1.52.5"
@@ -397,13 +398,13 @@ examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)",
 
 [[package]]
 name = "bubus"
-version = "1.3.0"
+version = "1.4.1"
 description = "Advanced Pydantic-powered event bus with async support"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "bubus-1.3.0-py3-none-any.whl", hash = "sha256:829744ec8ed95bd2b2d2ebc2a2dbfcbfceae6f270e752250e7627aa63d828090"},
-    {file = "bubus-1.3.0.tar.gz", hash = "sha256:1854c04eff189e99775639ef18781557266f8262b2b802635c9314daf19ffad0"},
+    {file = "bubus-1.4.1-py3-none-any.whl", hash = "sha256:527867e2a7ab8083973d2a576c9945717ab3148cd3d2bf122356941dec57a392"},
+    {file = "bubus-1.4.1.tar.gz", hash = "sha256:19722b7e55241a0a2eb4040eb6cd9fe79fa0d7ffc1f5ffb592cebdabdb40b29e"},
 ]
 
 [package.dependencies]
@@ -2474,6 +2475,34 @@ packaging = ">=17.0"
 dev = ["marshmallow[tests]", "pre-commit (>=3.5,<5.0)", "tox"]
 docs = ["autodocsumm (==0.2.14)", "furo (==2024.8.6)", "sphinx (==8.1.3)", "sphinx-copybutton (==0.5.2)", "sphinx-issues (==5.0.0)", "sphinxext-opengraph (==0.9.1)"]
 tests = ["pytest", "simplejson"]
+
+[[package]]
+name = "mcp"
+version = "1.10.1"
+description = "Model Context Protocol SDK"
+optional = false
+python-versions = ">=3.10"
+files = [
+    {file = "mcp-1.10.1-py3-none-any.whl", hash = "sha256:4d08301aefe906dce0fa482289db55ce1db831e3e67212e65b5e23ad8454b3c5"},
+    {file = "mcp-1.10.1.tar.gz", hash = "sha256:aaa0957d8307feeff180da2d9d359f2b801f35c0c67f1882136239055ef034c2"},
+]
+
+[package.dependencies]
+anyio = ">=4.5"
+httpx = ">=0.27"
+httpx-sse = ">=0.4"
+jsonschema = ">=4.20.0"
+pydantic = ">=2.7.2,<3.0.0"
+pydantic-settings = ">=2.5.2"
+python-multipart = ">=0.0.9"
+sse-starlette = ">=1.6.1"
+starlette = ">=0.27"
+uvicorn = {version = ">=0.23.1", markers = "sys_platform != \"emscripten\""}
+
+[package.extras]
+cli = ["python-dotenv (>=1.0.0)", "typer (>=0.12.4)"]
+rich = ["rich (>=13.9.4)"]
+ws = ["websockets (>=15.0.1)"]
 
 [[package]]
 name = "mdurl"
@@ -7451,6 +7480,17 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "python-multipart"
+version = "0.0.20"
+description = "A streaming multipart parser for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "python_multipart-0.0.20-py3-none-any.whl", hash = "sha256:8a62d3a8335e06589fe01f2a3e178cdcc632f3fbe0d492ad9ee0ec35aab1f104"},
+    {file = "python_multipart-0.0.20.tar.gz", hash = "sha256:8dd0cab45b8e23064ae09147625994d090fa46f5b0d1e13af944c331a7fa9d13"},
+]
+
+[[package]]
 name = "pytz"
 version = "2025.2"
 description = "World timezone definitions, modern and historical"
@@ -9205,4 +9245,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "58f932321005c3c8214e5f4cab17a40a095e61292d0c341af7981aa43090bd2d"
+content-hash = "65af71a2e1e22ea5f1c322cc68e270273e679f5ae6dd61dab50e0e79c924b7cd"
