@@ -181,13 +181,13 @@ files = [
 
 [[package]]
 name = "anthropic"
-version = "0.60.0"
+version = "0.58.2"
 description = "The official Python library for the anthropic API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "anthropic-0.60.0-py3-none-any.whl", hash = "sha256:65ad1f088a960217aaf82ba91ff743d6c89e9d811c6d64275b9a7c59ee9ac3c6"},
-    {file = "anthropic-0.60.0.tar.gz", hash = "sha256:a22ba187c6f4fd5afecb2fc913b960feccf72bc0d25c1b7ce0345e87caede577"},
+    {file = "anthropic-0.58.2-py3-none-any.whl", hash = "sha256:3742181c634c725f337b71096839b6404145e33a8e190c75387c4028b825864d"},
+    {file = "anthropic-0.58.2.tar.gz", hash = "sha256:86396cc45530a83acea25ae6bca9f86656af81e3d598b4d22a1300e0e4cf8df8"},
 ]
 
 [package.dependencies]
@@ -348,18 +348,18 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.5.9"
+version = "0.5.10"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.5.9-py3-none-any.whl", hash = "sha256:cce11496c034494791aba79001f253b5107ae3f76259b205c4a78e1405d3da51"},
-    {file = "browser_use-0.5.9.tar.gz", hash = "sha256:c4dd60a40f1f54b7054a3f91ac9fe9b187dd6f2e06f0f0cdf3a354c572127269"},
+    {file = "browser_use-0.5.10-py3-none-any.whl", hash = "sha256:d48918eb4c3b4f79ecc9edf31dde07bcfe773c4e688961ad1734d3ff9ba6c81f"},
+    {file = "browser_use-0.5.10.tar.gz", hash = "sha256:a479fc914a7a09535c32fb0c89483f928534d78ddb2b9a32191c62982f3288c7"},
 ]
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
-anthropic = ">=0.58.2"
+anthropic = "0.58.2"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
 bubus = ">=1.4.7"
@@ -367,14 +367,14 @@ google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
 google-auth-oauthlib = ">=1.2.2"
-google-genai = ">=1.26.0"
+google-genai = "1.29.0"
 groq = ">=0.30.0"
 httpx = ">=0.28.1"
 markdown-pdf = "1.5"
 markdownify = "1.1.0"
 mcp = ">=1.10.1"
 ollama = ">=0.5.1"
-openai = ">=1.97.0"
+openai = "1.99.2"
 patchright = ">=1.52.5"
 playwright = ">=1.52.0"
 portalocker = ">=2.7.0,<3.0.0"
@@ -1427,13 +1427,13 @@ grpc = ["grpcio (>=1.38.0,<2.0dev)", "grpcio-status (>=1.38.0,<2.0.dev0)"]
 
 [[package]]
 name = "google-genai"
-version = "1.28.0"
+version = "1.29.0"
 description = "GenAI Python SDK"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "google_genai-1.28.0-py3-none-any.whl", hash = "sha256:7fd506799005cc87d3c5704a2eb5a2cb020d45b4d216a802e606700308f7f2f3"},
-    {file = "google_genai-1.28.0.tar.gz", hash = "sha256:e93053c02e616842679ba5ecce5b99db8c0ca6310623c55ff6245b5b1d293138"},
+    {file = "google_genai-1.29.0-py3-none-any.whl", hash = "sha256:8b64737de008d15ca4737e593913f88f656f0568544ab6901f768f0d1fd69bbf"},
+    {file = "google_genai-1.29.0.tar.gz", hash = "sha256:a6b036ab032830f668d137b198c2a5abd8951a036d7a8480b61ce837c1c7f36b"},
 ]
 
 [package.dependencies]
@@ -1442,7 +1442,7 @@ google-auth = ">=2.14.1,<3.0.0"
 httpx = ">=0.28.1,<1.0.0"
 pydantic = ">=2.0.0,<3.0.0"
 requests = ">=2.28.1,<3.0.0"
-tenacity = ">=8.2.3,<9.0.0"
+tenacity = ">=8.2.3,<9.2.0"
 typing-extensions = ">=4.11.0,<5.0.0"
 websockets = ">=13.0.0,<15.1.0"
 
@@ -3029,13 +3029,13 @@ pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
-version = "1.99.1"
+version = "1.99.2"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.99.1-py3-none-any.whl", hash = "sha256:8eeccc69e0ece1357b51ca0d9fb21324afee09b20c3e5b547d02445ca18a4e03"},
-    {file = "openai-1.99.1.tar.gz", hash = "sha256:2c9d8e498c298f51bb94bcac724257a3a6cac6139ccdfc1186c6708f7a93120f"},
+    {file = "openai-1.99.2-py3-none-any.whl", hash = "sha256:110d85b8ed400e1d7b02f8db8e245bd757bcde347cb6923155f42cd66a10aa0b"},
+    {file = "openai-1.99.2.tar.gz", hash = "sha256:118075b48109aa237636607b1346cf03b37cb9d74b0414cb11095850a0a22c96"},
 ]
 
 [package.dependencies]
