@@ -348,18 +348,18 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.5.10"
+version = "0.5.9"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.5.10-py3-none-any.whl", hash = "sha256:d48918eb4c3b4f79ecc9edf31dde07bcfe773c4e688961ad1734d3ff9ba6c81f"},
-    {file = "browser_use-0.5.10.tar.gz", hash = "sha256:a479fc914a7a09535c32fb0c89483f928534d78ddb2b9a32191c62982f3288c7"},
+    {file = "browser_use-0.5.9-py3-none-any.whl", hash = "sha256:cce11496c034494791aba79001f253b5107ae3f76259b205c4a78e1405d3da51"},
+    {file = "browser_use-0.5.9.tar.gz", hash = "sha256:c4dd60a40f1f54b7054a3f91ac9fe9b187dd6f2e06f0f0cdf3a354c572127269"},
 ]
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
-anthropic = "0.58.2"
+anthropic = ">=0.58.2"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
 bubus = ">=1.4.7"
@@ -367,14 +367,14 @@ google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
 google-auth-oauthlib = ">=1.2.2"
-google-genai = "1.29.0"
+google-genai = ">=1.26.0"
 groq = ">=0.30.0"
 httpx = ">=0.28.1"
 markdown-pdf = "1.5"
 markdownify = "1.1.0"
 mcp = ">=1.10.1"
 ollama = ">=0.5.1"
-openai = "1.99.2"
+openai = ">=1.97.0"
 patchright = ">=1.52.5"
 playwright = ">=1.52.0"
 portalocker = ">=2.7.0,<3.0.0"
@@ -3029,13 +3029,13 @@ pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
-version = "1.99.2"
+version = "1.99.3"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.99.2-py3-none-any.whl", hash = "sha256:110d85b8ed400e1d7b02f8db8e245bd757bcde347cb6923155f42cd66a10aa0b"},
-    {file = "openai-1.99.2.tar.gz", hash = "sha256:118075b48109aa237636607b1346cf03b37cb9d74b0414cb11095850a0a22c96"},
+    {file = "openai-1.99.3-py3-none-any.whl", hash = "sha256:c786a03f6cddadb5ee42c6d749aa4f6134fe14fdd7d69a667e5e7ce7fd29a719"},
+    {file = "openai-1.99.3.tar.gz", hash = "sha256:1a0e2910e4545d828c14218f2ac3276827c94a043f5353e43b9413b38b497897"},
 ]
 
 [package.dependencies]
