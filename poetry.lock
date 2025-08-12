@@ -181,13 +181,13 @@ files = [
 
 [[package]]
 name = "anthropic"
-version = "0.62.0"
+version = "0.58.2"
 description = "The official Python library for the anthropic API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "anthropic-0.62.0-py3-none-any.whl", hash = "sha256:adcf2af98aa2b11e3b7c71afb2e0cb0613f679ad4a18ef58c38f17784b3df72e"},
-    {file = "anthropic-0.62.0.tar.gz", hash = "sha256:d45389229db9e443ea1a877f8d63309947f134991473cf8e88efee322840d084"},
+    {file = "anthropic-0.58.2-py3-none-any.whl", hash = "sha256:3742181c634c725f337b71096839b6404145e33a8e190c75387c4028b825864d"},
+    {file = "anthropic-0.58.2.tar.gz", hash = "sha256:86396cc45530a83acea25ae6bca9f86656af81e3d598b4d22a1300e0e4cf8df8"},
 ]
 
 [package.dependencies]
@@ -346,18 +346,18 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.5.9"
+version = "0.5.11"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.5.9-py3-none-any.whl", hash = "sha256:cce11496c034494791aba79001f253b5107ae3f76259b205c4a78e1405d3da51"},
-    {file = "browser_use-0.5.9.tar.gz", hash = "sha256:c4dd60a40f1f54b7054a3f91ac9fe9b187dd6f2e06f0f0cdf3a354c572127269"},
+    {file = "browser_use-0.5.11-py3-none-any.whl", hash = "sha256:69f64b22db407a60294639acc2d9ff8997162f575643eb953b19cf3b48eb9f5f"},
+    {file = "browser_use-0.5.11.tar.gz", hash = "sha256:1461f02a6fa156de648b7c9ca3a1c71a2e488ef1c1df0c0d9c46003665911a22"},
 ]
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
-anthropic = ">=0.58.2"
+anthropic = "0.58.2"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
 bubus = ">=1.4.7"
@@ -365,14 +365,14 @@ google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
 google-auth-oauthlib = ">=1.2.2"
-google-genai = ">=1.26.0"
+google-genai = "1.29.0"
 groq = ">=0.30.0"
 httpx = ">=0.28.1"
 markdown-pdf = "1.5"
 markdownify = "1.1.0"
 mcp = ">=1.10.1"
 ollama = ">=0.5.1"
-openai = ">=1.97.0"
+openai = "1.99.2"
 patchright = ">=1.52.5"
 playwright = ">=1.52.0"
 portalocker = ">=2.7.0,<3.0.0"
@@ -3014,13 +3014,13 @@ pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
-version = "1.99.9"
+version = "1.99.2"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.99.9-py3-none-any.whl", hash = "sha256:9dbcdb425553bae1ac5d947147bebbd630d91bbfc7788394d4c4f3a35682ab3a"},
-    {file = "openai-1.99.9.tar.gz", hash = "sha256:f2082d155b1ad22e83247c3de3958eb4255b20ccf4a1de2e6681b6957b554e92"},
+    {file = "openai-1.99.2-py3-none-any.whl", hash = "sha256:110d85b8ed400e1d7b02f8db8e245bd757bcde347cb6923155f42cd66a10aa0b"},
+    {file = "openai-1.99.2.tar.gz", hash = "sha256:118075b48109aa237636607b1346cf03b37cb9d74b0414cb11095850a0a22c96"},
 ]
 
 [package.dependencies]
