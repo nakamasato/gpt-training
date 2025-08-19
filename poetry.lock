@@ -181,13 +181,13 @@ files = [
 
 [[package]]
 name = "anthropic"
-version = "0.64.0"
+version = "0.58.2"
 description = "The official Python library for the anthropic API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "anthropic-0.64.0-py3-none-any.whl", hash = "sha256:6f5f7d913a6a95eb7f8e1bda4e75f76670e8acd8d4cd965e02e2a256b0429dd1"},
-    {file = "anthropic-0.64.0.tar.gz", hash = "sha256:3d496c91a63dff64f451b3e8e4b238a9640bf87b0c11d0b74ddc372ba5a3fe58"},
+    {file = "anthropic-0.58.2-py3-none-any.whl", hash = "sha256:3742181c634c725f337b71096839b6404145e33a8e190c75387c4028b825864d"},
+    {file = "anthropic-0.58.2.tar.gz", hash = "sha256:86396cc45530a83acea25ae6bca9f86656af81e3d598b4d22a1300e0e4cf8df8"},
 ]
 
 [package.dependencies]
@@ -346,42 +346,41 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.5.9"
+version = "0.6.0"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.5.9-py3-none-any.whl", hash = "sha256:cce11496c034494791aba79001f253b5107ae3f76259b205c4a78e1405d3da51"},
-    {file = "browser_use-0.5.9.tar.gz", hash = "sha256:c4dd60a40f1f54b7054a3f91ac9fe9b187dd6f2e06f0f0cdf3a354c572127269"},
+    {file = "browser_use-0.6.0-py3-none-any.whl", hash = "sha256:2850c67ad2e32981b591ce19f8a3de6fa3ad66d599b412236b061ac36238dd8b"},
+    {file = "browser_use-0.6.0.tar.gz", hash = "sha256:302337207f1bd8fd20279bc1b1a6f2575e8bd2ca023dbd09177923d1a893ec6a"},
 ]
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
-anthropic = ">=0.58.2"
+aiohttp = "3.12.15"
+anthropic = "0.58.2"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
-bubus = ">=1.4.7"
+bubus = ">=1.5.1"
+cdp-use = ">=1.4.0"
 google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
 google-auth-oauthlib = ">=1.2.2"
-google-genai = ">=1.26.0"
+google-genai = "1.29.0"
 groq = ">=0.30.0"
 httpx = ">=0.28.1"
 markdown-pdf = "1.5"
 markdownify = "1.1.0"
 mcp = ">=1.10.1"
 ollama = ">=0.5.1"
-openai = ">=1.97.0"
-patchright = ">=1.52.5"
-playwright = ">=1.52.0"
+openai = "1.99.2"
 portalocker = ">=2.7.0,<3.0.0"
 posthog = ">=3.7.0"
 psutil = ">=7.0.0"
 pydantic = ">=2.11.5"
 pyobjc = {version = ">=11.0", markers = "platform_system == \"darwin\""}
 pypdf = ">=5.7.0"
-pyperclip = ">=1.9.0"
 python-dotenv = ">=1.0.1"
 requests = ">=2.32.3"
 screeninfo = {version = ">=0.8.1", markers = "platform_system != \"darwin\""}
@@ -389,11 +388,11 @@ typing-extensions = ">=4.12.2"
 uuid7 = ">=0.1.0"
 
 [package.extras]
-all = ["boto3 (>=1.38.45)", "botocore (>=1.37.23)", "browserbase (>=0.4.0)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "rich (>=14.0.0)", "stagehand-py (>=0.3.6)", "textual (>=3.2.0)"]
+all = ["boto3 (>=1.38.45)", "botocore (>=1.37.23)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
 aws = ["boto3 (>=1.38.45)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
 eval = ["anyio (>=4.9.0)", "browserbase (==1.4.0)", "datamodel-code-generator (>=0.26.0)", "hyperbrowser (==0.47.0)", "lmnr[all] (>=0.6.11)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
-examples = ["botocore (>=1.37.23)", "browserbase (>=0.4.0)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "stagehand-py (>=0.3.6)"]
+examples = ["botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
 
 [[package]]
 name = "bubus"
@@ -465,6 +464,21 @@ files = [
     {file = "cachetools-5.5.2-py3-none-any.whl", hash = "sha256:d26a22bcc62eb95c3beabd9f1ee5e820d3d2704fe2967cbe350e20c8ffcd3f0a"},
     {file = "cachetools-5.5.2.tar.gz", hash = "sha256:1a661caa9175d26759571b2e19580f9d6393969e5dfca11fdb1f947a23e640d4"},
 ]
+
+[[package]]
+name = "cdp-use"
+version = "1.4.0"
+description = "Type safe generator/client library for CDP"
+optional = false
+python-versions = ">=3.11"
+files = [
+    {file = "cdp_use-1.4.0-py3-none-any.whl", hash = "sha256:20e890a0c30d51f0c843872f7352311cb902d1d8324743b480401c596774c277"},
+    {file = "cdp_use-1.4.0.tar.gz", hash = "sha256:ad9b086fcf8b3d08a3eef8758449aea92836d0c72f240743b9bfabb7fc6d8467"},
+]
+
+[package.dependencies]
+httpx = ">=0.28.1"
+websockets = ">=15.0.1"
 
 [[package]]
 name = "certifi"
@@ -1415,13 +1429,13 @@ grpc = ["grpcio (>=1.38.0,<2.0dev)", "grpcio-status (>=1.38.0,<2.0.dev0)"]
 
 [[package]]
 name = "google-genai"
-version = "1.30.0"
+version = "1.29.0"
 description = "GenAI Python SDK"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "google_genai-1.30.0-py3-none-any.whl", hash = "sha256:52955e79284899991bf2fef36b30f375b0736030ba3d089ca39002c18aa95c01"},
-    {file = "google_genai-1.30.0.tar.gz", hash = "sha256:90dad6a9a895f30d0cbd5754462c82d3c060afcc2c3c9dccbcef4ff54019ef3f"},
+    {file = "google_genai-1.29.0-py3-none-any.whl", hash = "sha256:8b64737de008d15ca4737e593913f88f656f0568544ab6901f768f0d1fd69bbf"},
+    {file = "google_genai-1.29.0.tar.gz", hash = "sha256:a6b036ab032830f668d137b198c2a5abd8951a036d7a8480b61ce837c1c7f36b"},
 ]
 
 [package.dependencies]
@@ -2199,18 +2213,18 @@ pydantic = ">=2,<3"
 
 [[package]]
 name = "langchain-openai"
-version = "0.3.30"
+version = "0.3.29"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "langchain_openai-0.3.30-py3-none-any.whl", hash = "sha256:280f1f31004393228e3f75ff8353b1aae86bbc282abc7890a05beb5f43b89923"},
-    {file = "langchain_openai-0.3.30.tar.gz", hash = "sha256:90df37509b2dcf5e057f491326fcbf78cf2a71caff5103a5a7de560320171842"},
+    {file = "langchain_openai-0.3.29-py3-none-any.whl", hash = "sha256:71ae6791b3e017ec892a8062f993edc882c6665fd8385aa66e9dc3bff8205996"},
+    {file = "langchain_openai-0.3.29.tar.gz", hash = "sha256:83a0455f8ce874aa1806131ca3b4db08e482be037b7457a9b3ca21a213d2ab47"},
 ]
 
 [package.dependencies]
 langchain-core = ">=0.3.74,<1.0.0"
-openai = ">=1.99.9,<2.0.0"
+openai = ">=1.86.0,<2.0.0"
 tiktoken = ">=0.7,<1"
 
 [[package]]
@@ -3018,13 +3032,13 @@ pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
-version = "1.100.2"
+version = "1.99.2"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.100.2-py3-none-any.whl", hash = "sha256:54d3457b2c8d7303a1bc002a058de46bdd8f37a8117751c7cf4ed4438051f151"},
-    {file = "openai-1.100.2.tar.gz", hash = "sha256:787b4c3c8a65895182c58c424f790c25c790cc9a0330e34f73d55b6ee5a00e32"},
+    {file = "openai-1.99.2-py3-none-any.whl", hash = "sha256:110d85b8ed400e1d7b02f8db8e245bd757bcde347cb6923155f42cd66a10aa0b"},
+    {file = "openai-1.99.2.tar.gz", hash = "sha256:118075b48109aa237636607b1346cf03b37cb9d74b0414cb11095850a0a22c96"},
 ]
 
 [package.dependencies]
@@ -3294,27 +3308,6 @@ test = ["hypothesis (>=6.46.1)", "pytest (>=7.3.2)", "pytest-xdist (>=2.2.0)"]
 xml = ["lxml (>=4.9.2)"]
 
 [[package]]
-name = "patchright"
-version = "1.52.5"
-description = "Undetected Python version of the Playwright testing and automation library."
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "patchright-1.52.5-py3-none-macosx_10_13_x86_64.whl", hash = "sha256:2d8d7755b55671b450e4153f0baa00bde2cf9a8edb42782c8b41f43707975314"},
-    {file = "patchright-1.52.5-py3-none-macosx_11_0_arm64.whl", hash = "sha256:d862436ba5401de4263aeade9fb2d9421f0ab1442a679eff2d8995f973682b06"},
-    {file = "patchright-1.52.5-py3-none-macosx_11_0_universal2.whl", hash = "sha256:88f64aa2fd647c349055ce0897ed9e5df50f4beb1da6224dd86f6fb9a66af693"},
-    {file = "patchright-1.52.5-py3-none-manylinux1_x86_64.whl", hash = "sha256:f53f6e79befbeb7ef42d00af42768a676bbb68d5674af824ae5fb2e9f0e339ec"},
-    {file = "patchright-1.52.5-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:804a67ac3faf1f1c06957ac6124c1e04faf8fa72aa15ccc5baea51c6740e8704"},
-    {file = "patchright-1.52.5-py3-none-win32.whl", hash = "sha256:127b70d12de28d6d70bf1033b386c7b787c58b5535750f915dfe0c6aec4a8bdf"},
-    {file = "patchright-1.52.5-py3-none-win_amd64.whl", hash = "sha256:043e25cbb69e11db002770fde27eb14c59e5751f16969b4e3d4483e452537dc1"},
-    {file = "patchright-1.52.5-py3-none-win_arm64.whl", hash = "sha256:f406911b5b3b21d70e3b1d1a2780b732575e31f2b012483622cc764166a31d78"},
-]
-
-[package.dependencies]
-greenlet = ">=3.1.1,<4.0.0"
-pyee = ">=13,<14"
-
-[[package]]
 name = "pathspec"
 version = "0.12.1"
 description = "Utility library for gitignore style pattern matching of file paths."
@@ -3498,27 +3491,6 @@ files = [
 docs = ["furo (>=2024.8.6)", "proselint (>=0.14)", "sphinx (>=8.1.3)", "sphinx-autodoc-typehints (>=3)"]
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=8.3.4)", "pytest-cov (>=6)", "pytest-mock (>=3.14)"]
 type = ["mypy (>=1.14.1)"]
-
-[[package]]
-name = "playwright"
-version = "1.54.0"
-description = "A high-level API to automate web browsers"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "playwright-1.54.0-py3-none-macosx_10_13_x86_64.whl", hash = "sha256:bf3b845af744370f1bd2286c2a9536f474cc8a88dc995b72ea9a5be714c9a77d"},
-    {file = "playwright-1.54.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:780928b3ca2077aea90414b37e54edd0c4bbb57d1aafc42f7aa0b3fd2c2fac02"},
-    {file = "playwright-1.54.0-py3-none-macosx_11_0_universal2.whl", hash = "sha256:81d0b6f28843b27f288cfe438af0a12a4851de57998009a519ea84cee6fbbfb9"},
-    {file = "playwright-1.54.0-py3-none-manylinux1_x86_64.whl", hash = "sha256:09919f45cc74c64afb5432646d7fef0d19fff50990c862cb8d9b0577093f40cc"},
-    {file = "playwright-1.54.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:13ae206c55737e8e3eae51fb385d61c0312eeef31535643bb6232741b41b6fdc"},
-    {file = "playwright-1.54.0-py3-none-win32.whl", hash = "sha256:0b108622ffb6906e28566f3f31721cd57dda637d7e41c430287804ac01911f56"},
-    {file = "playwright-1.54.0-py3-none-win_amd64.whl", hash = "sha256:9e5aee9ae5ab1fdd44cd64153313a2045b136fcbcfb2541cc0a3d909132671a2"},
-    {file = "playwright-1.54.0-py3-none-win_arm64.whl", hash = "sha256:a975815971f7b8dca505c441a4c56de1aeb56a211290f8cc214eeef5524e8d75"},
-]
-
-[package.dependencies]
-greenlet = ">=3.1.1,<4.0.0"
-pyee = ">=13,<14"
 
 [[package]]
 name = "pluggy"
@@ -4067,23 +4039,6 @@ numpy = ">=1.16.4"
 [package.extras]
 carto = ["pydeck-carto"]
 jupyter = ["ipykernel (>=5.1.2)", "ipython (>=5.8.0)", "ipywidgets (>=7,<8)", "traitlets (>=4.3.2)"]
-
-[[package]]
-name = "pyee"
-version = "13.0.0"
-description = "A rough port of Node.js's EventEmitter to Python with a few tricks of its own"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "pyee-13.0.0-py3-none-any.whl", hash = "sha256:48195a3cddb3b1515ce0695ed76036b5ccc2ef3a9f963ff9f77aec0139845498"},
-    {file = "pyee-13.0.0.tar.gz", hash = "sha256:b391e3c5a434d1f5118a25615001dbc8f669cf410ab67d04c4d4e07c55481c37"},
-]
-
-[package.dependencies]
-typing-extensions = "*"
-
-[package.extras]
-dev = ["black", "build", "flake8", "flake8-black", "isort", "jupyter-console", "mkdocs", "mkdocs-include-markdown-plugin", "mkdocstrings[python]", "mypy", "pytest", "pytest-asyncio", "pytest-trio", "sphinx", "toml", "tox", "trio", "trio", "trio-typing", "twine", "twisted", "validate-pyproject[all]"]
 
 [[package]]
 name = "pygments"
@@ -7439,16 +7394,6 @@ full = ["Pillow (>=8.0.0)", "cryptography"]
 image = ["Pillow (>=8.0.0)"]
 
 [[package]]
-name = "pyperclip"
-version = "1.9.0"
-description = "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
-optional = false
-python-versions = "*"
-files = [
-    {file = "pyperclip-1.9.0.tar.gz", hash = "sha256:b7de0142ddc81bfc5c7507eea19da920b92252b548b96186caf94a5e2527d310"},
-]
-
-[[package]]
 name = "pyproject-hooks"
 version = "1.2.0"
 description = "Wrappers to call pyproject.toml-based build backend hooks."
@@ -9323,4 +9268,4 @@ cffi = ["cffi (>=1.17)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "8b358ebbb10ce5b8b4c4480f1a74449cae2b2768e8272a71b43e37e92bcab311"
+content-hash = "eff944c40b9b4350ecd9aed0c41febc85c528072bfe17292126db032ef37a89e"
