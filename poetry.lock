@@ -346,13 +346,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.6.0"
+version = "0.6.1"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.6.0-py3-none-any.whl", hash = "sha256:2850c67ad2e32981b591ce19f8a3de6fa3ad66d599b412236b061ac36238dd8b"},
-    {file = "browser_use-0.6.0.tar.gz", hash = "sha256:302337207f1bd8fd20279bc1b1a6f2575e8bd2ca023dbd09177923d1a893ec6a"},
+    {file = "browser_use-0.6.1-py3-none-any.whl", hash = "sha256:6d4e1152531dc34043236e4e70986bc783686e166e80abe77f377a8d7b143494"},
+    {file = "browser_use-0.6.1.tar.gz", hash = "sha256:dea6f9c12613b49fac53f871cc3fb71f925e109ecb1dfcff190dec0603fbf53c"},
 ]
 
 [package.dependencies]
@@ -361,7 +361,7 @@ aiohttp = "3.12.15"
 anthropic = "0.58.2"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
-bubus = ">=1.5.1"
+bubus = ">=1.5.4"
 cdp-use = ">=1.4.0"
 google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
@@ -391,18 +391,18 @@ uuid7 = ">=0.1.0"
 all = ["boto3 (>=1.38.45)", "botocore (>=1.37.23)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
 aws = ["boto3 (>=1.38.45)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
-eval = ["anyio (>=4.9.0)", "browserbase (==1.4.0)", "datamodel-code-generator (>=0.26.0)", "hyperbrowser (==0.47.0)", "lmnr[all] (>=0.6.11)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
+eval = ["anyio (>=4.9.0)", "browserbase (==1.4.0)", "datamodel-code-generator (>=0.26.0)", "hyperbrowser (==0.47.0)", "lmnr[all] (==0.7.6)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
 examples = ["botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
 
 [[package]]
 name = "bubus"
-version = "1.5.1"
+version = "1.5.5"
 description = "Advanced Pydantic-powered event bus with async support"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "bubus-1.5.1-py3-none-any.whl", hash = "sha256:edd32b666441c9beaf34f1317abff71ec7350fa934875cdb89c3a01a497d0157"},
-    {file = "bubus-1.5.1.tar.gz", hash = "sha256:20791a65cac3830fec9dd82155b06f19f0ff0caa20bd8e8cb10624c651bb71e2"},
+    {file = "bubus-1.5.5-py3-none-any.whl", hash = "sha256:c8c7d97bf3c27a338e7d99b27299c84c0e3b605d3e2c10100ac1df6b46f56a39"},
+    {file = "bubus-1.5.5.tar.gz", hash = "sha256:6767cc9610dbdcd372c0f20ce4ab54add532265cd1430fc8e27d72e63adbb040"},
 ]
 
 [package.dependencies]
