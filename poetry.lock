@@ -2099,21 +2099,21 @@ uvicorn = ">=0.23,<1.0"
 
 [[package]]
 name = "langchain-community"
-version = "0.3.28"
+version = "0.3.29"
 description = "Community contributed LangChain integrations."
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "langchain_community-0.3.28-py3-none-any.whl", hash = "sha256:52e437b8f4e899ff59fb90c54b5320bf99153da34f214488ebacdbc969a50faf"},
-    {file = "langchain_community-0.3.28.tar.gz", hash = "sha256:c97e03d91cade6c9fb73d756119744e1d4c4ea4b6b0a09f6faadfbb7360d335e"},
+    {file = "langchain_community-0.3.29-py3-none-any.whl", hash = "sha256:c876ec7ef40b46353af164197f4e08e157650e8a02c9fb9d49351cdc16c839fe"},
+    {file = "langchain_community-0.3.29.tar.gz", hash = "sha256:1f3d37973b10458052bb3cc02dce9773a8ffbd02961698c6d395b8c8d7f9e004"},
 ]
 
 [package.dependencies]
 aiohttp = ">=3.8.3,<4.0.0"
 dataclasses-json = ">=0.6.7,<0.7"
 httpx-sse = ">=0.4.0,<1.0.0"
-langchain = ">=0.3.27,<1.0.0"
-langchain-core = ">=0.3.74,<1.0.0"
+langchain = ">=0.3.27,<2.0.0"
+langchain-core = ">=0.3.75,<2.0.0"
 langsmith = ">=0.1.125"
 numpy = [
     {version = ">=1.26.2", markers = "python_version < \"3.13\""},
