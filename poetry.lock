@@ -346,13 +346,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.7.0"
+version = "0.7.1"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.7.0-py3-none-any.whl", hash = "sha256:bc7cfae25cc196716e0effd3c6786e9dc465b423be036cb5c0bfc540dadca409"},
-    {file = "browser_use-0.7.0.tar.gz", hash = "sha256:644bd917f797102bbbd42e35ecc45f6da4338e03501e463ac029f8a2150252c4"},
+    {file = "browser_use-0.7.1-py3-none-any.whl", hash = "sha256:aca0b54fe28e8dc75d3fef2913eada827e2e52f72b3d4987d06a4c3acf997e01"},
+    {file = "browser_use-0.7.1.tar.gz", hash = "sha256:d43146cab32bb7caace2056e41d7b7f2204ed9b7e104690619e6201503f52637"},
 ]
 
 [package.dependencies]
@@ -361,7 +361,7 @@ aiohttp = "3.12.15"
 anthropic = "0.58.2"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
-bubus = ">=1.5.4"
+bubus = ">=1.5.6"
 cdp-use = ">=1.4.0"
 google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
@@ -396,13 +396,13 @@ examples = ["botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3
 
 [[package]]
 name = "bubus"
-version = "1.5.5"
+version = "1.5.6"
 description = "Advanced Pydantic-powered event bus with async support"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "bubus-1.5.5-py3-none-any.whl", hash = "sha256:c8c7d97bf3c27a338e7d99b27299c84c0e3b605d3e2c10100ac1df6b46f56a39"},
-    {file = "bubus-1.5.5.tar.gz", hash = "sha256:6767cc9610dbdcd372c0f20ce4ab54add532265cd1430fc8e27d72e63adbb040"},
+    {file = "bubus-1.5.6-py3-none-any.whl", hash = "sha256:254ae37cd9299941f5e9d6afb11f8e3ce069f83e5b9476f88c6b2e32912f237d"},
+    {file = "bubus-1.5.6.tar.gz", hash = "sha256:1a5456f0a576e86613a7bd66e819891b677778320b6e291094e339b0d9df2e0d"},
 ]
 
 [package.dependencies]
