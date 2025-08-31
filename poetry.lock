@@ -2080,13 +2080,13 @@ xai = ["langchain-xai"]
 
 [[package]]
 name = "langchain-cli"
-version = "0.0.36"
+version = "0.0.37"
 description = "CLI for interacting with LangChain"
 optional = false
-python-versions = "<4.0,>=3.9"
+python-versions = ">=3.9"
 files = [
-    {file = "langchain_cli-0.0.36-py3-none-any.whl", hash = "sha256:3c0981cc2931a55b6e7b95b1234425df75c19376b9540081d56472d474f8dd24"},
-    {file = "langchain_cli-0.0.36.tar.gz", hash = "sha256:67784fdef1fad9ff841cbc5a670cb54f56f0618fca79b9f5c3776c7eee8efe09"},
+    {file = "langchain_cli-0.0.37-py3-none-any.whl", hash = "sha256:751d9be67b148ee4b0cd2401970b946283a363e2a616015efd06d215e135cf41"},
+    {file = "langchain_cli-0.0.37.tar.gz", hash = "sha256:3787bba20fd2301949453055ab3f3edf117cacbe48563ff31ed01fdb7552bfc7"},
 ]
 
 [package.dependencies]
@@ -2094,7 +2094,7 @@ gitpython = ">=3,<4"
 gritql = ">=0.2.0,<1.0.0"
 langserve = {version = ">=0.0.51", extras = ["all"]}
 tomlkit = ">=0.12"
-typer = {version = ">=0.9.0,<1.0.0", extras = ["all"]}
+typer = ">=0.9.0,<1.0.0"
 uvicorn = ">=0.23,<1.0"
 
 [[package]]
@@ -9269,4 +9269,4 @@ cffi = ["cffi (>=1.17)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "cd93ffae2e9b549710f58ca65e3d9736fb2b53149a5c99af6edac41c63813dd1"
+content-hash = "dad9d9c2b30ab0228a3c69f98e4133fa264379d030f50f3d004ab599630e799a"
