@@ -2225,18 +2225,18 @@ pydantic = ">=2,<3"
 
 [[package]]
 name = "langchain-openai"
-version = "0.3.29"
+version = "0.3.32"
 description = "An integration package connecting OpenAI and LangChain"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "langchain_openai-0.3.29-py3-none-any.whl", hash = "sha256:71ae6791b3e017ec892a8062f993edc882c6665fd8385aa66e9dc3bff8205996"},
-    {file = "langchain_openai-0.3.29.tar.gz", hash = "sha256:83a0455f8ce874aa1806131ca3b4db08e482be037b7457a9b3ca21a213d2ab47"},
+    {file = "langchain_openai-0.3.32-py3-none-any.whl", hash = "sha256:3354f76822f7cc76d8069831fe2a77f9bc7ff3b4f13af788bd94e4c6e853b400"},
+    {file = "langchain_openai-0.3.32.tar.gz", hash = "sha256:782ad669bd1bdb964456d8882c5178717adcfceecb482cc20005f770e43d346d"},
 ]
 
 [package.dependencies]
 langchain-core = ">=0.3.74,<1.0.0"
-openai = ">=1.86.0,<2.0.0"
+openai = ">=1.99.9,<2.0.0"
 tiktoken = ">=0.7,<1"
 
 [[package]]
@@ -3029,13 +3029,13 @@ pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
-version = "1.99.2"
+version = "1.106.1"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.99.2-py3-none-any.whl", hash = "sha256:110d85b8ed400e1d7b02f8db8e245bd757bcde347cb6923155f42cd66a10aa0b"},
-    {file = "openai-1.99.2.tar.gz", hash = "sha256:118075b48109aa237636607b1346cf03b37cb9d74b0414cb11095850a0a22c96"},
+    {file = "openai-1.106.1-py3-none-any.whl", hash = "sha256:bfdef37c949f80396c59f2c17e0eda35414979bc07ef3379596a93c9ed044f3a"},
+    {file = "openai-1.106.1.tar.gz", hash = "sha256:5f575967e3a05555825c43829cdcd50be6e49ab6a3e5262f0937a3f791f917f1"},
 ]
 
 [package.dependencies]
