@@ -346,19 +346,19 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.7.1"
+version = "0.7.3"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.7.1-py3-none-any.whl", hash = "sha256:aca0b54fe28e8dc75d3fef2913eada827e2e52f72b3d4987d06a4c3acf997e01"},
-    {file = "browser_use-0.7.1.tar.gz", hash = "sha256:d43146cab32bb7caace2056e41d7b7f2204ed9b7e104690619e6201503f52637"},
+    {file = "browser_use-0.7.3-py3-none-any.whl", hash = "sha256:ef63cc2c65e2c9322296939732a20c611a1d1001a90641e6a6b42229a1271384"},
+    {file = "browser_use-0.7.3.tar.gz", hash = "sha256:947ea9d114032d09e58cd8802cabc5ec0f52f9fa9cfe532fbb4527eba3683307"},
 ]
 
 [package.dependencies]
 aiofiles = ">=24.1.0"
 aiohttp = "3.12.15"
-anthropic = "0.58.2"
+anthropic = ">=0.58.2,<1.0.0"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
 bubus = ">=1.5.6"
@@ -367,14 +367,15 @@ google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
 google-auth-oauthlib = ">=1.2.2"
-google-genai = "1.29.0"
+google-genai = ">=1.29.0,<2.0.0"
 groq = ">=0.30.0"
+html2text = ">=2025.4.15"
 httpx = ">=0.28.1"
 markdown-pdf = "1.5"
-markdownify = "1.1.0"
 mcp = ">=1.10.1"
 ollama = ">=0.5.1"
-openai = "1.99.2"
+openai = ">=1.99.2,<2.0.0"
+pillow = ">=11.2.1"
 portalocker = ">=2.7.0,<3.0.0"
 posthog = ">=3.7.0"
 psutil = ">=7.0.0"
@@ -388,11 +389,11 @@ typing-extensions = ">=4.12.2"
 uuid7 = ">=0.1.0"
 
 [package.extras]
-all = ["boto3 (>=1.38.45)", "botocore (>=1.37.23)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
+all = ["agentmail (>=0.0.53)", "boto3 (>=1.38.45)", "botocore (>=1.37.23)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
 aws = ["boto3 (>=1.38.45)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
-eval = ["anyio (>=4.9.0)", "browserbase (==1.4.0)", "datamodel-code-generator (>=0.26.0)", "hyperbrowser (==0.47.0)", "lmnr[all] (==0.7.6)", "pillow (>=11.2.1)", "psutil (>=7.0.0)"]
-examples = ["botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
+eval = ["anyio (>=4.9.0)", "browserbase (==1.4.0)", "datamodel-code-generator (>=0.26.0)", "hyperbrowser (==0.47.0)", "lmnr[all] (==0.7.10)", "psutil (>=7.0.0)"]
+examples = ["agentmail (>=0.0.53)", "botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
 
 [[package]]
 name = "bubus"
@@ -1673,6 +1674,17 @@ files = [
 ]
 
 [[package]]
+name = "html2text"
+version = "2025.4.15"
+description = "Turn HTML into equivalent Markdown-structured text."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "html2text-2025.4.15-py3-none-any.whl", hash = "sha256:00569167ffdab3d7767a4cdf589b7f57e777a5ed28d12907d8c58769ec734acc"},
+    {file = "html2text-2025.4.15.tar.gz", hash = "sha256:948a645f8f0bc3abe7fd587019a2197a12436cd73d0d4908af95bfc8da337588"},
+]
+
+[[package]]
 name = "httpcore"
 version = "1.0.9"
 description = "A minimal low-level HTTP client."
@@ -2409,21 +2421,6 @@ files = [
 [package.dependencies]
 markdown-it-py = {version = "3.0.0", markers = "python_version >= \"3.8\""}
 PyMuPDF = {version = "1.25.3", markers = "python_version > \"3.8\""}
-
-[[package]]
-name = "markdownify"
-version = "1.1.0"
-description = "Convert HTML to markdown."
-optional = false
-python-versions = "*"
-files = [
-    {file = "markdownify-1.1.0-py3-none-any.whl", hash = "sha256:32a5a08e9af02c8a6528942224c91b933b4bd2c7d078f9012943776fc313eeef"},
-    {file = "markdownify-1.1.0.tar.gz", hash = "sha256:449c0bbbf1401c5112379619524f33b63490a8fa479456d41de9dc9e37560ebd"},
-]
-
-[package.dependencies]
-beautifulsoup4 = ">=4.9,<5"
-six = ">=1.15,<2"
 
 [[package]]
 name = "markupsafe"
