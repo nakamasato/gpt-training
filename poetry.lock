@@ -2233,13 +2233,13 @@ vision = ["google-cloud-vision (>=3.7.2,<4)"]
 
 [[package]]
 name = "langchain-google-genai"
-version = "2.1.11"
+version = "2.1.12"
 description = "An integration package connecting Google's genai package and LangChain"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "langchain_google_genai-2.1.11-py3-none-any.whl", hash = "sha256:5ed947e3dc61b057dd3aac69422011d7931b2871e49cdde87c1690dee54cb7f1"},
-    {file = "langchain_google_genai-2.1.11.tar.gz", hash = "sha256:c3b13dd4069251d6bc7b6b4bd13b43bced9b0b59be5e2fd5f4aa087ecfa5bebe"},
+    {file = "langchain_google_genai-2.1.12-py3-none-any.whl", hash = "sha256:4c07630419a8fbe7a2ec512c6dea68289663bfe7d5fae0ba431d2cd59a0d0880"},
+    {file = "langchain_google_genai-2.1.12.tar.gz", hash = "sha256:4a98371e545eb97fcdf483086a4aebbb8eceeb9597ca5a9c4c35e92f4fbbd271"},
 ]
 
 [package.dependencies]
