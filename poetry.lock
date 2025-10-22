@@ -339,13 +339,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.8.1"
+version = "0.9.0"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.8.1-py3-none-any.whl", hash = "sha256:8d9bf299bbebad62a1bf5592149567bd60e867acd4b979a01e62db37f3f02629"},
-    {file = "browser_use-0.8.1.tar.gz", hash = "sha256:72f535b0d1ca89071e4b165879a9cfd10ccb085d5407e31064fa12f9ba328522"},
+    {file = "browser_use-0.9.0-py3-none-any.whl", hash = "sha256:789813949506ca5f39c846ae9da24fcae96e988d8e7bccd6b1edf17229c843a2"},
+    {file = "browser_use-0.9.0.tar.gz", hash = "sha256:49c26043f64c8b91b81325066dc7e473bcce5f944d6e855bbb56efc4d5603d2f"},
 ]
 
 [package.dependencies]
@@ -386,7 +386,8 @@ all = ["agentmail (==0.0.59)", "boto3 (>=1.38.45)", "botocore (>=1.37.23)", "cli
 aws = ["boto3 (>=1.38.45)"]
 cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
 cli-oci = ["click (>=8.1.8)", "oci (>=2.126.4)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
-eval = ["anyio (>=4.9.0)", "browserbase (==1.4.0)", "datamodel-code-generator (>=0.26.0)", "hyperbrowser (==0.47.0)", "lmnr[all] (==0.7.17)", "psutil (>=7.0.0)"]
+code = ["matplotlib (>=3.9.0)", "numpy (>=2.3.2)", "pandas (>=2.2.0)", "tabulate (>=0.9.0)"]
+eval = ["anyio (>=4.9.0)", "datamodel-code-generator (>=0.26.0)", "lmnr[all] (==0.7.17)", "psutil (>=7.0.0)"]
 examples = ["agentmail (==0.0.59)", "botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
 oci = ["oci (>=2.126.4)"]
 video = ["imageio[ffmpeg] (>=2.37.0)", "numpy (>=2.3.2)"]
@@ -9676,4 +9677,4 @@ cffi = ["cffi (>=1.17,<2.0)", "cffi (>=2.0.0b)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "5fe15f50a44ddadd6a9127833ef22b1b076158379d9069f9225bb77160ff26b1"
+content-hash = "4159c9616b192c508674d8f8075e25bc404c0d4b1a64ef035b21d4715a95127b"
