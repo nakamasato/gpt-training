@@ -350,13 +350,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.9.2"
+version = "0.9.3"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.9.2-py3-none-any.whl", hash = "sha256:e73e5e64121c0800d761cd9193f27e21a743a17f082865e1ba0eefe3759c4adb"},
-    {file = "browser_use-0.9.2.tar.gz", hash = "sha256:e8900d773ef26c1667b0e3bc7eec84dc23fd783ad552abfef57e14f5b43a8301"},
+    {file = "browser_use-0.9.3-py3-none-any.whl", hash = "sha256:21caac82849f9b6ec96b92990398ffbe0c68b044c1c78888b2d970ec455329bf"},
+    {file = "browser_use-0.9.3.tar.gz", hash = "sha256:651d5f5a6860580f6c0dc1dfe83d7ee4a3d435ad697d9e3fc70cc1b431250c14"},
 ]
 
 [package.dependencies]
@@ -366,6 +366,7 @@ anyio = ">=4.9.0"
 authlib = ">=1.6.0"
 bubus = ">=1.5.6"
 cdp-use = ">=1.4.0"
+click = ">=8.1.8"
 google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
@@ -373,6 +374,7 @@ google-auth-oauthlib = ">=1.2.2"
 google-genai = ">=1.29.0,<2.0.0"
 groq = ">=0.30.0"
 httpx = ">=0.28.1"
+inquirerpy = ">=0.3.4"
 markdownify = ">=1.2.0"
 mcp = ">=1.10.1"
 ollama = ">=0.5.1"
@@ -388,15 +390,16 @@ pypdf = ">=5.7.0"
 python-dotenv = ">=1.0.1"
 reportlab = ">=4.0.0"
 requests = ">=2.32.3"
+rich = ">=14.0.0"
 screeninfo = {version = ">=0.8.1", markers = "platform_system != \"darwin\""}
 typing-extensions = ">=4.12.2"
 uuid7 = ">=0.1.0"
 
 [package.extras]
-all = ["agentmail (==0.0.59)", "boto3 (>=1.38.45)", "botocore (>=1.37.23)", "click (>=8.1.8)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "oci (>=2.126.4)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
+all = ["agentmail (==0.0.59)", "boto3 (>=1.38.45)", "botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)", "oci (>=2.126.4)", "textual (>=3.2.0)"]
 aws = ["boto3 (>=1.38.45)"]
-cli = ["click (>=8.1.8)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
-cli-oci = ["click (>=8.1.8)", "oci (>=2.126.4)", "rich (>=14.0.0)", "textual (>=3.2.0)"]
+cli = ["textual (>=3.2.0)"]
+cli-oci = ["oci (>=2.126.4)", "textual (>=3.2.0)"]
 code = ["matplotlib (>=3.9.0)", "numpy (>=2.3.2)", "pandas (>=2.2.0)", "tabulate (>=0.9.0)"]
 eval = ["anyio (>=4.9.0)", "datamodel-code-generator (>=0.26.0)", "lmnr[all] (==0.7.17)", "psutil (>=7.0.0)"]
 examples = ["agentmail (==0.0.59)", "botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
@@ -1929,6 +1932,24 @@ files = [
     {file = "iniconfig-2.3.0-py3-none-any.whl", hash = "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12"},
     {file = "iniconfig-2.3.0.tar.gz", hash = "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730"},
 ]
+
+[[package]]
+name = "inquirerpy"
+version = "0.3.4"
+description = "Python port of Inquirer.js (A collection of common interactive command-line user interfaces)"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "InquirerPy-0.3.4-py3-none-any.whl", hash = "sha256:c65fdfbac1fa00e3ee4fb10679f4d3ed7a012abf4833910e63c295827fe2a7d4"},
+    {file = "InquirerPy-0.3.4.tar.gz", hash = "sha256:89d2ada0111f337483cb41ae31073108b2ec1e618a49d7110b0d7ade89fc197e"},
+]
+
+[package.dependencies]
+pfzy = ">=0.3.1,<0.4.0"
+prompt-toolkit = ">=3.0.1,<4.0.0"
+
+[package.extras]
+docs = ["Sphinx (>=4.1.2,<5.0.0)", "furo (>=2021.8.17-beta.43,<2022.0.0)", "myst-parser (>=0.15.1,<0.16.0)", "sphinx-autobuild (>=2021.3.14,<2022.0.0)", "sphinx-copybutton (>=0.4.0,<0.5.0)"]
 
 [[package]]
 name = "installer"
@@ -3611,6 +3632,20 @@ download = ["httpx (>=0.27.0,<1)"]
 install = ["zstandard (>=0.21.0)"]
 
 [[package]]
+name = "pfzy"
+version = "0.3.4"
+description = "Python port of the fzy fuzzy string matching algorithm"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "pfzy-0.3.4-py3-none-any.whl", hash = "sha256:5f50d5b2b3207fa72e7ec0ef08372ef652685470974a107d0d4999fc5a903a96"},
+    {file = "pfzy-0.3.4.tar.gz", hash = "sha256:717ea765dd10b63618e7298b2d98efd819e0b30cd5905c9707223dceeb94b3f1"},
+]
+
+[package.extras]
+docs = ["Sphinx (>=4.1.2,<5.0.0)", "furo (>=2021.8.17-beta.43,<2022.0.0)", "myst-parser (>=0.15.1,<0.16.0)", "sphinx-autobuild (>=2021.3.14,<2022.0.0)", "sphinx-copybutton (>=0.4.0,<0.5.0)"]
+
+[[package]]
 name = "pillow"
 version = "11.3.0"
 description = "Python Imaging Library (Fork)"
@@ -3881,6 +3916,20 @@ typing-extensions = ">=4.2.0"
 dev = ["django-stubs", "lxml", "mypy", "mypy-baseline", "packaging", "pre-commit", "pydantic", "ruff", "setuptools", "tomli", "tomli_w", "twine", "types-mock", "types-python-dateutil", "types-requests", "types-setuptools", "types-six", "wheel"]
 langchain = ["langchain (>=0.2.0)"]
 test = ["anthropic", "coverage", "django", "freezegun (==1.5.1)", "google-genai", "langchain-anthropic (>=0.3.15)", "langchain-community (>=0.3.25)", "langchain-core (>=0.3.65)", "langchain-openai (>=0.3.22)", "langgraph (>=0.4.8)", "mock (>=2.0.0)", "openai", "parameterized (>=0.8.1)", "pydantic", "pytest", "pytest-asyncio", "pytest-timeout"]
+
+[[package]]
+name = "prompt-toolkit"
+version = "3.0.52"
+description = "Library for building powerful interactive command lines in Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "prompt_toolkit-3.0.52-py3-none-any.whl", hash = "sha256:9aac639a3bbd33284347de5ad8d68ecc044b91a762dc39b7c21095fcd6a19955"},
+    {file = "prompt_toolkit-3.0.52.tar.gz", hash = "sha256:28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855"},
+]
+
+[package.dependencies]
+wcwidth = "*"
 
 [[package]]
 name = "propcache"
@@ -9060,6 +9109,17 @@ files = [
 
 [package.dependencies]
 bracex = ">=2.1.1"
+
+[[package]]
+name = "wcwidth"
+version = "0.2.14"
+description = "Measures the displayed width of unicode strings in a terminal"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "wcwidth-0.2.14-py2.py3-none-any.whl", hash = "sha256:a7bb560c8aee30f9957e5f9895805edd20602f2d7f720186dfd906e82b4982e1"},
+    {file = "wcwidth-0.2.14.tar.gz", hash = "sha256:4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"},
+]
 
 [[package]]
 name = "websockets"
