@@ -350,13 +350,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.9.4"
+version = "0.9.5"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.9.4-py3-none-any.whl", hash = "sha256:bc334bbfc3eb0ac7401517ff8a2c152ddb7df57bcc7b3140dc2c06129ab542f1"},
-    {file = "browser_use-0.9.4.tar.gz", hash = "sha256:e052a73f1a5c378f031530a12cca8004a4b84f823fa836643b0d7aca09d216d6"},
+    {file = "browser_use-0.9.5-py3-none-any.whl", hash = "sha256:4a2e92847204d1ded269026a99cb0cc0e60e38bd2751fa3f58aedd78f00b4e67"},
+    {file = "browser_use-0.9.5.tar.gz", hash = "sha256:f8285fe253b149d01769a7084883b4cf4db351e2f38e26302c157bcbf14a703f"},
 ]
 
 [package.dependencies]
@@ -367,6 +367,7 @@ authlib = ">=1.6.0"
 bubus = ">=1.5.6"
 cdp-use = ">=1.4.0"
 click = ">=8.1.8"
+cloudpickle = ">=3.1.1"
 google-api-core = ">=2.25.0"
 google-api-python-client = ">=2.174.0"
 google-auth = ">=2.40.3"
@@ -749,6 +750,17 @@ files = [
 
 [package.dependencies]
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
+name = "cloudpickle"
+version = "3.1.1"
+description = "Pickler class to extend the standard pickle.Pickler functionality"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "cloudpickle-3.1.1-py3-none-any.whl", hash = "sha256:c8c5a44295039331ee9dad40ba100a9c7297b6f988e50e87ccdf3765a668350e"},
+    {file = "cloudpickle-3.1.1.tar.gz", hash = "sha256:b216fa8ae4019d5482a8ac3c95d8f6346115d8835911fd4aefd1a445e4242c64"},
+]
 
 [[package]]
 name = "colorama"
