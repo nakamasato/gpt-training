@@ -349,13 +349,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.10.1"
+version = "0.11.0"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.10.1-py3-none-any.whl", hash = "sha256:96e603bfc71098175342cdcb0592519e6f244412e740f0254e4389fdd82a977f"},
-    {file = "browser_use-0.10.1.tar.gz", hash = "sha256:5f211ecfdf1f9fd186160f10df70dedd661821231e30f1bce40939787abab223"},
+    {file = "browser_use-0.11.0-py3-none-any.whl", hash = "sha256:e65f1f675b5fd7f712712d360cc891c3ecfb88b88e1ce4228c4faa96c957a2ac"},
+    {file = "browser_use-0.11.0.tar.gz", hash = "sha256:945562e8eaeb450e54e1a8239ed427c473d91a1fe6142488d37563b9451d357c"},
 ]
 
 [package.dependencies]
@@ -363,6 +363,7 @@ aiohttp = "3.12.15"
 anthropic = ">=0.72.1,<1.0.0"
 anyio = ">=4.9.0"
 authlib = ">=1.6.0"
+browser-use-sdk = ">=2.0.12"
 bubus = ">=1.5.6"
 cdp-use = ">=1.4.4"
 click = ">=8.1.8"
@@ -406,6 +407,23 @@ eval = ["anyio (>=4.9.0)", "datamodel-code-generator (>=0.26.0)", "lmnr[all] (==
 examples = ["agentmail (==0.0.59)", "botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
 oci = ["oci (>=2.126.4)"]
 video = ["imageio[ffmpeg] (>=2.37.0)", "numpy (>=2.3.2)"]
+
+[[package]]
+name = "browser-use-sdk"
+version = "2.0.12"
+description = "The official Python library for the Browser Use API"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "browser_use_sdk-2.0.12-py3-none-any.whl", hash = "sha256:f7ff6fd0fc84c2d73b84ab98fa8a282f617c12b5d1463dbe6dfdd7fa0323a832"},
+    {file = "browser_use_sdk-2.0.12.tar.gz", hash = "sha256:7b8c03af2d6c5a00f8033ddffc991a43df72937649c8b5e114766778074c94b4"},
+]
+
+[package.dependencies]
+httpx = ">=0.21.2"
+pydantic = ">=1.9.2"
+pydantic-core = ">=2.18.2"
+typing_extensions = ">=4.0.0"
 
 [[package]]
 name = "bubus"
@@ -9856,4 +9874,4 @@ cffi = ["cffi (>=1.17,<2.0)", "cffi (>=2.0.0b)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "c9511caea4fa5664cde82635359a6d91e64ee256126abda04fe00886b1313da6"
+content-hash = "a2b0662de03b841f7d98253e9332c50eafd9bfc8f10cb2c5738bdc90f4aab89a"
