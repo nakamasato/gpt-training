@@ -1406,6 +1406,7 @@ optional = false
 python-versions = ">=3.7"
 files = [
     {file = "google_ai_generativelanguage-0.10.0-py3-none-any.whl", hash = "sha256:b6ebcb7c9e51848097901fb6a75375ca8f957538e7918d055ffeb8076fbc537a"},
+    {file = "google_ai_generativelanguage-0.10.0.tar.gz", hash = "sha256:17e998094003a566e0fa52249fdd49e8f4c030cebe7fe0c521b40d605aba783e"},
 ]
 
 [package.dependencies]
