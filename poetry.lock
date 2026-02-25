@@ -383,13 +383,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.11.12"
+version = "0.11.13"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.11.12-py3-none-any.whl", hash = "sha256:6b58f9fcc54468cc96ab48d8d8434872cd7606980bd6942455594ab99b1f0e6f"},
-    {file = "browser_use-0.11.12.tar.gz", hash = "sha256:a6535d7e3b827f6c99dc26de1ebacc0336cbfcacb7073abbdaef42abf86a9feb"},
+    {file = "browser_use-0.11.13-py3-none-any.whl", hash = "sha256:f5232309213715e66e8f2079fb7097ac79a880728735968e4c7d41031ed15e83"},
+    {file = "browser_use-0.11.13.tar.gz", hash = "sha256:c20d029f17c44add2047a72c836cb589b85e90a31a91cf3632a22a2de1928dfe"},
 ]
 
 [package.dependencies]
@@ -399,7 +399,7 @@ anyio = ">=4.9.0"
 authlib = ">=1.6.0"
 browser-use-sdk = ">=2.0.12"
 bubus = ">=1.5.6"
-cdp-use = ">=1.4.4"
+cdp-use = ">=1.4.5"
 click = ">=8.1.8"
 cloudpickle = ">=3.1.1"
 google-api-core = ">=2.25.0"
@@ -437,7 +437,7 @@ aws = ["boto3 (>=1.38.45)"]
 cli = ["textual (>=3.2.0)"]
 cli-oci = ["oci (>=2.126.4)", "textual (>=3.2.0)"]
 code = ["matplotlib (>=3.9.0)", "numpy (>=2.3.2)", "pandas (>=2.2.0)", "tabulate (>=0.9.0)"]
-eval = ["anyio (>=4.9.0)", "datamodel-code-generator (>=0.26.0)", "lmnr[all] (==0.7.17)", "psutil (>=7.0.0)"]
+eval = ["anyio (>=4.9.0)", "datamodel-code-generator (>=0.26.0)", "lmnr[all] (==0.7.42)", "psutil (>=7.0.0)"]
 examples = ["agentmail (==0.0.59)", "botocore (>=1.37.23)", "imgcat (>=0.6.0)", "langchain-openai (>=0.3.26)"]
 oci = ["oci (>=2.126.4)"]
 video = ["imageio[ffmpeg] (>=2.37.0)", "numpy (>=2.3.2)"]
