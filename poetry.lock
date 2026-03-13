@@ -7982,13 +7982,13 @@ testing = ["process-tests", "pytest-xdist", "virtualenv"]
 
 [[package]]
 name = "pytest-env"
-version = "1.5.0"
+version = "1.5.1"
 description = "pytest plugin that allows you to add environment variables."
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "pytest_env-1.5.0-py3-none-any.whl", hash = "sha256:89a15686ac837c9cd009a8a2d52bd55865e2f23c82094247915dae4540c87161"},
-    {file = "pytest_env-1.5.0.tar.gz", hash = "sha256:db8994b9ce170f135a37acc09ac753a6fc697d15e691b576ed8d8ca261c40246"},
+    {file = "pytest_env-1.5.1-py3-none-any.whl", hash = "sha256:295bdffa5494261888df3a3f38b38d1e7ebfe2917ced4a16e1913382792b3446"},
+    {file = "pytest_env-1.5.1.tar.gz", hash = "sha256:712866d23819096711f249e2befc1e665fc8137446a8f42945f569abda528586"},
 ]
 
 [package.dependencies]
