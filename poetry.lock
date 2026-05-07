@@ -2380,13 +2380,13 @@ type = ["pygobject-stubs", "pytest-mypy (>=1.0.1)", "shtab", "types-pywin32"]
 
 [[package]]
 name = "langchain"
-version = "0.3.29"
+version = "0.3.30"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0.0,>=3.9.0"
 files = [
-    {file = "langchain-0.3.29-py3-none-any.whl", hash = "sha256:4af0c6056f2ace34813b77412cceb885b419e2c43d225742ae01f4a32171ccc9"},
-    {file = "langchain-0.3.29.tar.gz", hash = "sha256:4c7da1879c4138de4721ce4e9dfbda97fa0a1a4afb24f61bcfe6643a031e99fe"},
+    {file = "langchain-0.3.30-py3-none-any.whl", hash = "sha256:37e6fcce92faf70cc7bac23739d13d6c3b9a3282da4dbcc06cb7e78330ed406a"},
+    {file = "langchain-0.3.30.tar.gz", hash = "sha256:06599ec90fb550e0118b0ceab737667d2c0891fcc62ffce2058d21c945844448"},
 ]
 
 [package.dependencies]
