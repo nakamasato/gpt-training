@@ -8143,18 +8143,18 @@ testing = ["process-tests", "pytest-xdist", "virtualenv"]
 
 [[package]]
 name = "pytest-env"
-version = "1.5.1"
+version = "1.6.0"
 description = "pytest plugin that allows you to add environment variables."
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "pytest_env-1.5.1-py3-none-any.whl", hash = "sha256:295bdffa5494261888df3a3f38b38d1e7ebfe2917ced4a16e1913382792b3446"},
-    {file = "pytest_env-1.5.1.tar.gz", hash = "sha256:712866d23819096711f249e2befc1e665fc8137446a8f42945f569abda528586"},
+    {file = "pytest_env-1.6.0-py3-none-any.whl", hash = "sha256:1e7f8a62215e5885835daaed694de8657c908505b964ec8097a7ce77b403d9a3"},
+    {file = "pytest_env-1.6.0.tar.gz", hash = "sha256:ac02d6fba16af54d61e311dd70a3c61024a4e966881ea844affc3c8f0bf207d3"},
 ]
 
 [package.dependencies]
 pytest = ">=9.0.2"
-python-dotenv = ">=1.2.1"
+python-dotenv = ">=1.2.2"
 
 [package.extras]
 testing = ["covdefaults (>=2.3)", "coverage (>=7.13.4)", "pytest-mock (>=3.15.1)"]
