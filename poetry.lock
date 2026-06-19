@@ -463,13 +463,13 @@ files = [
 
 [[package]]
 name = "browser-use"
-version = "0.13.0"
+version = "0.13.1"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.13.0-py3-none-any.whl", hash = "sha256:afb80ceb2ef8f841b82f8c9d9b6f7fd7229b46952084415f95b40a1541776e1c"},
-    {file = "browser_use-0.13.0.tar.gz", hash = "sha256:b0e02628064870b48d1cd14d685f09dfdbd538d5257b16ac469dda3ce78389db"},
+    {file = "browser_use-0.13.1-py3-none-any.whl", hash = "sha256:9e735c2640372015729519092fbde1966d28c63024abf646a3b0a79963e8ca5a"},
+    {file = "browser_use-0.13.1.tar.gz", hash = "sha256:f3aeb468f825e2bdc64a63c35a733764157a37625fa7688376ca4c05a262ce9d"},
 ]
 
 [package.dependencies]
@@ -514,7 +514,7 @@ all = ["agentmail (==0.0.59)", "boto3 (==1.42.37)", "botocore (==1.42.37)", "img
 aws = ["boto3 (==1.42.37)"]
 cli = ["textual (==7.4.0)"]
 cli-oci = ["oci (==2.166.0)", "textual (==7.4.0)"]
-core = ["browser-use-core (==0.13.0)", "browser-use-core (==0.13.0)", "browser-use-core (==0.13.0)", "browser-use-core (==0.13.0)", "browser-use-core (==0.13.0)"]
+core = ["browser-use-core (==0.13.1)", "browser-use-core (==0.13.1)", "browser-use-core (==0.13.1)", "browser-use-core (==0.13.1)", "browser-use-core (==0.13.1)"]
 eval = ["anyio (==4.12.1)", "datamodel-code-generator (==0.53.0)", "lmnr[all] (==0.7.42)", "psutil (==7.2.2)"]
 examples = ["agentmail (==0.0.59)", "botocore (==1.42.37)", "imgcat (==0.6.0)", "langchain-openai (==1.1.7)"]
 oci = ["oci (==2.166.0)"]
@@ -1565,8 +1565,8 @@ grpcio = [
     {version = ">=1.75.1,<2.0.0", markers = "python_version >= \"3.14\""},
 ]
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=4.25.8,<8.0.0"
 
@@ -1593,8 +1593,8 @@ grpcio-status = [
     {version = ">=1.75.1,<2.0.0", optional = true, markers = "python_version >= \"3.14\" and extra == \"grpc\""},
 ]
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=3.19.5,<3.20.0 || >3.20.0,<3.20.1 || >3.20.1,<4.21.0 || >4.21.0,<4.21.1 || >4.21.1,<4.21.2 || >4.21.2,<4.21.3 || >4.21.3,<4.21.4 || >4.21.4,<4.21.5 || >4.21.5,<7.0.0"
 requests = ">=2.18.0,<3.0.0"
@@ -1721,8 +1721,8 @@ grpcio = [
     {version = ">=1.75.1,<2.0.0", markers = "python_version >= \"3.14\""},
 ]
 proto-plus = [
-    {version = ">=1.25.0,<2.0.0", markers = "python_version >= \"3.13\""},
     {version = ">=1.22.3,<2.0.0", markers = "python_version < \"3.13\""},
+    {version = ">=1.25.0,<2.0.0", markers = "python_version >= \"3.13\""},
 ]
 protobuf = ">=4.25.8,<8.0.0"
 
@@ -2570,8 +2570,8 @@ langchain = ">=0.3.27,<2.0.0"
 langchain-core = ">=0.3.78,<2.0.0"
 langsmith = ">=0.1.125,<1.0.0"
 numpy = [
-    {version = ">=2.1.0", markers = "python_version >= \"3.13\""},
     {version = ">=1.26.2", markers = "python_version < \"3.13\""},
+    {version = ">=2.1.0", markers = "python_version >= \"3.13\""},
 ]
 pydantic-settings = ">=2.10.1,<3.0.0"
 PyYAML = ">=5.3.0,<7.0.0"
