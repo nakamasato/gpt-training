@@ -463,13 +463,13 @@ files = [
 
 [[package]]
 name = "browser-harness"
-version = "0.1.5"
+version = "0.1.6"
 description = "The simplest, thinnest, and most powerful harness to control your real browser with your agent."
 optional = false
 python-versions = ">=3.11"
 files = [
-    {file = "browser_harness-0.1.5-py3-none-any.whl", hash = "sha256:00069e4d0dc5400e8953ed47d434bc80511ddd7a2b02f925fd705d54986dda73"},
-    {file = "browser_harness-0.1.5.tar.gz", hash = "sha256:f1d94d187895e8bcbb497c3e10c0eab39915947324ae31edb99edd94128472fb"},
+    {file = "browser_harness-0.1.6-py3-none-any.whl", hash = "sha256:65d92ac05b71b5702ab734a389d4142dd749eb1f005d71792106c5da8e8eddca"},
+    {file = "browser_harness-0.1.6.tar.gz", hash = "sha256:90c0c019e0bc0a1f189da28592abf4e7b4e3ebfb0d530ea173c0432829dba882"},
 ]
 
 [package.dependencies]
@@ -480,20 +480,20 @@ websockets = "15.0.1"
 
 [[package]]
 name = "browser-use"
-version = "0.13.4"
+version = "0.13.6"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.13.4-py3-none-any.whl", hash = "sha256:5e4e867de7da51859e79c7604e83790ed5f142a216087a559674260d2fad1f70"},
-    {file = "browser_use-0.13.4.tar.gz", hash = "sha256:26cdabbeaf0702d2a27bfa999a34238d0fa81e01493520c59bb7723e1e753fac"},
+    {file = "browser_use-0.13.6-py3-none-any.whl", hash = "sha256:dc284a6130d56368a0a2fa6d6d6d467296e61b3ec165b6b290aecc5ca19b4a9c"},
+    {file = "browser_use-0.13.6.tar.gz", hash = "sha256:a631740b6feb42fe84544c95166e15342569329dbad31691fac8d5cd56a70a83"},
 ]
 
 [package.dependencies]
 aiohttp = "3.13.4"
 anthropic = "0.76.0"
 anyio = "4.12.1"
-browser-harness = "0.1.5"
+browser-harness = "0.1.6"
 browser-use-sdk = "3.4.2"
 bubus = "1.5.6"
 cdp-use = "1.4.5"
