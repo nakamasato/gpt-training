@@ -463,13 +463,13 @@ files = [
 
 [[package]]
 name = "browser-harness"
-version = "0.1.9"
+version = "0.1.12"
 description = "The simplest, thinnest, and most powerful harness to control your real browser with your agent."
 optional = false
 python-versions = ">=3.11"
 files = [
-    {file = "browser_harness-0.1.9-py3-none-any.whl", hash = "sha256:b91eb7ecc83d53f5b0fc15b26cad5a09e935797c24ae4a992181dc2a89cc3cd6"},
-    {file = "browser_harness-0.1.9.tar.gz", hash = "sha256:4fa7bfa1f973ecf7f054375878868b79ee096ad6f29dea0783397c730327ac1c"},
+    {file = "browser_harness-0.1.12-py3-none-any.whl", hash = "sha256:84d6e052b8d685dc7d807bdda437d7dbdebd1de67f68d127940b93e3d10e6a6b"},
+    {file = "browser_harness-0.1.12.tar.gz", hash = "sha256:ff834ed6b6582aa9b8980f95cc5a5aa153ad29cf2f4f4d5df2abab9c1d343420"},
 ]
 
 [package.dependencies]
@@ -478,26 +478,29 @@ fetch-use = "0.4.0"
 pillow = "12.3.0"
 websockets = "15.0.1"
 
+[package.extras]
+mcp = ["mcp (>=2.0.0,<3)"]
+
 [[package]]
 name = "browser-use"
-version = "0.13.8"
+version = "0.13.9"
 description = "Make websites accessible for AI agents"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "browser_use-0.13.8-py3-none-any.whl", hash = "sha256:9ea4db1b79504f028b01eec49d15cd4674929395010023f09baca45b5dacb2df"},
-    {file = "browser_use-0.13.8.tar.gz", hash = "sha256:2c868f099a66d8c33c0c346762d9b1c59e7254517bc900d3891e0b84767b977a"},
+    {file = "browser_use-0.13.9-py3-none-any.whl", hash = "sha256:9f0d51015f1636962d1da48c1c2b8d175e010686f93e5738bc74e95153016cde"},
+    {file = "browser_use-0.13.9.tar.gz", hash = "sha256:55e66626b514d32ad0759db1af90c8d10c415128548e93b8d5afd38dfe6a21f0"},
 ]
 
 [package.dependencies]
 aiohttp = "3.14.3"
 anthropic = "0.76.0"
 anyio = "4.12.1"
-browser-harness = "0.1.9"
+browser-harness = "0.1.12"
 browser-use-sdk = "3.4.2"
 bubus = "1.5.6"
 cdp-use = "1.4.5"
-click = "8.3.1"
+click = "8.3.3"
 cloudpickle = "3.1.2"
 google-api-core = "2.29.0"
 google-api-python-client = "2.188.0"
@@ -508,16 +511,16 @@ groq = "1.0.0"
 httpx = "0.28.1"
 inquirerpy = "0.3.4"
 markdownify = "1.2.2"
-mcp = "1.26.0"
+mcp = "1.28.1"
 ollama = "0.6.1"
-openai = "2.16.0"
+openai = "2.26.0"
 pillow = "12.3.0"
 posthog = "7.7.0"
 psutil = "7.2.2"
-pydantic = "2.12.5"
+pydantic = ">=2.12.5,<2.14"
 pyobjc = {version = "12.1", markers = "platform_system == \"darwin\""}
 pyotp = "2.9.0"
-pypdf = "6.14.2"
+pypdf = "6.15.0"
 python-docx = "1.2.0"
 python-dotenv = "1.2.2"
 reportlab = "4.4.9"
@@ -528,12 +531,12 @@ typing-extensions = "4.15.0"
 uuid7 = "0.1.0"
 
 [package.extras]
-all = ["agentmail (==0.0.59)", "boto3 (==1.42.37)", "botocore (==1.42.37)", "imgcat (==0.6.0)", "langchain-openai (==1.1.7)", "oci (==2.166.0)"]
+all = ["agentmail (==0.0.59)", "boto3 (==1.42.37)", "botocore (==1.42.37)", "imgcat (==0.6.0)", "langchain-openai (==1.1.14)", "oci (==2.166.0)"]
 aws = ["boto3 (==1.42.37)"]
 cli-oci = ["oci (==2.166.0)"]
 core = ["browser-use-core (==0.13.3)", "browser-use-core (==0.13.3)", "browser-use-core (==0.13.3)", "browser-use-core (==0.13.3)", "browser-use-core (==0.13.3)"]
-eval = ["anyio (==4.12.1)", "datamodel-code-generator (==0.53.0)", "lmnr[all] (==0.7.42)", "psutil (==7.2.2)"]
-examples = ["agentmail (==0.0.59)", "botocore (==1.42.37)", "imgcat (==0.6.0)", "langchain-openai (==1.1.7)"]
+eval = ["anyio (==4.12.1)", "datamodel-code-generator (==0.75.1)", "lmnr[all] (==0.7.42)", "psutil (==7.2.2)"]
+examples = ["agentmail (==0.0.59)", "botocore (==1.42.37)", "imgcat (==0.6.0)", "langchain-openai (==1.1.14)"]
 oci = ["oci (==2.166.0)"]
 video = ["imageio[ffmpeg] (==2.37.2)", "numpy (==2.4.1)"]
 
@@ -895,13 +898,13 @@ rapidfuzz = ">=3.0.0,<4.0.0"
 
 [[package]]
 name = "click"
-version = "8.3.1"
+version = "8.3.3"
 description = "Composable command line interface toolkit"
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "click-8.3.1-py3-none-any.whl", hash = "sha256:981153a64e25f12d547d3426c367a4857371575ee7ad18df2a6183ab0545b2a6"},
-    {file = "click-8.3.1.tar.gz", hash = "sha256:12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"},
+    {file = "click-8.3.3-py3-none-any.whl", hash = "sha256:a2bf429bb3033c89fa4936ffb35d5cb471e3719e1f3c8a7c3fff0b8314305613"},
+    {file = "click-8.3.3.tar.gz", hash = "sha256:398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"},
 ]
 
 [package.dependencies]
@@ -3159,27 +3162,36 @@ tests = ["pytest", "simplejson"]
 
 [[package]]
 name = "mcp"
-version = "1.26.0"
+version = "1.28.1"
 description = "Model Context Protocol SDK"
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "mcp-1.26.0-py3-none-any.whl", hash = "sha256:904a21c33c25aa98ddbeb47273033c435e595bbacfdb177f4bd87f6dceebe1ca"},
-    {file = "mcp-1.26.0.tar.gz", hash = "sha256:db6e2ef491eecc1a0d93711a76f28dec2e05999f93afd48795da1c1137142c66"},
+    {file = "mcp-1.28.1-py3-none-any.whl", hash = "sha256:2726bca5e7193f61c5dde8b12500a6de2d9acf6d1a1c0be9e8c2e706437991df"},
+    {file = "mcp-1.28.1.tar.gz", hash = "sha256:d51e36a5f5644faea4f85ea649bfffa6bc6c26770d42798ad6a3de3d2ba69683"},
 ]
 
 [package.dependencies]
 anyio = ">=4.5"
-httpx = ">=0.27.1"
+httpx = ">=0.27.1,<1.0.0"
 httpx-sse = ">=0.4"
 jsonschema = ">=4.20.0"
-pydantic = ">=2.11.0,<3.0.0"
+pydantic = [
+    {version = ">=2.11.0,<3.0.0", markers = "python_version < \"3.14\""},
+    {version = ">=2.12.0,<3.0.0", markers = "python_version >= \"3.14\""},
+]
 pydantic-settings = ">=2.5.2"
 pyjwt = {version = ">=2.10.1", extras = ["crypto"]}
 python-multipart = ">=0.0.9"
-pywin32 = {version = ">=310", markers = "sys_platform == \"win32\""}
+pywin32 = [
+    {version = ">=310", markers = "sys_platform == \"win32\" and python_version < \"3.14\""},
+    {version = ">=311", markers = "sys_platform == \"win32\" and python_version >= \"3.14\""},
+]
 sse-starlette = ">=1.6.1"
-starlette = ">=0.27"
+starlette = [
+    {version = ">=0.27", markers = "python_version < \"3.14\""},
+    {version = ">=0.48.0", markers = "python_version >= \"3.14\""},
+]
 typing-extensions = ">=4.9.0"
 typing-inspection = ">=0.4.1"
 uvicorn = {version = ">=0.31.1", markers = "sys_platform != \"emscripten\""}
@@ -3715,13 +3727,13 @@ pydantic = ">=2.9"
 
 [[package]]
 name = "openai"
-version = "2.16.0"
+version = "2.26.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "openai-2.16.0-py3-none-any.whl", hash = "sha256:5f46643a8f42899a84e80c38838135d7038e7718333ce61396994f887b09a59b"},
-    {file = "openai-2.16.0.tar.gz", hash = "sha256:42eaa22ca0d8ded4367a77374104d7a2feafee5bd60a107c3c11b5243a11cd12"},
+    {file = "openai-2.26.0-py3-none-any.whl", hash = "sha256:6151bf8f83802f036117f06cc8a57b3a4da60da9926826cc96747888b57f394f"},
+    {file = "openai-2.26.0.tar.gz", hash = "sha256:b41f37c140ae0034a6e92b0c509376d907f3a66109935fba2c1b471a7c05a8fb"},
 ]
 
 [package.dependencies]
@@ -8104,13 +8116,13 @@ diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pypdf"
-version = "6.14.2"
+version = "6.15.0"
 description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "pypdf-6.14.2-py3-none-any.whl", hash = "sha256:3f07891af76dc002657e04993ab9b4de81de29f9013b9761d0b7968bff12e946"},
-    {file = "pypdf-6.14.2.tar.gz", hash = "sha256:7873f502fe4385e79539b21d872392dc0c4e3714327c15881cbc7fbfd1f95b25"},
+    {file = "pypdf-6.15.0-py3-none-any.whl", hash = "sha256:14e001d6504822cb1ca9c7ed9a69bccb320f59b320730f55af804361abe4d5ee"},
+    {file = "pypdf-6.15.0.tar.gz", hash = "sha256:d39c4d955a76409284a905e2d65b40076d77ab76129e0faaeeb6612403ecfc79"},
 ]
 
 [package.extras]
@@ -8119,8 +8131,9 @@ cryptodome = ["PyCryptodome"]
 dev = ["flit", "pip-tools", "pre-commit", "pytest-cov", "pytest-socket", "pytest-timeout", "pytest-xdist", "wheel"]
 docs = ["myst_parser", "sphinx", "sphinx_rtd_theme"]
 fonts = ["fonttools"]
-full = ["Pillow (>=8.0.0)", "cryptography (>3.0)", "fonttools"]
+full = ["Pillow (>=8.0.0)", "arabic-reshaper", "cryptography (>3.0)", "fonttools", "python-bidi"]
 image = ["Pillow (>=8.0.0)"]
+rtl-text = ["arabic-reshaper", "python-bidi"]
 
 [[package]]
 name = "pyproject-hooks"
